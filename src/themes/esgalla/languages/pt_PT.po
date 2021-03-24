@@ -36,9 +36,6 @@ msgstr "COMECE O SEU PRÓXIMO"
 msgid "https://folleto.tiendahusqvarna.com"
 msgstr "https://folheto.lojahusqvarna.com"
 
-msgid "https://folleto.tiendahusqvarna.com"
-msgstr "https://folheto.lojahusqvarna.com"
-
 msgid "Comienza tu próximo proyecto de jardín"
 msgstr "COMECE O SEU PRÓXIMO PROJETO DE JARDINAGEM"
 
@@ -386,3 +383,15 @@ msgstr "Mais"
 
 msgid "Limpiar filtros"
 msgstr "Limpar filtros"
+
+msgid "Ups! No pudimos encontrar esa página."
+msgstr "Ups! Não conseguimos encontrar essa página."
+
+msgid "Parece que no se encontró nada en esta ubicación. ¿Quizás quieras probar una búsqueda?"
+msgstr "Parece que não existe nada nessa localização. Que tal fazer uma pesquisa?"
+
+msgid "O también puedes"
+msgstr "Também pode"
+
+msgid "Ir al Inicio"
+msgstr "Voltar ao início"

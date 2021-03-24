@@ -19,7 +19,7 @@ get_header();
 					<div class="row">
 						<div class="col-sm-12">
 							<h5 class="display-1 font-weight-bold text-primary">404</h5>
-							<h1 class="page-title">Ups! No pudimos encontrar esa página.</h1>
+							<h1 class="page-title"><?php _e("Ups! No pudimos encontrar esa página.","esgalla"); ?></h1>
 						</div>
 					</div>
 				</div>
@@ -29,7 +29,9 @@ get_header();
 				<div class="container">
 					<div class="row justify-content-center">
 						<div class="col-sm-12">
-							<p>Parece que no se encontró nada en esta ubicación. ¿Quizás quieras probar una búsqueda?</p>
+							<p>
+								<?php _e("Parece que no se encontró nada en esta ubicación. ¿Quizás quieras probar una búsqueda?","esgalla"); ?>
+							</p>
 						</div>
 						<div class="col-md-8 buscador-principal">
 							<div class="mt-4 mt-md-5 mt-lg-6 input-group shadow">
@@ -40,8 +42,12 @@ get_header();
 							</div>
 						</div>
 						<div class="col-sm-12">
-							<p class="mt-4 mt-md-6">O también puedes</p>
-							<a href="<?php echo esc_url( home_url() ); ?>" class="btn btn-primary btn-fw py-2 px-3">Ir al Inicio</a>
+							<p class="mt-4 mt-md-6">
+								<?php _e("O también puedes","esgalla"); ?>
+							</p>
+							<a href="<?php echo esc_url( home_url() ); ?>" class="btn btn-primary btn-fw py-2 px-3">
+								<?php _e("Ir al Inicio","esgalla"); ?>
+							</a>
 						</div>
 					</div>
 				</div>
