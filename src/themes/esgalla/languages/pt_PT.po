@@ -1,0 +1,388 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Husqvarna\n"
+"PO-Revision-Date: 2021-03-15 15:19+0100\n"
+"Last-Translator: \n"
+"Language-Team: Esgalla\n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"POT-Creation-Date: \n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "14 días de devolución"
+msgstr "Devolução durante 14 dias"
+
+msgid "2 años de garantía"
+msgstr "2 anos de garantia"
+
+msgid "+34 981 680 101"
+msgstr "+351 800 834137"
+
+msgid "981 680 101"
+msgstr "800 834137"
+
+msgid "Accesorios"
+msgstr "Acessórios"
+
+msgid "COMIENZA TU PRÓXIMO"
+msgstr "COMECE O SEU PRÓXIMO"
+
+msgid "https://folleto.tiendahusqvarna.com"
+msgstr "https://folheto.lojahusqvarna.com"
+
+msgid "https://folleto.tiendahusqvarna.com"
+msgstr "https://folheto.lojahusqvarna.com"
+
+msgid "Comienza tu próximo proyecto de jardín"
+msgstr "COMECE O SEU PRÓXIMO PROJETO DE JARDINAGEM"
+
+msgid "PROYECTO DE JARDÍN"
+msgstr "PROJETO DE JARDINAGEM"
+
+msgid "Descubre todas las ofertas en nuestro folleto de primavera 2021"
+msgstr "descubra todas as promoções no nosso folheto de primavera 2021"
+
+msgid "Aceites y gasolinas husqvarna"
+msgstr "Óleos e gasolinas Husqvarna"
+
+msgid "Aspiradora husqvarna"
+msgstr "Aspiradores Husqvarna"
+
+msgid "Autotune"
+msgstr "Autotune"
+
+msgid "AÑADIR AL CARRITO"
+msgstr "ADICIONAR AO CARRINHO"
+
+msgid "BLOG"
+msgstr "BLOGUE"
+
+msgid "Blog"
+msgstr "Blogue"
+
+msgid "Buscar"
+msgstr "Procurar"
+
+msgid "Buscar..."
+msgstr "Procurar..."
+
+msgid "Confirma la nueva contraseña"
+msgstr "Confirme a nova palavra-passe"
+
+msgid "Confirmar tu compra"
+msgstr "Confirmar a sua compra"
+
+msgid "Contacta con"
+msgstr "Contacte a"
+
+msgid "Contraseña actual "
+msgstr "Palavra-passe atual "
+
+msgid "Cortacéspedes"
+msgstr "Corta-relvas"
+
+msgid "Cortacéspedes husqvarna"
+msgstr "Corta-relvas Husqvarna"
+
+msgid "Desbrozadoras"
+msgstr "Roçadoras"
+
+msgid "Desbrozadoras husqvarna"
+msgstr "Roçadoras Husqvarna"
+
+msgid "Descargar guía autonomía baterías"
+msgstr "Descarregar o guia de autonomia das baterias"
+
+msgid "Descargar manual de instrucciones"
+msgstr "Descarregar o manual de instruções"
+
+msgid "Devolución garantizada"
+msgstr "Devolução garantida"
+
+msgid "Disfruta de un césped perfecto y sin esfuerzo todos los días del año. ¡Prueba el "
+msgstr "Desfrute de um relvado perfeito e sem esforço todos os dias do ano. Teste o "
+
+msgid "Déjalo en blanco para no cambiar la contraseña"
+msgstr "Deixe-o em branco para não mudar a palavra-passe"
+
+msgid "Encuentra las herramientas"
+msgstr "Encontre as ferramentas"
+
+msgid "Garantía Husqvarna"
+msgstr "Garantia Husqvarna"
+
+msgid "Herramientas forestales husqvarna"
+msgstr "Ferramentas florestais Husqvarna"
+
+msgid "Hidrolimpiadora husqvarna"
+msgstr "Lavadoras à pressão Husqvarna"
+
+msgid "Husqvarna España"
+msgstr "Husqvarna Portugal"
+
+msgid "INTERNACO S.A. Lg. Queirúa s/n, 15680 - Órdenes, A Coruña"
+msgstr "INTERNACO S.A. Lg. Queirúa s/n, 15680 - Órdenes, Corunha"
+
+msgid "Juguetes"
+msgstr "Brinquedos"
+
+msgid "Motoazada husqvarna"
+msgstr "Motoenxadas Husqvarna"
+
+msgid "Motosierras"
+msgstr "Motosserras"
+
+msgid "Más información sobre"
+msgstr "Mais informação sobre"
+
+msgid "No products in the cart."
+msgstr "Não tem produtos no carrinho."
+
+msgid "Nueva contraseña "
+msgstr "Nova palavra-passe "
+
+msgid "Pago seguro"
+msgstr "Pagamento seguro"
+
+msgid "Profesional"
+msgstr "Profissional"
+
+msgid "Ropa"
+msgstr "Roupa"
+
+msgid "SUBCATEGORÍAS"
+msgstr "SUBCATEGORIAS"
+
+msgid "Seguir comprando"
+msgstr "Continuar a comprar"
+
+msgid "Si quieres saber más..."
+msgstr "Se pretende saber mais…"
+
+msgid "Soplanieves husqvarna"
+msgstr "Sopradores de neve Husqvarna"
+
+msgid "Subtotal"
+msgstr "Subtotal"
+
+msgid "Suscríbete a nuestra newsletter y no te pierdas nada sobre Husqvarna. Cubre el formulario y recibe información sobre promociones, novedades y ¡mucho más!"
+msgstr "Subscreva a nossa newsletter para não perder nada sobre a Husqvarna. Preencha o formulário e receba informação sobre promoções, novidades, dicas e muito mais!"
+
+msgid "TIENDA"
+msgstr "LOJA"
+
+msgid "Tipo"
+msgstr "Tipo"
+
+msgid "Uso"
+msgstr "Uso"
+
+msgid "Usuario o contraseña incorrecta"
+msgstr "Usuário ou senha incorreta"
+
+msgid "VER PRODUCTO"
+msgstr "VER PRODUTO"
+
+msgid "automower"
+msgstr "automower"
+
+msgid "https://twitter.com/husqvarna_es"
+msgstr "https://twitter.com/Husqvarna_PT"
+
+msgid "https://www.facebook.com/Husqvarna.es"
+msgstr "https://www.facebook.com/Husqvarna.portugal.jardinagem"
+
+msgid "https://www.flickr.com/people/husqvarnagroup/"
+msgstr "https://www.flickr.com/people/husqvarnagroup/"
+
+msgid "https://www.husqvarna.com/es/"
+msgstr "https://www.husqvarna.com/pt/"
+
+msgid "https://www.instagram.com/husqvarna_es/"
+msgstr "https://www.instagram.com/husqvarna.portugal/"
+
+msgid "https://www.youtube.com/user/HusqvarnaSpain"
+msgstr "https://www.youtube.com/user/HusqvarnaPortugal?sub_confirmation=1"
+
+msgid "inicio"
+msgstr "início"
+
+msgid "noticias relacionadas"
+msgstr "notícias relacionadas"
+
+msgid "ofertas husqvarna"
+msgstr "promoções Husqvarna"
+
+msgid "productos relacionados"
+msgstr "produtos relacionados"
+
+msgid "que estás buscando"
+msgstr "que está à procura"
+
+msgid "soportecliente@tiendahusqvarna.com"
+msgstr "apoioaocliente@lojahusqvarna.com"
+
+msgid "un espacio de inspiración"
+msgstr "um espaço de inspiração"
+
+msgid "ver más"
+msgstr "ver mais"
+
+msgid "ver toda la ropa"
+msgstr "veja todas as roupas"
+
+msgid "ver todas las desbrozadoras"
+msgstr "veja todas as roçadoras"
+
+msgid "ver todas las motosierras"
+msgstr "veja todas as motosserras"
+
+msgid "ver todos los automower"
+msgstr "ver todos os Automower"
+
+msgid "ver todos los cortacéspedes"
+msgstr "ver todos os cortadores"
+
+msgid "ver todos los juguetes"
+msgstr "veja todos os brinquedos"
+
+msgid "visitar la web de Husqvarna"
+msgstr "visitar o sítio web da Husqvarna"
+
+msgid "¡Envio GRATIS!"
+msgstr "Envio GRÁTIS!"
+
+msgid "¡Envíos GRATIS!"
+msgstr "Envios GRÁTIS!"
+
+msgid "¡No te pierdas nuestras novedades y promociones!"
+msgstr "Não perca as nossas novidades e promoções!"
+
+msgid "¡Te ayudamos! Vuelve a intentarlo."
+msgstr "Vamos ajudar! Volte a tentar."
+
+msgid "¿Dudas sobre algún producto Husqvarna? ¿Necesitas información sobre alguno de nuestros servicios? Envíanos todas tus preguntas o comentarios y te responderemos en la mayor brevedad posible."
+msgstr "Dúvidas sobre algum produto Husqvarna? Necessita de informação sobre algum dos nossos serviços? Envie-nos as suas perguntas ou comentários e responderemos-lhe com a maior brevidade possível."
+
+msgid "¿No has encontrado lo que buscabas?"
+msgstr "Não encontrou o que estava à procura?"
+
+msgid "¿Quieres saber más sobre Husqvarna España? Si es así, no dudes en visitar nuestra página web oficial. En ella encontrarás todos los productos disponibles, información útil sobre toda nuestra gama y todos nuestros distribuidores oficiales Husqvarna."
+msgstr "Quer saber mais sobre a Husqvarna Portugal? Então não hesite em visitar o nosso sítio web oficial. Nele encontrará todos os produtos disponíveis, informação útil sobre toda a nossa gama e todos os nossos revendedores e oficinas oficiais Husqvarna."
+
+msgid "¿Qué estás buscando?"
+msgstr "O que estava à procura?"
+
+msgid "¿Tienes un cupón de descuento?"
+msgstr "Tem um cupão de desconto?"
+
+msgid "¿Tienes una cuenta de usuario?"
+msgstr "Tem uma conta de utilizador?"
+
+msgid "AVISO DE COOKIES"
+msgstr "AVISO DE COOKIES"
+
+msgid "Utilizamos cookies propias y de terceros con finalidades analíticas y para mostrarte publicidad relacionada con tus preferencias a partir de tus hábitos de navegación y tu perfil. Puedes configurar o rechazar las cookies haciendo click en 'Configuración de cookies'. También puedes aceptar todas las cookies pulsando el botón “Aceptar todas las cookies”. Para más información puedes visitar nuestra <a href='/politica-cookies/' target='_blank' style='text-decoration:underline;'>Política de cookies</a>"
+msgstr "Usamos ‘cookies’ próprios e de terceiros para fins analíticos e para mostrar-lhe publicidade relacionada com as suas preferências com base nos seus hábitos de navegação e no seu perfil. Pode configurar ou rejeitar ‘cookies’ clicando em 'Configurações de ‘cookies’'. Também pode aceitar todos os ‘cookies’ clicando no botão “Aceitar todos os ‘cookies’”. Para obter mais informações, pode consultar a nossa Política de Cookies"
+
+msgid "ACEPTAR TODAS LAS COOKIES"
+msgstr "ACEITAR TODAS AS COOKIES"
+
+msgid "CONFIGURAR COOKIES"
+msgstr "CONFIGURAR COOKIES"
+
+msgid "Configurador de cookies"
+msgstr "Configurador de cookies"
+
+msgid "Configura las cookies en función de tus preferencias."
+msgstr "Configure as ‘cookies’ em função das suas preferências."
+
+msgid "Cookies técnicas"
+msgstr "‘Cookies’ técnicas"
+
+msgid "Estas cookies muestran la página adaptada a tu dispositivo o al idioma del navegador, entre otras configuraciones."
+msgstr "Estas ‘cookies’ mostram a página adaptada ao idioma do seu dispositivo ou navegador, entre outras configurações."
+
+msgid "Cookies de analítica"
+msgstr "‘Cookies’ de analítica"
+
+msgid "Estas cookies recopilan información de tu navegación en la web - Podemos contabilizar el número de visitantes de la página o los contenidos."
+msgstr "Estas ‘cookies’ recolhem informações sobre a sua navegação na internet — Podemos contar o número de visitantes da página ou os conteúdos."
+
+msgid "Cookies de publicidad"
+msgstr "‘Cookies’ de publicidade"
+
+msgid "Estas cookies recogen información sobre los anuncios mostrados a cada usuario. - Adaptar la publicidad al tipo de dispositivo desde el que el usuario se está conectando."
+msgstr "Estas ‘cookies’ recolhem informações sobre os anúncios exibidos para cada utilizador. - Adapte a publicidade ao tipo de dispositivo a partir do qual o utilizador se está a conectar."
+
+msgid "Obligatorias"
+msgstr "Obrigatórias"
+
+msgid "Ver más"
+msgstr "Ver mais"
+
+msgid "ACEPTAR TODAS"
+msgstr "ACEITAR TODAS"
+
+msgid "GUARDAR CONFIGURACIÓN"
+msgstr "GUARDAR A CONFIGURAÇÃO"
+
+msgid "RECHAZAR TODAS"
+msgstr "REJEITAR TODAS"
+
+msgid "Producto agotado"
+msgstr "Produto esgotado"
+
+msgid "Motosierras husqvarna"
+msgstr "Motosserras husqvarna"
+
+msgid "Atención"
+msgstr "Atenção!"
+
+msgid "Automower® necesita ser instalado, te ofrecemos dos opciones:"
+msgstr "O Automower® necessita de ser instalado. Oferecemos-lhe duas opções:"
+
+msgid "- Lo puedes hacer tú mismo gracias a un kit de instalación."
+msgstr "- Podes fazer a instalação por si mesmo com o kit de instalação."
+
+msgid "- Lo puede hacer un técnico profesional autorizado."
+msgstr "- Pode ser ealizada por um técnico profissional autorizado."
+
+msgid "De la calidad de la instalación dependerá el correcto funcionamiento de Automower®, por ello, salvo en el modelo Automower® 105, recomendamos que escojas la Instalación Profesional."
+msgstr "Da qualidade da instalação dependerá o funcionamento correto do Automower®; por isso, salvo no modelo Automower® 105, recomendamos que escolha a Instalação Profissional."
+
+msgid "Todas las herramientas husqvarna"
+msgstr "Todos os produtos HUSQVARNA"
+
+msgid "Menú"
+msgstr "Menu"
+
+msgid "Has buscado por: %s"
+msgstr "Procurou por: %s"
+
+msgid "Si ya ha comprado con nosotros, ingrese sus datos a continuación. Si es un cliente nuevo podrá registrarse al finalizar su primera compra o"
+msgstr "Se já nos efetuou uma compra, insira os seus dados abaixo. Se é um cliente novo, pode registar-se ao finalizar a sua primeira compra ou"
+
+msgid "accediendo aquí"
+msgstr "acedendo aqui"
+
+msgid "Recuperar contraseña"
+msgstr "Recuperar a palavra-passe"
+
+msgid "He leído y acepto la"
+msgstr "Li e aceito a"
+
+msgid "Política de privacidad"
+msgstr "Política de privacidade"
+
+msgid "Más"
+msgstr "Mais"
+
+msgid "Limpiar filtros"
+msgstr "Limpar filtros"

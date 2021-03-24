@@ -1,0 +1,535 @@
+$ancho-1: 1200px;
+$ancho-2: 720px;
+$ancho-3: 540px;
+
+
+$color-1: #F35321;
+$color-1-1: #ee420d;
+$color-1-2: #f46639;
+$color-2: #273A60; 
+$color-2-1: #202f4e;
+$color-2-2: #2e4572;
+$color-3: #323233;
+$color-3-1: #323233;
+$color-3-2: #323233;
+$color-b: #fff;
+$color-n: #323233;
+$color-g: #969696;
+
+$color-error: #b00;
+$color-ok: #0a0;
+
+$fuente-1: "Roboto Condensed", sans-serif;
+$fuente-2: "Roboto Condensed", sans-serif;
+
+$fw-b: 700;
+$fw-sb: 400;
+$fw-n: 400;
+$fw-l: 400;
+
+$border-width: 1px;
+$border-type: solid;
+
+/*------------------- Mixins*/
+
+@mixin prefijos($atributo, $argumento) {
+  -webkit-#{$atributo}: #{$argumento};
+  -moz-#{$atributo}: #{$argumento};
+  -ms-#{$atributo}: #{$argumento};
+  -o-#{$atributo}: #{$argumento};
+  #{$atributo}: #{$argumento};
+}
+
+@mixin prefijos2($atributo, $argumento) {
+  #{$atributo}: #{$argumento};
+  #{$atributo}: -webkit-#{$argumento};
+  #{$atributo}: -moz-#{$argumento};
+  #{$atributo}: -o-#{$argumento};
+  #{$atributo}: -ms-#{$argumento};
+}
+
+
+/*****************************************/
+
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    -ms-animation:     $animations;
+    animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+  @-ms-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+
+/*--------------------- Extend*/
+
+%box-sizing{@include prefijos(box-sizing, border-box !important);}
+%transition{@include prefijos(transition, .5s);}
+%cover{@include prefijos(background-size, cover !important); background-repeat:no-repeat !important; background-position: center !important;}
+%centrar{top:50%; left:50%; @include prefijos(transform, translate(-50%,-50%)); position:absolute;}
+%centrarH{left:50%; @include prefijos(transform, translateX(-50%)); position:absolute;}
+%centrarV{top:50%; @include prefijos(transform, translateY(-50%)); position:absolute;}
+%fa{display: inline-block; font-style: normal; font-variant: normal; text-rendering: auto; -webkit-font-smoothing: antialiased; font-family: "Font Awesome 5 Pro"; font-weight: 900; }
+%fa{display: inline-block; font-style: normal; font-variant: normal; text-rendering: auto; -webkit-font-smoothing: antialiased; font-family: "Font Awesome 5 Pro"; font-weight: 900; }
+%before{content: ""; position: absolute; display: inline-block;}
+
+%flexbox{
+  display:-ms-flexbox; display:-webkit-box; display:-moz-blox; display: -webkit-flex; display:flex; 
+  @include prefijos(flex-direction, row);
+  @include prefijos(flex-wrap, wrap);
+}
+
+%flexbox-jc{
+  display:-ms-flexbox; display:-webkit-box; display:-moz-blox; display: -webkit-flex; display:flex; 
+  @include prefijos(flex-direction, row);
+  @include prefijos(flex-wrap, wrap);
+  @include prefijos(justify-content, space-between);
+}
+
+%flexbox-l{
+  display:-ms-flexbox; display:-webkit-box; display:-moz-blox; display: -webkit-flex; display:flex; 
+  @include prefijos(flex-direction, row);
+  @include prefijos(flex-wrap, wrap);
+  @include prefijos(justify-content, flex-start);
+}
+
+%flexbox-r{
+  display:-ms-flexbox; display:-webkit-box; display:-moz-blox; display: -webkit-flex; display:flex; 
+  @include prefijos(flex-direction, row);
+  @include prefijos(flex-wrap, wrap);
+  @include prefijos(justify-content, flex-end);
+}
+
+%flexbox-c{
+  display:-ms-flexbox; display:-webkit-box; display:-moz-blox; display: -webkit-flex; display:flex; 
+  @include prefijos(flex-direction, row);
+  @include prefijos(flex-wrap, wrap);
+  @include prefijos(justify-content, center);
+  @include prefijos(align-items, center);
+}
+
+
+/*--------------------- Reset
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0; padding: 0; border: 0; vertical-align: baseline; @include prefijos(box-sizing, border-box !important);
+}
+*/
+
+input, textarea, select{@extend %box-sizing;}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,q:before, q:after {content: '';content: none;}
+table {border-collapse: collapse; border-spacing: 0;}
+*:before,*:after{@extend %box-sizing;}
+
+
+/*--------------------- Bloques de partida
+html{-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-smoothing: antialiased; text-rendering: optimizeLegibility; font-size: 16px; font-family: $fuente-1;}
+body{font-size: 1rem; line-height: normal;}
+div{}
+img{max-width: 100%; height: auto; display: inline-block;}
+img,video{object-fit: contain;}
+a{text-decoration: none; display: inline-block; color: $color-1;}
+strong,b{font-weight: $fw-b;}
+p{margin-bottom: 15px; width: 100%;}
+ul,ol{padding-left: 0px; list-style: none; padding: 0px;}*/
+
+
+
+/*--------------------- Estructuras*/
+.contenedor-principal{overflow: hidden;}
+.seccion{position: relative;}
+.fila{max-width: $ancho-1; margin: auto; @extend %flexbox-jc; position: relative;}
+.col{display: inline-block; margin: 0; padding: 15px; position: relative; width: 100%;}
+
+
+/*--------------------- IFRAME proporción 1920*/
+.iframe-video {position: relative; padding-bottom: 56.25%; /* 16:9 */ padding-top: 25px; height: 0;}
+.iframe-video iframe {position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+
+
+/*--------------------- CABECERA*/
+.header-contenedor{
+  position: fixed; z-index: 200; left: 0px; top: 0px; width: 100%; @include prefijos(transition,.6s);
+  ul,li{padding: 0px; list-style: none; margin: 0px; position: relative;}
+  ul,nav,.menu{@include prefijos(align-items,center); width: 100%;}
+  a{@extend %transition;}
+  .desplegable-lat-plegar{
+    display: none;
+    span{@extend %centrar;}
+  }
+}
+.header-contenedor-movil{@extend %flexbox-jc; @include prefijos(transition,.8s); z-index: 200;}
+
+.header,.header-menu,.subheader{width: 100%; @extend %flexbox-jc; @include prefijos(align-items,center); padding:5px 15px;}
+.subheader{background: $color-1; a{color: $color-b;}}
+
+.subheader-1, .header-1, .header-movil-1{@extend %flexbox-l; @include prefijos(align-items,center); li{margin-right: 10px;} .menu{@extend %flexbox-l; }}
+.subheader-2, .header-2, .header-movil-2{@extend %flexbox-r; @include prefijos(align-items,center); li{margin-left: 10px;} .menu{@extend %flexbox-r;}}
+
+.subheader{font-size: .8rem; a{font-size: .8rem;}}
+
+
+
+
+.header-logo img{@extend %transition;}
+
+.elementor-editor-active .header-contenedor{display: none;}
+.elementor-edit .contenedor-principal{padding-top: 0px;}
+
+
+
+//Boton no seleccionable
+.menu-ns > a:before{display: none;}
+.menu-ns > a:hover{cursor: default; @include prefijos(transform,scale(1))}
+
+//Redes sociales
+.red a{font-size: 1.2em;}
+
+//Movil
+.header-movil-contenedor{position: absolute; left: 0px; top: 0px; width: 100%; display: none;}
+.header-movil{
+  width: 100%; @extend %flexbox-jc; @include prefijos(align-items,center); padding:5px 15px;
+  .desplegable-lat-plegar{color: $color-b;}
+}
+
+/*--------------------- Boton plegar */
+.btn-cerrar{
+  position: absolute; width: 2rem; height: 2rem; background: $color-1; color: $color-b; right: 10px; top: 20px; display: inline-block;
+  span{font-size: 1.4rem; @extend %centrar;}
+}
+
+
+/*--------------------- Popup*/
+.popup{position: fixed !important; z-index: 11000; width: 100%; height: 100vh; left: 0px; top: 0px; overflow: hidden; overflow-y: scroll;}
+.popup-contenedor{padding: 50px 30px; @extend %flexbox-c; width: 100%; min-height: 100%; position: relative;}
+.popup-content{position: relative; z-index: 100; width: 100%; max-width: $ancho-3; @extend %flexbox; height: auto; background: #fff; border: 2px solid $color-1; padding: 30px;}
+.popup-fondo{position: absolute; background: rgba(0,0,0,0.6); left: 0px; top: 0px; width: 100%; height: 100%;}
+
+
+/*Scroll*/
+.ps__thumb-y{background-color: $color-n !important;}
+
+
+/*--------------------- Fondo*/
+.desplegable-fondo{position: fixed; top: 0px; left: 0px; width: 100%; height: 100vh; background: rgba(0,0,0,0.6); z-index: 101; }
+
+
+/*--------------------- FORMULARIOS*/
+form{
+  ul{padding: 0; list-style: none;}
+}
+
+.gform_wrapper{
+    width: 100%;
+    ul{list-style: none !important; padding: 0px !important;}
+    .gform_fields{@extend %flexbox-jc;}
+    li{padding-left: 0 !important;}
+    li:before{display: none;}
+
+    .gfield{width: 100%; margin-bottom: 10px; margin-bottom: 15px; @extend %flexbox-jc; @include prefijos(align-items,center);}
+    .gfield.w-50{width: 49%;}
+    .gfield.w-33{width: 32.33%;}
+    .gfield.w-25{width: 24%;}
+
+
+    .gf-textaera{@include prefijos(align-items,flex-start); .gfield_label{padding-top: 10px;}}
+    .gfield_label{margin-bottom: 1px; width: 100%; display: block; color: $color-n; font-weight: $fw-sb; width: 120px; font-size: 1rem;}
+    .ginput_container{width: 100%; @include prefijos2(width,calc(100% - 130px));}
+    .w-100{width: 100%;}
+    .d-n{display: none;}
+    input,textarea,select{width: 100%; border: none; padding: 12px 5px; font-family: $fuente-1; border: 1px solid $color-n;}
+    select{}
+    option{}
+    textarea{resize: vertical; height: 120px;} 
+
+    .gform_footer{}
+    input[type="submit"]{width: 100%; text-align: center; border: none; padding: 10px 30px; @extend %transition; font-size: 1.4rem; font-family: $fuente-1; background: $color-1; color: #fff;}
+    input[type="submit"]:hover{cursor: pointer; @include prefijos(transform,scale(.95));}
+
+    .ginput_container_checkbox{width: 100%;}
+    .gfield_checkbox, .gfield_radio{
+        width: 100%; margin-top: 20px;
+        li{
+            @include prefijos(align-items, flex-start); margin-bottom: 10px; position: relative;
+            input{width: 20px; height: 20px; left: 0px; top: 0px; position: absolute; opacity: 0;}
+            input:hover{cursor: pointer;}
+            label{color: $color-n; font-size: .8rem; text-align: left; width: 100%; position: relative; padding-top: 5px; @extend %flexbox; @include prefijos(align-items,center);}
+            label a{text-decoration: underline; color: $color-n; display: inline-block; margin-left: 4px;}
+            label:before{content: ""; width: 20px; height: 20px; display: inline-block; @extend %box-sizing; @extend %fa; background: #fff; color: #000; font-size: .8rem; margin-right: 5px; border: 1px solid $color-n; padding: 3px;}
+
+            input:checked+label:before{content: "\f00c"; font-size: .8rem;}
+            label:before:hover{cursor: pointer;}
+        }
+    }
+    .gfield_radio li label:before{border-radius: 50%;}
+
+
+    .gf-texaera{
+      @include prefijos(align-items,flex-start);
+      label{padding-top: 12px;}
+    }
+
+
+    .ginput_container_date > .clear-multi{
+      @extend %flexbox;
+      >.ginput_container_date{width: 50px; margin-right: 5px; input{text-align: center;}}
+      label{display: none;}
+    }
+
+
+    .gfield_description{font-size: .8rem; margin-top: 5px;}
+
+    .gfield_visibility_hidden, .hidden_label > label{display: none;}
+
+    .gfield_error{
+        input,textarea,select{}
+    }
+    .validation_error{display: none;}
+    .validation_message{color: #b00; display: block; margin-top: 5px; font-size: .8rem; width: 100%; text-align: right;} 
+
+    legend{color: $color-1-1; font-family: $fuente-2; font-size: 1.4rem; text-align: center; margin-bottom: 20px;}
+}
+.gform_confirmation_message{background: $color-1; color: #fff; text-transform: uppercase; padding: 20px; text-align: center; font-size: 1.2rem;}
+
+/*Legal*/
+.gf-legal > .gfield_label{display: none;}
+
+
+/*Buscador*/
+/*.form-search{position: relative;}
+.form-search-input{border: 1px solid $color-1; margin: 0px !important;}
+.form-search-submmit{
+  position: absolute; right: 0px; height: 100%; width: 40px !important; background: $color-1;
+  input{background: $color-1; width: 100% !important; height: 100% !important; position: absolute !important; left: 0px !important; top: 0px !important; padding: 0px !important; z-index: 3; opacity: 0;}
+  input[type="submit"]:hover{cursor: pointer; @include prefijos(transform,scale(1));}
+}
+.form-search-submmit:before{@extend %fa; content: "\f002"; color: $color-b; z-index: 2; @extend %centrar; @extend %transition;}
+.form-search-submmit:before:hover{cursor: pointer;}
+.form-search-submmit:hover:before{@include prefijos(transform,scale(0.9) translate(-50%,-50%));}*/
+
+.form-search{
+  width: 100%; @extend %flexbox-jc; @include-prefijos(align-items,center); position: relative;
+  input{width: 100%; border: none; padding: 12px 5px; font-family: $fuente-1; padding-left: 35px;}
+  button{position: absolute; height: 100%; width: 40px; font-size: 1.2rem; @extend %flexbox-c; background: none; border: none;
+  }
+}
+
+.form-search-result{padding: 5px; border-bottom: 1px solid $color-n;}
+.form-search-result:last-child{border: none;}
+.searchwp-live-search-result a.form-search-result-link{@extend %flexbox-jc; @include prefijos(align-items,center);}
+.form-search-result-img{width: 50px; height: 50px; img{width: 100%; height: 100%; @include prefijos(object-fit,cover);}}
+.form-search-result-tit{@include prefijos2(width,calc(100% - 60px)); text-align: left;}
+.form-search-result-tit.w-100{width: 100%;}
+
+
+/*Suscripción*/
+.form-suscripcion{
+  .ginput_container,.validation_message{width: 100% !important; padding: 0px !important; margin: 0px !important;}
+  input{width: 100%;}
+  .gfield_label{display: none !important;}
+  .gf-check,.gform_footer{padding: 0px !important;}
+  
+}
+
+
+/*Pagniación*/
+.paginacion{
+  @extend %flexbox-c; margin-top: 20px; width: 100%;
+  .current,a{@extend %flexbox-c; width: 35px; height: 35px; background: $color-1; color: #fff; margin: 0 3px; font-size: 1.1rem; font-weight: $fw-b;}
+  a{background: $color-n; @extend %transition;}
+  a:hover{background: $color-1; @include prefijos(transform, scale(.9));}
+}
+
+
+/*Wysiwyg*/
+.wysiwyg{
+    
+    h1{font-size: 2rem; margin-bottom: 25px; font-family: $fuente-2;}
+    h2{font-size: 1.8rem; margin-bottom: 25px; font-family: $fuente-2;}
+    h3{font-size: 1.4rem; margin-bottom: 15px; font-family: $fuente-2;}
+    h4{font-size: 1.2rem; margin-bottom: 15px;}
+    h5{font-size: 1rem; margin-bottom: 15px;}
+    h6{font-size: .8rem; margin-bottom: 15px;}
+  
+    p{margin-bottom:15px; line-height: 24px;}
+    a{color: $color-1;}
+    a:hover{text-decoration: underline;}
+    .wp-caption{display:block; text-align:center; margin:30px auto 30px auto; max-width: 100%;}
+    .wp-caption img{margin-bottom: 5px;}
+    .wp-caption-text{text-align:center; font-size:12px; margin:auto; margin-top:0px; max-width:70%; line-height: 14px;}
+    
+    iframe{display:block !important; text-align:center !important; margin:50px auto 50px auto; max-width:100% !important;}
+    img{margin:20px auto 20px auto; display:block;}
+    ul,ol{
+        margin:25px 0 25px 0; padding-left: 20px; list-style: disc;
+        li{margin-bottom: 15px;}
+        ul{margin: 15px 0; list-style: circle;}
+    }
+    ol{list-style: decimal;}
+    
+  .alignleft{float:left; margin:0px 20px 0px 0px;}
+  .alignright{float:right; margin:0px 0px 0px 20px;}
+  .lista{
+    list-style: none; padding-left: 0px;
+    li{
+      position: relative; padding-left: 25px; margin-bottom: 6px;
+      .fa{position: absolute; left: 0px; top: 6px;}
+    }
+  }
+
+  .clear{clear: both; padding-top: 50px;}
+
+  .video {position: relative; padding-bottom: 56.25%; padding-top: 25px; height: 0; margin-top: 30px; margin-bottom: 30px;}
+  .video iframe {position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+
+  blockquote{
+        margin: 20px 0px; padding: 50px 0 20px 50px; position: relative;
+        p{font-family: $fuente-2; font-weight: $fw-b; font-size: 2rem; line-height: 2.4rem; position: relative; z-index: 2;}
+    }
+  blockquote:before{@extend %fa; @extend %flexbox-c; content: "\f10d"; width: 120px; height: 120px; border-radius: 50%; background-color: $color-1; left: 0px; top: 0px; position: absolute; z-index: 1; background-repeat: no-repeat; background-position: center; opacity: .8; color: #fff; font-size: 4rem;}
+
+  hr{margin-top: 30px !important; margin-bottom: 30px !important;}
+  
+}
+.elementor-element{clear: both;}
+
+/*breadcrumb*/
+.home .breadcrumb{display: none;}
+
+/*Categorías Wordpress*/
+.elementor-widget-wp-widget-categories{
+  h5{text-transform: uppercase; font-size: 1.6rem; margin-bottom: 20px;}
+  ul{padding-left: none; list-style: none;}
+  li{margin-bottom: 10px;}
+  a{padding: 5px; border: 1px solid $color-1; @extend %transition;}
+  a:hover{background: $color-1; color: #fff;}
+}
+
+.elementor-widget-wp-widget-tag_cloud{
+  h5{text-transform: uppercase; font-size: 1.6rem; margin-bottom: 20px;}
+}
+
+/*Bloque de post*/
+.elementor-pagination{margin-top: 30px;}
+
+/*Buscador Query*/
+.buscador_query{text-align: center; font-size: 1.6rem; text-transform: uppercase; color: $color-1;}
+
+
+/************************************************************************************ Categorías Sidebar *****************************/
+.sidebar-cat{background: #fff; padding: 0px 0px 0px 0px; border: 1px solid $color-g;}
+.sidebar-cat-menu{padding: 20px;}
+.sidebar-cat-tit{
+  margin-bottom: 20px; font-size: 1.2rem; font-weight: $fw-b; @extend %flexbox-jc; @include prefijos(align-items,center);
+  .sidebar-cat-tit-movil, .sidebar-cat-tit-pc{width: 100%; display: inline-block;}
+}
+
+.sidebar-cat-fila{
+  margin-bottom: 10px; position: relative; @extend %flexbox-jc; @include prefijos(align-items,center);
+  a{font-size: 1.2rem;}
+  i{font-size: 1rem;}
+}
+.sidebar-cat-fila.sidebar-cat-fila-return a{color: $color-n; font-size: 1rem; .fa{color: $color-1; display: inline-block; margin-right: 5px;}}
+.sidebar-has-children{margin-bottom: 15px;}
+.sidebar-has-children a{}
+.sidebar-cat-btn-plegar{width: 20px; display: none;}
+.sidebar-cat-btn-plegar.w-100{width: 100%; @extend %flexbox-jc; @include prefijos(align-items,center); max-width: 100%;}
+.sidebar-cat-submenu{margin-top: 20px; width: 100%; padding-left: 15px;}
+.sidebar-cat-submenu .sidebar-cat-fila{padding-left: 30px; padding-left: 20px; a{color: $color-n; font-size: 1rem;}}
+.sidebar-cat-submenu .sidebar-cat-fila:before{content: ""; width: 10px; height: 10px; background: $color-1; position: absolute; left: 0px; top: 4px;}
+.sidebar-cat-fila-parent{@include prefijos(justify-content, flex-end); margin-top: 30px; a{font-size: .9rem; color: $color-n;}}
+
+.sidebar-cat-menu .fa{width: 100%; height: 20px; @extend %flexbox-c;}
+
+
+/************************************************************************************ Galerías *****************************/
+.elementor-image-gallery{
+  .gallery-item{margin-top: -5px !important;}
+  img{border: none !important;}
+}
+
+
+/************************************************************************************ Cookies *****************************/
+.cookies{font-size: 12px; position: fixed; width: 100%; text-align: center; z-index: 1000; max-width: 400px; top: 0px; left: 20px; padding: 10px; background: $color-1; color: #fff; display: none;}
+.cookies-contenido{max-width: $ancho-1; margin: auto; a{text-decoration: underline; color: #fff; display: inline;}}
+.cookies-contenido-botones{
+  display: inline-block; padding: 5px 0; margin-top: 5px;
+  a{display: inline-block; text-decoration: none; padding: 3px 10px; font-weight: $fw-b; text-transform: uppercase; background: $color-b; color: $color-1-1;}
+}
+
+
+
+
+/************************************************************************************ Fichas *****************************/
+.fichas-contenedor{width: 100%; @extend %flexbox;}
+
+.ficha{width: 100%; @extend %flexbox;  margin: 0px 1% 30px 1%;}
+.ficha-16{width: 14.66%;}
+.ficha-25{width: 23%;}
+.ficha-33{width: 31.33%;}
+.ficha-50{width: 48%;}
+
+/**********************************************************************************Woocommerce****************************/
+
+
+
+
+/********************************************************************************************************************************************** Movil *********/
+@media screen and (min-width: $ancho-2) {
+  .sidebar-cat-tit  .sidebar-cat-tit-pc{display: block !important;}
+  .sidebar-cat-tit  .sidebar-cat-tit-movil{display: none !important;}
+  .sidebar-cat-submenu, .sidebar-cat-menu{display: block !important;}
+}
+
+
+@media screen and (max-width: $ancho-2) {
+  .sidebar-cat-tit{
+    margin-bottom: 20px; font-size: 1.4rem; font-weight: $fw-b;
+    span{@include prefijos2(max-width,calc(100% - 20px));}
+  }
+  .sidebar-cat-tit  .sidebar-cat-tit-pc{display: none;}
+  .sidebar-cat-tit  .sidebar-cat-tit-movil{display: block;}
+  .sidebar-cat-submenu, .sidebar-cat-menu{display: none;}
+  .sidebar-has-children a, .sidebar-cat-tit a{@include prefijos2(max-width,calc(100% - 30px));}
+  .sidebar-cat-btn-plegar{width: 20px; font-size: 1.4rem; display: inline-block;}
+
+}
+
+@media screen and (max-width: $ancho-3) {
+  .cookies{position: absolute; left: 0px; top: 0px; bottom: auto; width: 100%;}
+
+  .elementor-widget-text-editor, .elementor-widget-text-editor, .wysiwyg, .elementor-widget-theme-post-content{
+    .alignleft, .alignright{float:none; margin:20px auto; min-width: 100%;}
+  }
+
+}

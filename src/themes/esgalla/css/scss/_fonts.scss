@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'Husqvarna Gothic';
+    src:  url("../fonts/HusqvarnaGothic-Bold.otf") format("Opentype"),
+    url("../fonts/HusqvarnaGothic-Bold.ttf") format("TrueType");
+    
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Husqvarna Gothic';
+    src: url("../fonts/HusqvarnaGothic-Light.otf") format("opentype"),
+    url("../fonts/HusqvarnaGothic-Light.ttf") format("TrueType");
+    font-display: block;
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Husqvarna Gothic';
+    src: url("../fonts/HusqvarnaGothic-Regular.otf") format("opentype"),
+    url("../fonts/HusqvarnaGothic-Regular.ttf") format("TrueType");
+    font-display: block;
+    font-weight: regular;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Husqvarna Gothic';
+    src: url("../fonts/HusqvarnaGothic-BoldItalic.otf") format("opentype"),
+    url("../fonts/HusqvarnaGothic-BoldItalic.ttf") format("TrueType");
+    font-display: block;
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Husqvarna Gothic';
+    src: url("../fonts/HusqvarnaGothic-LightItalic.otf") format("opentype"),
+    url("../fonts/HusqvarnaGothic-LightItalic.ttf") format("TrueType");
+    font-display: block;
+    font-weight: light;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Husqvarna Gothic';
+    src: url("../fonts/HusqvarnaGothic-RegularItalic.otf") format("opentype"),
+    url("../fonts/HusqvarnaGothic-RegularItalic.ttf") format("TrueType");
+    font-display: block;
+    font-weight: regular;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Font Awesome 5 Pro';
+    src: url("../fonts/fa-regular-400.woff2") format("woff2"),
+    url("../fonts/fa-regular-400.woff") format("woff");
+    font-display: block;
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Font Awesome 5 Pro';
+    src: url("../fonts/fa-regular-900.woff2") format("woff2"),
+    url("../fonts/fa-regular-900.woff") format("woff");
+    font-display: block;
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Font Awesome 5 Pro';
+    src: url("../fonts/fa-solid-900.woff2") format("woff2"),
+    url("../fonts/fa-solid-900.woff") format("woff");
+    font-display: block;
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Font Awesome 5 Pro';
+    src: url("../fonts/fa-light-300.woff2") format("woff2"),
+    url("../fonts/fa-light-300.woff") format("woff");
+    font-display: block;
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Font Awesome 5 Pro';
+    src: url("../fonts/fa-brands-400.woff2") format("woff2"),
+    url("../fonts/fa-brands-400.woff") format("woff");
+    font-display: block;
+    font-weight: 400;
+    font-style: normal;
+}
