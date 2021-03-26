@@ -395,3 +395,6 @@ msgstr "Também pode"
 
 msgid "Ir al Inicio"
 msgstr "Voltar ao início"
+
+msgid "Hola %1$s"
+msgstr "Viva, %1$s"
