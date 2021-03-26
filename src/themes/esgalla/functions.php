@@ -473,15 +473,21 @@ function order_automower_price_asc( $sort_by ) {
 if(get_current_blog_id() == 2) {
 	add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 	add_filter( 'woocommerce_billing_fields' , 'custom_override_billing_fields' );
-	// add_filter( 'woocommerce_shipping_fields' , 'custom_override_shipping_fields' );
+	add_filter( 'woocommerce_shipping_fields' , 'custom_override_shipping_fields' );
 
 	function custom_override_checkout_fields( $fields ) {
 		unset($fields['billing']['billing_state']);
+		unset($fields['shipping']['shipping_state']);
 		return $fields;
 	}
 
 	function custom_override_billing_fields( $fields ) {
 		unset($fields['billing_state']);
+		return $fields;
+	}
+
+	function custom_override_shipping_fields( $fields ) {
+		unset($fields['shipping_state']);
 		return $fields;
 	}
 
