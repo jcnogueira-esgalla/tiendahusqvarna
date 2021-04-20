@@ -272,7 +272,7 @@ function esgalla_scripts() {
 		//Woocommerce
 		//wp_enqueue_script( 'js-woocommerce', get_template_directory_uri() . '/js/woocommerce-esgalla.js', array('jquery'), '1.01', true );
 		if(class_exists('WooCommerce')) {
-            wp_register_script( 'woo-js', get_template_directory_uri().'/js/tienda.js', array('jquery'), true );
+            wp_register_script( 'woo-js', get_template_directory_uri().'/js/tienda.js', array('jquery'), '1.0.3' );
             wp_localize_script( 'woo-js', 'js_params_woo', array(
               'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php'
             ) );
@@ -492,5 +492,6 @@ if(get_current_blog_id() == 2) {
 	}
 
 }
+include("func/analytics.php");
 
 ?>

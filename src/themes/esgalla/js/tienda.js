@@ -114,11 +114,16 @@ jQuery(document).on('change', '.item-cantidad-contador', function(e) {
 
 
 function cambio_cantidad(input, cambio){
+  var diff = 0;//Bysidecar
   var total = parseInt(input.val());//Hago numerico
   if(typeof cambio != "undefined"){ //Si mandamos un cambio desde los manejadores
     total = total + cambio;
+    diff = cambio;//Bysidecar
   }else{ //Si el cambio es manual desde el input
     total = input.val();
+    var prev_value = parseInt(input.data("val"));//Bysidecar
+    var value = parseInt(input.val());//Bysidecar
+    diff = value - prev_value;//Bysidecar
   }
   if(total < 1){
     total = 1;
@@ -129,6 +134,15 @@ function cambio_cantidad(input, cambio){
 
   if(input.data("type")=="mini-cart" || input.data("type")=="cart"){ //Si estamos en el carro
     cambio_cantidad_cart(input.data("itemkey"), total);
+    //Bysidecar
+    let productToCart = getProductDataById(input.data("id"),'analytic-cart-product');
+    if(productToCart) {
+        if (Math.sign(diff) > 0) {
+              eventClickAddCart(productToCart, productToCart.position, diff, undefined);
+          } else if (Math.sign(diff) < 0) {
+              eventClickRemoveCart(productToCart, productToCart.position, diff, undefined);
+          }
+      }
   }
 
 }
@@ -200,7 +214,11 @@ function add_cart(itemKey,quantity,variacion,orig){
               if(orig != "product"){ //Si no es producto, hacemos nuestro envío a GTM
                 gtm_add_to_cart(itemKey,quantity);
               }
-
+              //Bysidecar
+              let productToAddCart = getProductDataById(itemKey, 'analytic-cart-product');
+              if(productToAddCart){
+                  eventClickAddCart(productToAddCart, productToAddCart.position, quantity, undefined);
+              }
               //jQuery(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, ""]);
           }
       },
@@ -225,6 +243,11 @@ jQuery(document).on('click', '#mini-cart-content .remove', function(e) {
       cache: false,
       headers: {'cache-control': 'no-cache'},
       beforeSend: function(response) {
+          //Bysidecar
+          let productToRemove = getProductDataById(itemID, 'analytic-cart-product');
+          if(productToRemove) {
+              eventClickRemoveCart(productToRemove, 1, productToRemove.quantity, undefined);
+          }
         gtm_remove_to_cart(itemID);
         if(document.documentElement.lang == 'pt-PT'){
           jQuery("#mini-cart-content").html('<div class="mini-cart-anim-carga"><span class="fas fa-spinner fa-spin"></span> <span class="d-ib ml-10">A carregar</span></div>'); //Animación de carga
@@ -364,6 +387,7 @@ jQuery(document).on('submit', '.woocommerce-form-login', function(e) {
         jQuery(".woocommerce-form-login-msj-corto").slideDown('fast');
 
         if(msg.loggedin == true){
+          eventLogintUser(msg.user);//Bysidecar
           document.location.href = window.location;
         }
 

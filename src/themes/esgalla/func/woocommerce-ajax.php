@@ -204,7 +204,20 @@
 
         } else {
 
-            echo json_encode(array('loggedin'=>true, 'message'=>__('Login correcto. Redirigiendo...','esgalla')));
+            $customer = new WC_Customer($user_signon->ID);
+            if($customer) {
+                $last_order = $customer->get_last_order();
+                $translation_array = array(
+                    'userId' => $user_signon->ID,
+                    'lastLogin' => null,
+                    'firstLogin' => get_userdata($user_signon->ID)->user_registered,
+                    'lastPurchase' => ($last_order) ? $last_order->order_date : null,
+                );
+            }else{
+                $translation_array = [];
+            }
+
+            echo json_encode(array('loggedin'=>true, 'user'=> $translation_array, 'message'=>__('Login correcto. Redirigiendo...','esgalla')));
 
         }
 

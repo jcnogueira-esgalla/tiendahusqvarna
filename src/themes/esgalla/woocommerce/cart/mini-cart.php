@@ -78,7 +78,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					?>
 
-					<div class="mini-cart-item d-flex justify-content-between mb-4 w-100 <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
+					<div <?php echo print_data_product_analytics($_product,"analytic-cart-product",$cantidad); ?> class="mini-cart-item d-flex justify-content-between mb-4 w-100 <?php echo esc_attr( apply_filters( 'woocommerce_mini_cart_item_class', 'mini_cart_item', $cart_item, $cart_item_key ) ); ?>">
 
 						<?php
 
@@ -160,7 +160,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 										<div class="quantity d-inline-block w-50">
 
-											<input class="item-cantidad-contador item-cantidad-contador-mini-cart qty text-center w-100" type="number" value="<?php echo $cantidad; ?>" step="1" min="1" value="1" max="<?php echo $stock; ?>" data-type="mini-cart" data-itemkey="<?php echo $cart_item_key; ?>"/>
+											<input  data-val="<?php echo $cantidad;?>" data-id="<?php echo $_product->get_ID();?>" class="item-cantidad-contador item-cantidad-contador-mini-cart qty text-center w-100" type="number" value="<?php echo $cantidad; ?>" step="1" min="1" value="1" max="<?php echo $stock; ?>" data-type="mini-cart" data-itemkey="<?php echo $cart_item_key; ?>"/>
 
 										</div>
 

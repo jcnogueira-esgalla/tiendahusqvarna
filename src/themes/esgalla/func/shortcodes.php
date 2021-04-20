@@ -48,17 +48,18 @@
                     if ( woocommerce_product_loop() ) {
 
                         if ( wc_get_loop_prop( 'total' ) ) {
-
+                            $post_idx = 1;
                           while ( have_posts() ) {
 
                               the_post();
 
                               do_action( 'woocommerce_shop_loop' );
 
-                              $var = array("class" => $d." ficha-".$f, "hns" => $m, 'id_producto' => get_the_id());
+                              $var = array("class" => $d." ficha-".$f, "hns" => $m, 'id_producto' => get_the_id(), 'position' => $post_idx);
 
                               get_template_part( 'template-parts/ficha', $f, $var);
 
+                              $post_idx++;
                           }
 
                         }

@@ -1,6 +1,7 @@
 <?php
 
 $id_producto = $args['id_producto'];
+$position = (isset($args['position']))?$args['position']:1;
 
 // Usar como referencia https://www.businessbloomer.com/woocommerce-easily-get-product-info-title-sku-desc-product-object/
 
@@ -8,7 +9,8 @@ $producto = wc_get_product( $id_producto );
 
 ?>
 
-<a href="<?php echo get_permalink( $producto->get_id() ) ?>" class="ficha-producto d-flex flex-column justify-content-between text-decoration-none<?php echo ' '.$args['class'] ?>" data-id="<?php echo $producto->get_id() ?>">
+<a <?php echo print_data_product_analytics($producto,"analytic-product",1, $position);
+?> data-slick-index="<?php echo $position;?>"  href="<?php echo get_permalink( $producto->get_id() ) ?>" class="ficha-producto d-flex flex-column justify-content-between text-decoration-none<?php echo ' '.$args['class'] ?>" data-id="<?php echo $producto->get_id() ?>">
 
 	<?php /*<img class="mx-auto" src="<?php echo get_template_directory_uri() ?>/img/motosierras-439.png" alt=""> */ ?>
 

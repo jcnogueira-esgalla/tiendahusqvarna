@@ -168,8 +168,10 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 				<div class="col-12 slick-productos">
 					<?php
 					$productos_destacados = get_field('productos_destacados');
+					$post_idx =1;
 					foreach($productos_destacados as $id_producto){
-						get_template_part('template-parts/ficha', 'producto', array('id_producto' => $id_producto));
+						get_template_part('template-parts/ficha', 'producto', array('id_producto' => $id_producto, 'position' => $post_idx));
+						$post_idx++;
 					}
 					?>
 				</div>
@@ -218,8 +220,10 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 				<div class="col-12 col-md-9 slick-categorias">
 					<? if($motosierras['slider_motosierras']): ?>
 					<?
-						foreach($motosierras['slider_motosierras'] as $id_producto){
-							get_template_part('template-parts/ficha', 'producto', array('id_producto' => $id_producto));
+                        $post_idx = 1;
+                        foreach($motosierras['slider_motosierras'] as $id_producto){
+							get_template_part('template-parts/ficha', 'producto', array('id_producto' => $id_producto, 'position' => $post_idx));
+							$post_idx++;
 						}
 					?>
 					<? else: ?>
@@ -256,8 +260,10 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 				<div class="col-12 col-md-9 slick-categorias">
 					<? if($cortacespedes['slider_cortacespedes']): ?>
 					<?
-						foreach($cortacespedes['slider_cortacespedes'] as $id_producto){
-							get_template_part('template-parts/ficha', 'producto', array('id_producto' => $id_producto));
+                        $post_idx = 1;
+                        foreach($cortacespedes['slider_cortacespedes'] as $id_producto){
+                            get_template_part('template-parts/ficha', 'producto', array('id_producto' => $id_producto, 'position' => $post_idx));
+                            $post_idx++;
 						}
 					?>
 					<? else: ?>
@@ -294,9 +300,11 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 				<div class="col-12 col-md-9 slick-categorias">
 					<? if($desbrozadoras['slider_desbrozadoras']): ?>
 					<?
-						foreach($desbrozadoras['slider_desbrozadoras'] as $id_producto){
-							get_template_part('template-parts/ficha', 'producto', array('id_producto' => $id_producto));
-						}
+                        $post_idx = 1;
+
+                        foreach($desbrozadoras['slider_desbrozadoras'] as $id_producto){
+                            get_template_part('template-parts/ficha', 'producto', array('id_producto' => $id_producto, 'position' => $post_idx));
+                            $post_idx++;						}
 					?>
 					<? else: ?>
 						<?php echo shortcode_fichas( array("t"=>"product", "d"=> "33", "c" =>9, "r" => "product_cat", 'cat' => $categorias_tienda['desbrozadoras'], 'f' => 'producto')); ?>

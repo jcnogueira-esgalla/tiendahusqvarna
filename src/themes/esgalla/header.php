@@ -14,7 +14,35 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<script>var cookies = [];</script>
-	<?php if(get_current_blog_id() == 1): //España ?>
+    <!-- Adform Tracking Code BEGIN -->
+    <script type="text/javascript">
+        window._adftrack = Array.isArray(window._adftrack) ? window._adftrack : (window._adftrack ? [window._adftrack] : []);
+        window._adftrack.push({
+            HttpHost: 'track.adform.net',
+            pm: 2316232,
+        });
+        (function () { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://s2.adform.net/banners/scripts/st/trackpoint-async.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
+
+    </script>
+    <noscript>
+        <p style="margin:0;padding:0;border:0;">
+            <img src="https://track.adform.net/Serving/TrackPoint/?pm=2316232" width="1" height="1" alt="" />
+        </p>
+    </noscript>
+    <!-- Adform Tracking Code END -->
+    <!-- Global site tag (gtag.js) - Google Ads: 691985440 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-691985440"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-691985440');
+    </script>
+	<?php if(get_current_blog_id() == 1): //España
+        $current_user = wp_get_current_user();
+        $email_to_pinterest = $current_user->user_email ?? 'undefined';
+        ?>
 			<!-- Google Tag Manager -->
 			<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -22,6 +50,39 @@
 				'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 				})(window,document,'script','dataLayer','GTM-W9LQ67X');</script>
 			<!-- End Google Tag Manager -->
+            <!-- Facebook Pixel Code -->
+            <script>
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                    n.queue=[];t=b.createElement(e);t.async=!0;
+                    t.src=v;s=b.getElementsByTagName(e)[0];
+                    s.parentNode.insertBefore(t,s)}(window, document,'script',
+                    'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '4180208645345952');
+                fbq('track', 'PageView');
+            </script>
+            <noscript><img height="1" width="1" style="display:none"
+                           src="https://www.facebook.com/tr?id=1000617640306245&ev=PageView&noscript=1"
+                /></noscript>
+            <!-- End Facebook Pixel Code -->
+            <!-- Pinterest Tag -->
+        <script>
+            !function(e){if(!window.pintrk){window.pintrk = function () {
+                window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+                n=window.pintrk;n.queue=[],n.version="3.0";var
+                t=document.createElement("script");t.async=!0,t.src=e;var
+                r=document.getElementsByTagName("script")[0];
+                r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+            pintrk('load', '2614440109792', {em: '<?php echo $email_to_pinterest;?>'});
+            pintrk('page');
+        </script>
+        <noscript>
+            <img height="1" width="1" style="display:none;" alt=""
+                 src="https://ct.pinterest.com/v3/?event=init&tid=2614440109792&pd[em]=<?php echo urlencode($email_to_pinterest);?>&noscript=1" />
+        </noscript>
+        <!-- end Pinterest Tag -->
 	<?php endif; ?>
 	<?php if(get_current_blog_id() == 2): //Portugal ?>
 			<!-- Google Tag Manager -->
