@@ -492,6 +492,103 @@ if(get_current_blog_id() == 2) {
 	}
 
 }
+
+if(get_current_blog_id() == 1) {	//Solo España
+	//Validando el campo NIF/CIF
+	function validar_nifcifnie_esp() {
+		$falso = true;
+
+		if ( isset( $_POST['billing_numero_documento'] ) ) {
+			$nif = strtoupper( $_POST['billing_numero_documento'] );
+			for ( $i = 0; $i < 9; $i ++ ) {
+				$num[$i] = substr( $nif, $i, 1 );
+			}
+			if ( !preg_match( '/((^[A-Z]{1}[0-9]{7}[A-Z0-9]{1}$|^[T]{1}[A-Z0-9]{8}$)|^[0-9]{8}[A-Z]{1}$)/', $nif ) ) { //No tiene formato válido
+				$falso = true;
+			}
+			if ( preg_match( '/(^[0-9]{8}[A-Z]{1}$)/', $nif ) ) {
+				if ( $num[8] == substr( 'TRWAGMYFPDXBNJZSQVHLCKE', substr( $nif, 0, 8 ) % 23, 1 ) ) { //NIF válido
+					$falso = false;
+				}
+			}
+			$suma = $num[2] + $num[4] + $num[6];
+			for ( $i = 1; $i < 8; $i += 2 ) {
+				$suma += substr( ( 2 * $num[$i] ), 0, 1 ) + substr( ( 2 * $num[$i] ), 1, 1 );
+			}
+			$n = 10 - substr( $suma, strlen( $suma ) - 1, 1 );
+			if ( preg_match( '/^[KLM]{1}/', $nif ) ) { //NIF especial válido
+				if ( $num[8] == chr( 64 + $n ) ) {
+					$falso = false;
+				}
+			}
+			if ( preg_match( '/^[ABCDEFGHJNPQRSUVW]{1}/', $nif ) ) {
+				if ( $num[8] == chr( 64 + $n ) || $num[8] == substr( $n, strlen( $n ) - 1, 1 ) ) { //CIF válido
+					$falso = false;
+				}
+			}
+			if ( preg_match( '/^[T]{1}/', $nif ) ) {
+				if ( $num[8] == preg_match( '/^[T]{1}[A-Z0-9]{8}$/', $nif ) ) { //NIE válido (T)
+					$falso = false;
+				}
+			}
+			if ( preg_match( '/^[XYZ]{1}/', $nif ) ) { //NIE válido (XYZ)
+				if ( $num[8] == substr( 'TRWAGMYFPDXBNJZSQVHLCKE', substr( str_replace( array( 'X','Y','Z' ), array( '0','1','2' ), $nif ), 0, 8 ) % 23, 1 ) ) {
+					$falso = false;
+				}
+			}
+		}
+
+		if ( $falso ) {
+			wc_add_notice( __( 'Por favor, introduzca un NIF/CIF válido. No introduzcas espacios ni caracteres especiales.' ), 'error' );
+		}
+	}
+	add_action( 'woocommerce_checkout_process', 'validar_nifcifnie_esp' );
+}
+
+if(get_current_blog_id() == 2) {	//Solo Portugal
+	//Validando el campo NIF
+	function validar_nifcifnie_por() {
+		if ( isset( $_POST['billing_numero_documento'] ) ) {
+			$nif = strtoupper( $_POST['billing_numero_documento'] );
+			$err = true;
+			//Limpamos eventuais espaços a mais
+			$nif = trim( $nif );
+			//Verificamos se é numérico e tem comprimento 9
+			if ( !is_numeric( $nif ) || strlen( $nif ) != 9 ) {
+				$err = true;
+			} else {
+				$nifSplit = str_split( $nif );
+				//O primeiro digíto tem de ser 1, 2, 5, 6, 8 ou 9
+				//Ou não, se optarmos por ignorar esta "regra"
+				if (in_array( $nifSplit[0], array( 1, 2, 3, 5, 6, 8, 9 ) ) || $ignoreFirst) {
+					//Calculamos o dígito de controlo
+					$checkDigit=0;
+					for( $i=0; $i<8; $i++ ) {
+						$checkDigit += $nifSplit[$i] * ( 10-$i-1 );
+					}
+					$checkDigit = 11 - ( $checkDigit % 11 );
+					//Se der 10 então o dígito de controlo tem de ser 0
+					if( $checkDigit >= 10 ) $checkDigit = 0;
+					//Comparamos com o último dígito
+					if ( $checkDigit == $nifSplit[8] ) {
+						$err = false;
+					} else {
+						$err = true;
+					}
+				} else {
+					$err = true;
+				}
+			}
+
+			if ( $err ) {
+				wc_add_notice( __( 'Insira um NIF válido. Não insira espaços ou caracteres especiais.' ), 'error' );
+			}
+		}
+
+	}
+	add_action( 'woocommerce_checkout_process', 'validar_nifcifnie_por' );
+}
+
 include("func/analytics.php");
 
 ?>
