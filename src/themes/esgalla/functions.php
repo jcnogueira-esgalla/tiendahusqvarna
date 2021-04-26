@@ -543,6 +543,13 @@ if(get_current_blog_id() == 1) {	//Solo España
 		}
 	}
 	add_action( 'woocommerce_checkout_process', 'validar_nifcifnie_esp' );
+
+	add_action( 'wp_footer', 'limitar_dni_caracteres');
+	function limitar_dni_caracteres() {
+		if ( is_checkout() ) { ?>
+			<script>jQuery('#billing_numero_documento').attr('maxlength', 9);</script>
+		<? }
+	}
 }
 
 if(get_current_blog_id() == 2) {	//Solo Portugal
