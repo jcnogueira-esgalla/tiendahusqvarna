@@ -556,3 +556,12 @@ function get_datos_product(itemKey){
 jQuery(document).on('click', 'a[aria-controls="collapseAccesorios"]', function(e) {
 	jQuery('#collapseAccesorios .slick-slider').slick('refresh');
 });
+
+jQuery(document).ready(function(){
+  jQuery( ".variations select" ).change(function(){
+    var skuindex = jQuery(this)[0].selectedIndex;
+    jQuery(".sku-product").hide();
+    jQuery(".sku-parent").hide();
+    jQuery(".sku-product-" +  skuindex).show();
+  });
+});
