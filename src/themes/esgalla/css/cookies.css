@@ -2,6 +2,10 @@ body {
 
 }
 
+.sku-product {
+  display:none;
+}
+
 #popup-cookies-bottom .desplegable-lat-bloque {
   border-top: 1px solid #F35321;
   box-shadow: 0 7px 14px 2px #333;
@@ -432,6 +436,9 @@ body {
   /* Accordion */
 
 
+  .sku-product {
+    display:none;
+  }
 
 
 
