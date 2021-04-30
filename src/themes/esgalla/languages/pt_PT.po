@@ -398,3 +398,6 @@ msgstr "Voltar ao início"
 
 msgid "Hola %1$s"
 msgstr "Viva, %1$s"
+
+msgid "Producto temporalmente sin existencias"
+msgstr "Produto temporariamente sem stock"
