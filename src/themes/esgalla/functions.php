@@ -462,7 +462,7 @@ function actualiza_estado_pedidos_a_completado( $order_id ) {
 //Ordenar por precio ASC cuando sea Automower
 add_filter('woocommerce_default_catalog_orderby', 'order_automower_price_asc');
 function order_automower_price_asc( $sort_by ) {
-	if( is_product_category('automower') ) {
+	if( is_product_category('automower') || is_product_category('robots-automower') ) {
 		return 'price';
 	} else {
 		return $sort_by;
