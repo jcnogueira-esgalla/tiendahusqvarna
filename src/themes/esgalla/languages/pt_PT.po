@@ -401,3 +401,6 @@ msgstr "Viva, %1$s"
 
 msgid "Producto temporalmente sin existencias"
 msgstr "Produto temporariamente sem stock"
+
+msgid "Este campo es obligatorio"
+msgstr "Este campo é obrigatório"
