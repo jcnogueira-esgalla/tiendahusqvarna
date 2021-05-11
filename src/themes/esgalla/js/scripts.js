@@ -456,4 +456,35 @@ jQuery(document).ready(function() {
 
 	 }
 
+	 if(jQuery('#carousel-opiniones')) {
+
+		jQuery('#carousel-opiniones').slick({
+			slidesPerRow: 2,
+			rows: 3,
+			arrows: false,
+			dots: true,
+			infinite: true,
+
+			responsive: [
+		        {
+		          breakpoint: 992,
+		          settings: {
+					slidesPerRow:1,
+					rows: 4,
+		          }
+		        },
+		      ]
+		});
+	}
+
 })
+
+
+// jQuery( document ).ready(function() {
+//     var divs = document.getElementsByClassName("modal").length;
+// 	jquery("#video-modal").addClass(divs);
+
+// });
+
+
+
