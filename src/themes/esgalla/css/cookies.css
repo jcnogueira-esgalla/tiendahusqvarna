@@ -472,3 +472,261 @@ a.configurar-cookies:hover {
   cursor:pointer;
   color: #F35321;
 }
+
+
+/*************** Opiniones ***********************/
+
+
+
+/********* Opiniones ***********/
+
+.modal-video .modal-body{
+	height: auto;
+  padding: 0;
+}
+
+.slick-arrow{
+	z-index:9999!important;
+}
+
+.modal-video .modal-content{
+	padding: 0 1em 1em;
+	margin-top: 5em;
+}
+
+.modal.show .modal-dialog{
+	width: 60em;
+  max-width: 100%;
+	margin: auto;
+}
+
+.modal-video .close span{
+	   font-size: 2em;
+    color: #f35220;
+}
+
+.inner-opinion{
+	display:flex;
+	padding-bottom:3.5em;
+}
+
+.inner-opinion .contenido{
+	padding-left:1em;   
+	width: fit-content;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.inner-opinion .title{
+	font-family:"Husqvarna Gothic";
+	font-weight:700;
+	font-size:1.8em;
+}
+
+.inner-opinion .description{
+	font-family:"Husqvarna Gothic";
+	font-weight:200;
+	font-size:1.2em;
+}
+
+.inner-opinion img{
+    width: 19em;
+}
+
+.inner-opinion .quote{
+    width: 3em;
+	  margin-bottom:-1.5em;
+}
+
+.inner-opinion .personal-image{
+    padding-left: 3.5em;
+}
+
+#carousel-opiniones .slick-dots button{
+	  display: block;
+    width: auto;
+    height: auto;
+    border: none;
+		color:#273A60;
+		background-color:#DFDFDF;
+    padding: 1px 7px;
+    border-radius: 0;
+    text-indent: 0;
+}
+
+#carousel-opiniones .slick-active button{
+		color:#ffffff!important;
+		background-color:#273A60;
+}
+
+
+#carousel-opiniones .fa-play-circle{
+    width: 100%;
+    transform: translate(1%, -250%);
+    color: #ffffff;
+    font-size: 3em;
+    z-index: 999999999;
+    position: absolute;
+}
+
+.lista-reproduccion{
+	width: 100%!important;
+  text-align: right!important;
+  display: block;
+  padding-top: 1.5em;
+  font-weight: 600;
+  font-style: italic!important;
+  font-size: 1.1em;
+}
+
+.contenido-seo p{
+	color:#6C6C6C;
+	font-size:1.1rem;
+	font-weight:300;
+}
+
+.contenido-seo p b{
+	font-weight:600;
+}
+
+/****** Responsive ********/
+@media (max-width:768px){
+	.slick-slide .inner-opinion{
+		display:block!important;
+	}
+	
+	.slick-slide .inner-opinion img{
+		margin-left: auto;
+	}
+	
+	.slick-slide .image{
+		display:flex!important;
+		padding-bottom: 1.5em;
+	}
+	
+	.slick-slide .inner-opinion .personal-image{
+		margin-right: 0;
+    margin-left: auto;
+		padding-left:1em!important;
+	}
+	
+	.slick-slide div:nth-child(even) .ficha-opiniones  .personal-image{
+		margin-right: auto;
+    margin-left: 0;
+		padding-left: 0!important;
+		padding-right:1em!important;
+	}
+	
+ .slick-slide div:nth-child(even) .ficha-opiniones .image{
+	flex-direction: row-reverse!important;
+	}
+	
+	.slick-slide div .inner-opinion .quote{
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.slick-slide div:nth-child(even)  .inner-opinion .quote{
+
+    transform: scaleX(-1);    
+	}
+	
+	.slick-slide .inner-opinion .contenido{
+		padding-left: 0em;
+	}
+	
+	#carousel-opiniones .fa-play-circle{
+		transform: translate(5%, -400%);
+	}
+	
+	#video-opiniones iframe{
+		transform: scale(1.17);
+	}
+	
+	.lista-reproduccion{
+		padding-top: 3.5em;
+	}
+	
+	.contenido-seo.mb-5{
+		margin-bottom:0!important;
+	}
+}
+
+
+#carousel-opiniones-producto{
+	padding:1em;
+	background-color:#273A60;
+}
+
+#carousel-opiniones-producto .ficha-opiniones{
+		width: 50em!important;
+    margin: 0 auto;
+    display: block!important;
+		max-width:100%!important;
+}
+#carousel-opiniones-producto .slick-dots{
+	padding-top:4em;
+}
+
+#carousel-opiniones-producto .title,
+#carousel-opiniones-producto .description{
+	color:#ffffff;
+}
+
+#carousel-opiniones-producto .fa-angle-left:before,
+#carousel-opiniones-producto .fa-angle-right:before{
+		color: #ffffff;
+    font-size: 3em;
+		position: absolute;
+    top: 50%;
+		z-index:999999;
+}
+
+
+#carousel-opiniones-producto .fa-angle-right:before{
+	right:8px!important;
+}
+
+#carousel-opiniones-producto .fa-angle-left:before{
+	left:8px!important;
+}
+
+#carousel-opiniones-producto .inner-opinion{
+	padding-bottom:0!important;
+}
+
+#carousel-opiniones-producto .inner-opinion .contenido{
+	padding-left:2em!important;
+}
+
+.ver-mas{
+	width: 100%;
+    text-align: right;
+    display: block;
+    font-style: italic;
+    font-weight: 700;
+    padding-top: 2.5em;
+}
+
+#carousel-opiniones-producto .fa-play-circle{
+    width: 100%;
+    transform: translate(0.4%, -300%);
+    color: #ffffff;
+    font-size: 3em;
+    z-index: 999999999;
+    position: absolute;
+}
+
+@media(max-width:767px){
+#carousel-opiniones-producto .fa-play-circle {
+    transform: translate(2%, -300%)!important;
+}
+	
+.product-template-default #carousel-opiniones-producto .fa-play-circle{
+        transform: translate(3.5%, -400%)!important;
+}
+}
+
+.product-template-default #carousel-opiniones-producto .fa-play-circle{
+    transform: translate(0.8%, -300%);
+}

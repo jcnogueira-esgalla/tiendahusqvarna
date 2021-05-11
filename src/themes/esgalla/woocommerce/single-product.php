@@ -433,6 +433,15 @@ if(!$postProductTerm->errors) $parentcats = get_ancestors($postProductTerm->term
 	}
 
 ?>
+
+<?php if(get_field('objeto_opiniones')):
+	
+	//** var_dump(get_field('objeto_opiniones', get_queried_object()->taxonomy.'_'.get_queried_object()->term_id));
+
+	get_template_part('template-parts/content', 'testimonial-product');
+
+endif; ?>
+
 <?php if( $mainCategory ): ?>
 
 <section id="#ofertas" class="bg-white pt-6">
@@ -460,8 +469,6 @@ if(!$postProductTerm->errors) $parentcats = get_ancestors($postProductTerm->term
 
 
 		</div>
-
-
 
 		<div class="row">
 

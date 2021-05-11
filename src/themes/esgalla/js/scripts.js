@@ -477,14 +477,32 @@ jQuery(document).ready(function() {
 		});
 	}
 
+
+	if(jQuery('#carousel-opiniones-producto')) {
+
+		jQuery('#carousel-opiniones-producto').slick({
+			slidesPerRow: 1,
+			rows: 1,
+			arrows: true,
+			dots: false,
+			infinite: true,
+			prevArrow: "<i class=\"fas fa-angle-left prev\"></i>",
+		    nextArrow: "<i class=\"fas fa-angle-right next\"></i>",
+
+			responsive: [
+		        {
+				  breakpoint: 992,
+		          settings: {
+					arrows: false,
+					dots: true,
+		          }
+
+		        },
+		      ]
+		});
+	}
+
 })
-
-
-// jQuery( document ).ready(function() {
-//     var divs = document.getElementsByClassName("modal").length;
-// 	jquery("#video-modal").addClass(divs);
-
-// });
 
 
 
