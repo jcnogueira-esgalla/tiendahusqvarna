@@ -11,7 +11,7 @@
                             <?php echo wp_get_attachment_image(17517);  ?>
                         </div>
                         <?php if(get_field('imagen_opinion', $opinion)): ?>
-                            <div class="personal-image">
+                            <div class="personal-image pr-35">
                                 <?php echo wp_get_attachment_image( get_field('imagen_opinion' , $opinion), 'large'); ?>
                             </div>
                         <?php endif; ?>
@@ -19,8 +19,9 @@
                          <?php if(get_field('imagen_del_video', $opinion)): ?>
                             <a type="button" data-toggle="modal" data-target="#videomodal<?php echo $contador; ?>">
                                 <div class="personal-image">
-                                    <?php echo wp_get_attachment_image( get_field('imagen_del_video' , $opinion), 'large'); ?>
-                                    <i class="far fa-play-circle"></i>
+                                <i class="far fa-play-circle"></i>
+                                <?php echo wp_get_attachment_image( get_field('imagen_del_video' , $opinion), 'large'); ?>
+                                    
                                 </div>
                             </a> 
                         <?php endif; ?>
@@ -30,7 +31,6 @@
                         <div class="description"><?php echo get_field('descripcion_opinion' , $opinion); ?></div>
                     </div>
                 </div>
-
     
 </div>     
 <?php $contador++; } ?>

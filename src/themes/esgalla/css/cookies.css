@@ -533,13 +533,34 @@ a.configurar-cookies:hover {
     width: 19em;
 }
 
+.slick-dots{
+  z-index:99999;
+  overflow: auto!important;
+}
+
+.slick-dots li{
+  z-index:9999;
+}
+
+.contenido{
+	width:100%!important;
+}
+
 .inner-opinion .quote{
     width: 3em;
 	  margin-bottom:-1.5em;
 }
 
+.inner-opinion .image a{
+  padding-left: 3.5em;
+}
+
+.inner-opinion .personal-image.pr-35{
+  padding-left: 3.5em!important;
+}
+
 .inner-opinion .personal-image{
-    padding-left: 3.5em;
+    position:relative!important;
 }
 
 #carousel-opiniones .slick-dots button{
@@ -560,9 +581,13 @@ a.configurar-cookies:hover {
 }
 
 
-#carousel-opiniones .fa-play-circle{
+.fa-play-circle{
     width: 100%;
-    transform: translate(1%, -250%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto!important;
     color: #ffffff;
     font-size: 3em;
     z-index: 999999999;
@@ -633,10 +658,6 @@ a.configurar-cookies:hover {
 	
 	.slick-slide .inner-opinion .contenido{
 		padding-left: 0em;
-	}
-	
-	#carousel-opiniones .fa-play-circle{
-		transform: translate(5%, -400%);
 	}
 	
 	#video-opiniones iframe{
@@ -710,23 +731,8 @@ a.configurar-cookies:hover {
 
 #carousel-opiniones-producto .fa-play-circle{
     width: 100%;
-    transform: translate(0.4%, -300%);
     color: #ffffff;
     font-size: 3em;
     z-index: 999999999;
     position: absolute;
-}
-
-@media(max-width:767px){
-#carousel-opiniones-producto .fa-play-circle {
-    transform: translate(2%, -300%)!important;
-}
-	
-.product-template-default #carousel-opiniones-producto .fa-play-circle{
-        transform: translate(3.5%, -400%)!important;
-}
-}
-
-.product-template-default #carousel-opiniones-producto .fa-play-circle{
-    transform: translate(0.8%, -300%);
 }
