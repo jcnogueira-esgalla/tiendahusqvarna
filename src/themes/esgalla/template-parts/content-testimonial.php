@@ -5,7 +5,11 @@
                 <div class="inner-opinion">
                     <div class="image">
                         <div class="quote">
-                            <?php echo wp_get_attachment_image(17517);  ?>
+                            <?php if(get_current_blog_id() == 2) {
+                             echo wp_get_attachment_image(23212);}
+                             else {
+                                echo wp_get_attachment_image(17517);
+                             };  ?>
                         </div>
                         <?php if(get_field('imagen_opinion', $opinion)): ?>
                             <div class="personal-image pr-35">

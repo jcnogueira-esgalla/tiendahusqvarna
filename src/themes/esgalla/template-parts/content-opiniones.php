@@ -8,7 +8,11 @@
                 <div class="inner-opinion">
                     <div class="image">
                         <div class="quote">
-                            <?php echo wp_get_attachment_image(17517);  ?>
+                         <?php  if(get_current_blog_id() == 2) {
+                             echo wp_get_attachment_image(23212);}
+                             else {
+                                echo wp_get_attachment_image(17517);
+                             };  ?>
                         </div>
                         <?php if(get_field('imagen_opinion', $opinion)): ?>
                             <div class="personal-image pr-35">
@@ -66,7 +70,7 @@
 <!-- Video -->
     <div id="video-opiniones" class="video-opiniones">
         <?php echo get_field('iframe_video_opinion'); ?> 
-        <a target="_blank" href="<?php echo get_field('url_lista_de_reproduccion'); ?>" class="lista-reproduccion"> - ver lista de reproducción </a>
+        <a target="_blank" href="<?php echo get_field('url_lista_de_reproduccion'); ?>" class="lista-reproduccion"> -  <?php _e("ver lista de reproducción","esgalla"); ?> </a>
     </div>
         
            
