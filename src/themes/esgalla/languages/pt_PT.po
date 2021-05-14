@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Husqvarna\n"
-"PO-Revision-Date: 2021-03-15 15:19+0100\n"
+"PO-Revision-Date: 2021-05-14 11:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: Esgalla\n"
 "Language: pt_PT\n"
@@ -17,6 +17,15 @@ msgstr ""
 
 msgid "14 días de devolución"
 msgstr "Devolução durante 14 dias"
+
+msgid "leer noticia"
+msgstr "ler o artigo"
+
+msgid "ver lista de reproducción"
+msgstr "ver lista de reprodução"
+
+msgid "https://tiendahusqvarna.com/files/2021/05/Group-2.png"
+msgstr "https://lojahusqvarna.com/files/sites/2/2021/05/Group-2.png"
 
 msgid "2 años de garantía"
 msgstr "2 anos de garantia"
