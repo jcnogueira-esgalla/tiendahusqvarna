@@ -154,12 +154,15 @@
 
 				<div class="text-primary breadcrumbs">
 
-				<?php if( is_page( 17399 ) || is_page( 23130 )) { ?>
+				<?php if( is_page( 17399 )) { ?>
  					<div class="text-primary breadcrumbs">
 					 	<span><span><a href="/">Portada</a> &gt;  <a href="/automower/">Automower®</a> &gt; <strong class="breadcrumb_last" aria-current="page">Automower® > Opiniones</strong></span></span>		   
 			   		</div>
-
 					   
+				<?php } if( is_page( 23130 )) { ?>
+					<div class="text-primary breadcrumbs">
+					 	<span><span><a href="/">Início</a> &gt;  <a href="/automower/">Automower®</a> &gt; <strong class="breadcrumb_last" aria-current="page">Automower® > Opiniões</strong></span></span>		   
+			   		</div>
 					   
 				<?php } else{ ?>
 
