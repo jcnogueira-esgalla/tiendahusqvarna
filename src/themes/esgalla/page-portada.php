@@ -148,7 +148,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 			<h1 class="text-center pt-3 pt-md-6 text-light font-weight-bold w-100 text-uppercase"><?php _e("Encuentra las herramientas","esgalla"); ?> <span class="h1 font-weight-bold text-primary">HUSQVARNA</span> <?php _e("que estás buscando","esgalla"); ?></h1>
 
 			<form role="search" method="get" class="search-form input-group" action="<?php echo get_home_url( ) ?>">
-				<input type="search" class="form-control" placeholder="<?php _e("¿Qué estás buscando?","esgalla"); ?>" value="" name="s" data-swplive="true">
+				<input type="search"  data-swpengine="default" class="form-control" placeholder="<?php _e("¿Qué estás buscando?","esgalla"); ?>" value="" name="s" data-swplive="true">
 				<button class="btn btn-secondary rounded shadow font-weight-bold text-uppercase" type="submit"><?php _e("Buscar","esgalla"); ?></button>
 			</form>
 

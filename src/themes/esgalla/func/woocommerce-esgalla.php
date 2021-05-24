@@ -288,17 +288,43 @@
          'required'      => true,
 
 
-         'label'         => (get_current_blog_id() == 1 ? '<span>'.__("He leído y acepto la ","esgalla").' <a href="' . (get_current_blog_id() == 1 ? '/terminos-y-condiciones' : '/termos-e-condicoes') . '">'.__("Política de Privacidad","esgalla").'</a> y el <a href="/aviso-legal">Aviso Legal </a> de INTERNACO S.A </span>' : '<span>Li e aceito a&nbsp;<a href="https://lojahusqvarna.com/politica-de-privacidade/" target="_blank">política de privacidade*</a></span>'),
+         'label'         => (get_current_blog_id() == 1 ? '<span>'.__("He leído y acepto la ","esgalla").' <a href="/politica-de-privacidad">'.__("Política de Privacidad","esgalla").'</a> y el <a href="/aviso-legal">Aviso Legal </a> de INTERNACO S.A </span>' : '<span>Li e aceito a&nbsp;<a href="https://lojahusqvarna.com/politica-de-privacidade/" target="_blank">política de privacidade*</a></span>'),
         //  'label'        '<span>'.__("He leído y acepto la ","esgalla").' <a href="' . (get_current_blog_id() == 1 ? '/terminos-y-condiciones' : '/termos-e-condicoes') . '">'.__("Política de Privacidad","esgalla").'</a> y el <a href="/aviso-legal">Aviso Legal </a> de INTERNACO S.A </span>',
 
 
       ));
 
 
-
     }
 
     add_action( 'woocommerce_register_form', 'add_aceptacion_privacidad_registro', 11 );
+
+
+    function add_aceptacion_privacidad_registro1() {
+
+      woocommerce_form_field( 'privacy_policy_reg', array(
+
+         'type'          => 'checkbox',
+
+         'class'         => array('form-row privacy'),
+
+         'label_class'   => array('woocommerce-form__label woocommerce-form__label-for-checkbox checkbox'),
+
+         'input_class'   => array('woocommerce-form__input woocommerce-form__input-checkbox input-checkbox'),
+
+         'required'      => true,
+
+
+         'label'         => (get_current_blog_id() == 1 ? '<span>Autorizo el envío de comunicaciones relacionadas con campañas y mantenimientos respecto del producto que he adquirido</span>' : ''),
+        //  'label'        '<span>'.__("He leído y acepto la ","esgalla").' <a href="' . (get_current_blog_id() == 1 ? '/terminos-y-condiciones' : '/termos-e-condicoes') . '">'.__("Política de Privacidad","esgalla").'</a> y el <a href="/aviso-legal">Aviso Legal </a> de INTERNACO S.A </span>',
+
+
+      ));
+
+
+    }
+
+    add_action( 'woocommerce_register_form', 'add_aceptacion_privacidad_registro1', 11 );
 
 
 

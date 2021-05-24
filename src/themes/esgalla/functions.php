@@ -116,7 +116,7 @@ function esgalla_header_menu() {
 							<a class="navbar navbar-fixed-top" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
 					            <i class="fas fa-times fs-fa text-secondary"></i>
 					        </a></div>		<div class="buscador-principal mt-4"><form role="search" method="get" class="search-form input-group border" action="/">
-									<input type="search" class="form-control" placeholder="' . __("¿Qué estás buscando?","esgalla") . '" value="" name="s" data-swplive="true">
+									<input type="search" data-swpengine="default" lass="form-control" placeholder="' . __("¿Qué estás buscando?","esgalla") . '" value="" name="s" data-swplive="true">
 									<button class="btn btn-secondary rounded shadow font-weight-bold text-uppercase" style="width: auto;" type="submit">' . __("Buscar","esgalla") . '</button>
 								</form></div><ul id="%1$s" class="%2$s"><h3 class="mt-3">' . __("Menú","esgalla") . '</h3>%3$s</ul>
 					        <div class="selector-idioma"></div>

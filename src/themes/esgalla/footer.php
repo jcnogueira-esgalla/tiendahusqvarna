@@ -81,7 +81,7 @@
     <div class="modal-content buscador-principal p-4 p-md-6">
 		<h2 class="text-center text-dark font-weight-bold w-100 text-uppercase mb-3"><?php _e("Encuentra las herramientas","esgalla"); ?> <span class="h1 font-weight-bold text-primary">HUSQVARNA</span> <?php _e("que estás buscando","esgalla"); ?></h2>
 		<form role="search" method="get" class="search-form input-group border modal-form-search" action="<?php echo get_home_url( ) ?>">
-			<input type="search" class="form-control" placeholder="<?php _e("¿Qué estás buscando?","esgalla"); ?>" value="" name="s" data-swplive="true">
+			<input type="search" data-swpengine="default" class="form-control" placeholder="<?php _e("¿Qué estás buscando?","esgalla"); ?>" value="" name="s" data-swplive="true">
 			<button class="btn btn-secondary rounded shadow font-weight-bold text-uppercase" type="submit"><?php _e("Buscar","esgalla"); ?></button>
 		</form>
     </div>
