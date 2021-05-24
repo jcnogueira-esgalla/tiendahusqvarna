@@ -51,6 +51,13 @@ if ( is_user_logged_in() ) {
 		</label>
 	</p>
 
+	<p class="form-row woocommerce-form__label-for-checkbox d-n">
+		<label for="rememberme" class="inline">
+			<input class="woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" checked/> 
+			<?php (get_current_blog_id() == 1 ? _e( '<span>Autorizo el envío de comunicaciones relacionadas con campañas y mantenimientos respecto del producto que he adquirido</span>', 'woocommerce' ) : '')?>
+		</label>
+	</p>
+
 	<p class="form-row">
 		<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
 		<input type="hidden" name="redirect" value="<?php echo esc_url( $redirect ) ?>" />

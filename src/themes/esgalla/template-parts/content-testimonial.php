@@ -30,7 +30,7 @@
                     <div class="contenido">
                         <div class="title mb-2"><?php echo get_the_title($opinion); ?></div>
                         <div class="description"><?php echo get_field('descripcion_opinion' , $opinion); ?></div>
-                        <a class="ver-mas" href="https://tiendahusqvarna.com/automower/opiniones/" target="blank"> - ver más opiniones </a>
+                        <a class="ver-mas" href="<?php _e("https://tiendahusqvarna.com/automower/opiniones/","esgalla"); ?>" target="blank"> -  <?php _e("ver más opiniones","esgalla"); ?> </a>
                     </div>
                 </div>
 

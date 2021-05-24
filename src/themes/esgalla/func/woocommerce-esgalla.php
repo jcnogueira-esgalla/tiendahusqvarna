@@ -288,8 +288,8 @@
          'required'      => true,
 
 
-         'label'         => '<span>'.__("He leído y acepto la","esgalla").' <a href="' . (get_current_blog_id() == 1 ? '/terminos-y-condiciones' : '/termos-e-condicoes') . '">'.__("Política de privacidad","esgalla").'</a></span>',
-        //  'label'         => '<span>'.__("He leído y acepto la","esgalla").' <a href="">'.__("Política de privacidad","esgalla").'</a></span>',
+         'label'         => (get_current_blog_id() == 1 ? '<span>'.__("He leído y acepto la ","esgalla").' <a href="' . (get_current_blog_id() == 1 ? '/terminos-y-condiciones' : '/termos-e-condicoes') . '">'.__("Política de Privacidad","esgalla").'</a> y el <a href="/aviso-legal">Aviso Legal </a> de INTERNACO S.A </span>' : '<span>Li e aceito a&nbsp;<a href="https://lojahusqvarna.com/politica-de-privacidade/" target="_blank">política de privacidade*</a></span>'),
+        //  'label'        '<span>'.__("He leído y acepto la ","esgalla").' <a href="' . (get_current_blog_id() == 1 ? '/terminos-y-condiciones' : '/termos-e-condicoes') . '">'.__("Política de Privacidad","esgalla").'</a> y el <a href="/aviso-legal">Aviso Legal </a> de INTERNACO S.A </span>',
 
 
       ));

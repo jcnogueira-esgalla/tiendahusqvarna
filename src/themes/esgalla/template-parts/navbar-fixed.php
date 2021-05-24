@@ -31,9 +31,9 @@
 
 					<div class="buscador">
 
-						<form role="search" method="get" class="search-form input-group" action="<?php echo get_home_url(); ?>">
+						<form role="search"  method="get" class="search-form input-group" action="<?php echo get_home_url(); ?>">
 
-							<input type="text" class="form-control" placeholder="<?php _e("¿Qué estás buscando?","esgalla"); ?>" value="" name="s" data-swplive="true">
+							<input type="text" class="form-control" <?php if(site_url( 'blog' )) { print_r('data-swpengine="supplemental_engine"'); } ?> placeholder="<?php _e("¿Qué estás buscando?","esgalla"); ?>" value="" name="s" data-swplive="true">
 
 							<div class="input-group-append">
 

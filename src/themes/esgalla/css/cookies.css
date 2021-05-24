@@ -58,6 +58,10 @@ body {
   }
 }
 
+.nuestras-ofertas .gfield_checkbox li{
+  display:flex!important;
+}
+
 .ck_fs-14 {
   font-size: 14px;
 }

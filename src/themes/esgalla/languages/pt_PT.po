@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Husqvarna\n"
-"PO-Revision-Date: 2021-05-14 11:32+0200\n"
+"PO-Revision-Date: 2021-05-18 14:30+0200\n"
 "Last-Translator: \n"
 "Language-Team: Esgalla\n"
 "Language: pt_PT\n"
@@ -23,6 +23,12 @@ msgstr "ler o artigo"
 
 msgid "ver lista de reproducción"
 msgstr "ver lista de reprodução"
+
+msgid "ver más opiniones"
+msgstr "ver mais opiniões"
+
+msgid "https://tiendahusqvarna.com/automower/opiniones/"
+msgstr "https://lojahusqvarna.com/automower/opinioes/"
 
 msgid "https://tiendahusqvarna.com/files/2021/05/Group-2.png"
 msgstr "https://lojahusqvarna.com/files/sites/2/2021/05/Group-2.png"
