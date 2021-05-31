@@ -558,10 +558,16 @@ jQuery(document).on('click', 'a[aria-controls="collapseAccesorios"]', function(e
 });
 
 jQuery(document).ready(function(){
-  jQuery( ".variations select" ).change(function(){
-    var skuindex = jQuery(this)[0].selectedIndex;
+  jQuery(".variations select").on("change", function(){
     jQuery(".sku-product").hide();
     jQuery(".sku-parent").hide();
-    jQuery(".sku-product-" +  skuindex).show();
+    let valorSelect = jQuery(this).attr('selected','selected').val();
+    if( valorSelect == ''){
+      jQuery(".sku-parent").show();
+    }
+    else{
+      jQuery(".sku-product#" + valorSelect).show();
+    }
+
   });
 });

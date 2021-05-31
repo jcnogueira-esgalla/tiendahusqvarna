@@ -98,7 +98,49 @@ if(!$postProductTerm->errors) $parentcats = get_ancestors($postProductTerm->term
 				<h1 class="font-weight-bold text-dark product-name text-center text-md-left"><?php echo get_the_title() ?></h1>
 
 				<div class="text-gray spacing pt-2 text-center text-md-left">
-					Ref. <span class=""><?php echo $product->get_sku(); ?></span> |
+				Ref.  <?php 
+
+function get_variations_skus( $product_id ){
+	global $wpdb;
+
+return $wpdb->get_col("
+		SELECT pm.meta_value
+		FROM {$wpdb->prefix}postmeta as pm
+		INNER JOIN {$wpdb->prefix}posts as p ON p.ID = pm.post_id
+		WHERE p.post_type = 'product_variation'
+		AND p.post_status = 'publish'
+		AND p.post_parent = $product_id
+		AND pm.meta_key = '_sku'
+		AND pm.meta_value != ''
+   ");
+}
+		global $product;
+
+		// Variable product main sku
+		$sku = $product->get_sku();
+		
+		// The variations skus for this variable product (in an array)
+		$variations_skus = get_variations_skus( $product->get_id() );
+
+							
+		// Testing output variations skus:  Array to string conversion (coma separated skus)
+		$x = 1;
+        
+        $post = get_post();
+        $id =  $post->ID;
+        $product_variations = new WC_Product_Variable( $id );
+        $product_variations = $product_variations->get_available_variations();
+		$count_variations = count($product_variations);
+		
+		foreach($variations_skus as $variation){
+            for( $i =  0; $i < $count_variations; $i++){
+			    echo '<span id="' . reset($product_variations[$i]["attributes"]) . '"class=" sku-product sku-product-' . $x++ . '">'. $product_variations[$i]['sku'] .'</span>';
+            }
+			break;
+		}
+
+		 ?>
+					 <span class="sku-parent"><?php echo $product->get_sku(); ?></span> |
 					<span class="text-primary fong-weight-light text-opacity"><?php if(!$postProductTerm->errors) echo '<a href="'.get_term_link( $postProductTerm->term_id ).'">'.$postProductTerm->name.'</a>' ?></span>
 				</div>
 
