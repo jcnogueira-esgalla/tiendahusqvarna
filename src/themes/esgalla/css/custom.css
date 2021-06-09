@@ -13340,6 +13340,10 @@ footer .row {
   margin-bottom: 40px;
 }
 
+.single-post .post-content a {
+  font-size: 1.188rem;
+}
+
 .single-post .post-content p strong {
   font-weight: 600;
 }

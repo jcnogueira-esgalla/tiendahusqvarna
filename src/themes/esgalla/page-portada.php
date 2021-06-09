@@ -40,7 +40,7 @@ $categorias_tienda = array(
 
 	'aceites-gasolinas' => 885,
 
-	'automower' => 1815,
+	'automower' => 1838,
 
 	'juguetes' => 903,
 

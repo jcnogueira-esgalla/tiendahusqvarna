@@ -371,3 +371,7 @@ a.reset_variations {
 .navbar-toggler img {
 	min-width: 25px;
 }
+
+.single-post .post-content a {
+  font-size: 1.188rem;
+}
