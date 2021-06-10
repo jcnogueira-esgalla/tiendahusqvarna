@@ -88,7 +88,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 
 		'motozada' => 498,
 
-		'hidrolimpiadora' => 1078,
+		//'hidrolimpiadora' => 1078,
 
 		'aspiradora' => 475,
 
@@ -337,19 +337,18 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 
 				<div class="col-sm-6 col-md-4 mb-4">
 
-					<a class="" href="<?php echo get_term_link($categorias_tienda['motozada']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-categoria-motoazada.jpg" alt="motoazadas husqvarna"><div class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Motoazada husqvarna","esgalla"); ?></div></a>
+				    <a class="" href="<?php echo get_term_link($categorias_tienda['motozada']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-categoria-motoazada.jpg" alt="motoazadas husqvarna"><div class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Motoazada husqvarna","esgalla"); ?></div></a>
 
 
 
 				</div>
-				
-				<div class="col-sm-6 col-md-4 mb-4">
-
-					<a class="" href="<?php echo get_term_link($categorias_tienda['hidrolimpiadora']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/foto-categoria-hidrolimpiadora.jpg" alt="motoazadas husqvarna"><div class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Hidrolimpiadora husqvarna","esgalla"); ?></div></a>
 
 
-
-				</div>
+				<?php if(get_site_url( ) == 'https://tiendahusqvarna.com'){ ?>
+					<div class="col-sm-6 col-md-4 mb-4">
+						<a class="" href="<?php echo get_term_link($categorias_tienda['hidrolimpiadora']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/foto-categoria-hidrolimpiadora.jpg" alt="motoazadas husqvarna"><div class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Hidrolimpiadora husqvarna","esgalla"); ?></div></a>
+					</div>
+				<?php } ?>
 
 				<div class="col-sm-6 col-md-4 mb-4">
 
