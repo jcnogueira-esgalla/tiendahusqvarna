@@ -187,8 +187,11 @@ return $wpdb->get_col("
 										<li><?php esc_html_e('- Lo puedes hacer tú mismo gracias a un kit de instalación.', "esgalla"); ?></li>
 										<li><?php esc_html_e('- Lo puede hacer un técnico profesional autorizado.',"esgalla"); ?></li>
 								</ul>
-								<p class="mb-0">
+								<p class="">
 										<?php _e('De la calidad de la instalación dependerá el correcto funcionamiento de Automower®, por ello, salvo en el modelo Automower® 105, recomendamos que escojas la Instalación Profesional.', "esgalla"); ?>
+								</p>
+								<p class="mb-0">
+										<?php _e('En la Instalación Profesional no esta incluida la instalación de ninguna toma de corriente ni cortes en pavimentos.', "esgalla"); ?>
 								</p>
 						</div>
 				<?php endif; ?>
