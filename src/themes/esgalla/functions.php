@@ -252,6 +252,9 @@ function esgalla_scripts() {
 
 		//wp_enqueue_style( 'fa-css', get_template_directory_uri() . '/css/font-awesome/all.min.css' );
 
+		//Tienda JS
+		wp_enqueue_script('tienda-js', get_template_directory_uri() . '/js/tienda.js', array('jquery'), '', true );
+
 
 		// Banner cookiesc
 		wp_enqueue_style('cookies-css', get_template_directory_uri() . '/css/cookies.css' );

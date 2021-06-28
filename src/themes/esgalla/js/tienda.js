@@ -558,7 +558,9 @@ jQuery(document).on('click', 'a[aria-controls="collapseAccesorios"]', function(e
 });
 
 jQuery(document).ready(function(){
+  console.log("Entra0");
   jQuery(".variations select").on("change", function(){
+    console.log("Entra");
     jQuery(".sku-product").hide();
     jQuery(".sku-parent").hide();
     let valorSelect = jQuery(this).attr('selected','selected').val();
