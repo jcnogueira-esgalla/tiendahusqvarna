@@ -176,22 +176,6 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 					?>
 				</div>
 			</div>
-
-			<div class="row fake-a pointer row-folleto text-right py-4 pr-3 mt-4">
-				<div class="col-lg-4 col-xl-7"></div>
-				<div class="col-lg-8 col-xl-5 d-flex flex-column justify-content-between">
-
-					<h2 class="h1 text-light font-weight-bold text-uppercase "><?php _e("Comienza tu próximo proyecto de jardín","esgalla"); ?></h2>
-
-			    <?php if(get_site_url( ) == 'https://tiendahusqvarna.com'){ ?>
-					<a href="https://folleto.tiendahusqvarna.com" class="text-light text-uppercase font-weight-bold text-decoration-none"><?php _e("Descubre todas las ofertas en nuestro folleto de primavera 2021","esgalla"); ?></a>
-					<?php } ?>
-					<?php if(get_site_url( ) == 'https://lojahusqvarna.com'){ ?>
-						<a href="https://folheto.lojahusqvarna.com" class="text-light text-uppercase font-weight-bold text-decoration-none"><?php _e("Descubre todas las ofertas en nuestro folleto de primavera 2021","esgalla"); ?></a>
-					<?php } ?>
-
-				</div>
-			</div>
 		</div>
 
 	</section>
