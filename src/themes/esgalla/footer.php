@@ -43,9 +43,10 @@
 					<div class="col-md-6 d-flex flex-column flex-md-row justify-content-center justify-content-md-start">
 						<a class="text-white text-center text-md-left pr-md-4 mt-4 mt-md-0" href="<? echo get_permalink(10986); ?>">Política de privacidad</a>
 						<a class="text-white text-center text-md-left pr-md-4 mt-4 mt-md-0" href="<? echo get_permalink(10988); ?>">Política de cookies</a>
-						<a class="text-white text-center text-md-left mt-4 mt-md-0" href="<? echo get_permalink(10987); ?>">Aviso legal</a>
+						<a class="text-white text-center text-md-left pr-md-4 mt-4 mt-md-0" href="<? echo get_permalink(10987); ?>">Aviso legal</a>
 					</div>
 					<div class="col-md-6 d-flex flex-column flex-md-row justify-content-center justify-content-md-end">
+						<a class="text-white text-center text-md-left pr-md-4 mt-4 mt-md-0" target="_blank" href="/files/2021/07/20201215_FAQs-CPC-online-v3.pdf">Condiciones de Financiación</a>
 						<a class="text-white text-center text-md-left pr-md-4 mt-4 mt-md-0" href="<? echo get_permalink(10959); ?>">Condiciones de venta</a>
 						<a class="text-white text-center text-md-left pr-md-4 mt-4 mt-md-0" href="<? echo get_permalink(10989); ?>">Mapa del sitio</a>
 					</div>
