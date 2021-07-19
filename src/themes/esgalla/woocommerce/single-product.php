@@ -295,7 +295,9 @@ return $wpdb->get_col("
 
 */ ?>
 
-
+				<?php if(get_field('descargable') == true): ?>
+						<div class="boton-producto"><a class="btn btn-primary btn-cart text-white spacing font-weight-regular fs-125 text-center" target="_blank" href="<?php echo wp_get_attachment_url(get_field('pdf')); ?>"><?php echo get_field('texto_del_boton'); ?></a></div>
+				<?php endif; ?>
 
 			</div>
 
