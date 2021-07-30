@@ -45,7 +45,11 @@ $shareUrl = urlencode(home_url( $wp->request ));
 					<?php endif; ?>
 				</div>
 				<div class="compartir-noticia d-flex justify-content-between px-md-4 pt-3 pt-md-4 border-top">
-					<p class="text-dark font-weight-bold"><?php _e("¡Comparte este artículo!","esgalla"); ?></p>
+					<?php if(get_current_blog_id() == 1): //España ?>
+						<p class="text-dark font-weight-bold"><?php _e("¡Comparte este artículo!","esgalla"); ?></p>
+					<?php elseif(get_current_blog_id() == 2): //Portugal ?>
+						<p class="text-dark font-weight-bold"><?php _e("¡Partilhe este artigo!","esgalla"); ?></p>
+					<?php endif; ?>
 					<div class="redes">
 						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $shareUrl; ?>" target="_blank"><i class="fab fa-facebook mr-3 fs-fa"></i></a>
 						<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $shareUrl; ?>&title=&summary=<?php echo get_the_title(); ?>&source=" target="_blank"><i class="fab fa-linkedin fs-fa mr-3"></i></a>
