@@ -27,8 +27,8 @@ get_header();
 			
 
 			<div class="col-12 col-md-3 collapse not-collapse-md filtro-facet" id="facetWp" style="height: fit-content!important;">
-				<?php echo facetwp_display( 'selections' ) ?>
 				<div class="facetwp-facet"><?php woocommerce_catalog_ordering(); ?></div>
+				<?php echo facetwp_display( 'selections' ) ?>
 				<?php echo facetwp_display( 'facet', 'buscador_productos' ); ?>
 				<?php echo facetwp_display( 'facet', 'price_range' ); ?>
 				<?php echo facetwp_display( 'facet', 'categoras_productos' ); ?>
