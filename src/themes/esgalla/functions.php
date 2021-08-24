@@ -251,9 +251,7 @@ function esgalla_scripts() {
 		wp_enqueue_style( 'fa-css', get_template_directory_uri() . '/css/font-awesome/fontawesome.min.css' );
 
 		//wp_enqueue_style( 'fa-css', get_template_directory_uri() . '/css/font-awesome/all.min.css' );
-
-		//Tienda JS
-		wp_enqueue_script('tienda-js', get_template_directory_uri() . '/js/tienda.js', array('jquery'), '', true );
+		
 
 
 		// Banner cookiesc
@@ -282,7 +280,9 @@ function esgalla_scripts() {
             wp_enqueue_script( 'woo-js' );
             wp_dequeue_script( 'selectWoo');
             wp_deregister_script('selectWoo');
-        }
+        } else {
+					wp_enqueue_script('tienda-js', get_template_directory_uri() . '/js/tienda.js', array('jquery'), '', true );
+				}
 
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
