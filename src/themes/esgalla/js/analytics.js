@@ -113,16 +113,19 @@ function getListHomeProductByList(list) {
 }*/
 function getListHomeProductByList(list) {
     let products = [];
-    let listProducts = document.getElementById(list).querySelectorAll(".slick-active .ficha-producto");
-    if (listProducts) {
-        for (var i = 0; i < listProducts.length; i++) {
-            var product = getProductDataById(listProducts[i].dataset.analyticProductId);
-            if (product) {
-                product.list = 'home - ' + list;
-                products.push(product);
+    let listProducts = document.querySelectorAll(".slick-active .ficha-producto");
+    document.addEventListener("DOMContentLoaded" , () => {
+        if (listProducts) {
+            for (var i = 0; i < listProducts.length; i++) {
+                var product = getProductDataById(listProducts[i].dataset.analyticProductId);
+                if (product) {
+                    product.list = 'home - ' + list;
+                    products.push(product);
+                }
             }
         }
-    }
+    });
+    
     return products;
 }
 
