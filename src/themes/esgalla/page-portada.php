@@ -186,9 +186,11 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 			<div class="col-12">
 				<?php if(get_site_url( ) == 'https://tiendahusqvarna.com'){ ?>
 					<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarna&utm_medium=banner&utm_campaign=renovacion-otono" target="_blank"><img src="https://tiendahusqvarna.com/files/2021/10/BANNERS-ES_1440x670px.jpg" class="img-fluid"/></a>
+					<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarna&utm_medium=banner&utm_campaign=renovacion-otono" target="_blank" class="text-primary subtit-arrow font-italic font-weight-bold text-decoration-none d-block mt-3">ver todas las ofertas</a>
 				<?php } ?>
 				<?php if(get_site_url( ) == 'https://lojahusqvarna.com'){ ?>
 					<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=banner&utm_campaign=renovacao-outono" target="_blank"><img src="https://lojahusqvarna.com/files/sites/2/2021/10/BANNERS-PT_1440x670px.jpg" class="img-fluid"/></a>
+					<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=banner&utm_campaign=renovacao-outono" target="_blank" class="text-primary subtit-arrow font-italic font-weight-bold text-decoration-none d-block mt-3">veja todas as promoções</a>
 				<?php } ?>
 			</div>
 		</div>
