@@ -181,6 +181,18 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 	</section>
 	<? endif; ?>
 
+	<div class="container-fluid container-md px-0" id="banner-folleto">
+		<div class="row py-4 mt-4">
+			<div class="col-12">
+				<?php if(get_site_url( ) == 'https://tiendahusqvarna.com'){ ?>
+					<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarna&utm_medium=banner&utm_campaign=renovacion-otono" target="_blank"><img src="https://tiendahusqvarna.com/files/2021/10/BANNERS-ES_1440x670px.jpg" class="img-fluid"/></a>
+				<?php } ?>
+				<?php if(get_site_url( ) == 'https://lojahusqvarna.com'){ ?>
+					<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=banner&utm_campaign=renovacao-outono" target="_blank"><img src="https://lojahusqvarna.com/files/sites/2/2021/10/BANNERS-PT_1440x670px.jpg" class="img-fluid"/></a>
+				<?php } ?>
+			</div>
+		</div>
+	</div>
 
 	<? $motosierras = get_field('seccion_motosierras'); ?>
 	<section id="motosierras" class="bg-white pt-6">
