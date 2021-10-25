@@ -163,7 +163,7 @@ return $wpdb->get_col("
 				<?php if($product->get_stock_status()=='instock'): ?>
 
 				<?php else: ?>
-					<?php  _e("Producto temporalmente sin existencias","esgalla"); ?>
+					<?php  _e("Producto temporalmente sin existencias online. Consulta disponibilidad en tu distribuidor más cercano","esgalla"); ?>
 				<?php endif; ?>
 
 				<div class="product-terms mt-4 py-3 border-top border-bottom border-gray w-100">
