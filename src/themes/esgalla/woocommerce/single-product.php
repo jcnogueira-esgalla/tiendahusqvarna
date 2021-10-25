@@ -156,6 +156,10 @@ return $wpdb->get_col("
 
 					<?php endif; ?>
 
+					<?php if(isset($_GET['test']) && get_field('eco_tasa')): ?>
+						<p style="font-size:12px;">Eco Tasa <?php echo get_field('eco_tasa'); ?>€ incluida.</p>
+					<?php endif; ?>
+
 				<?php endif; ?>
 
 				<div class="single-product-add-cart mt-4"><?php woocommerce_template_single_add_to_cart(); ?></div>
