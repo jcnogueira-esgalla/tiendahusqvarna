@@ -156,6 +156,10 @@ return $wpdb->get_col("
 
 					<?php endif; ?>
 
+					<?php if(isset($_GET['test']) && get_field('eco_tasa')): ?>
+						<p style="font-size:12px;">Eco Tasa <?php echo get_field('eco_tasa'); ?>€ incluida.</p>
+					<?php endif; ?>
+
 				<?php endif; ?>
 
 				<div class="single-product-add-cart mt-4"><?php woocommerce_template_single_add_to_cart(); ?></div>
@@ -163,7 +167,7 @@ return $wpdb->get_col("
 				<?php if($product->get_stock_status()=='instock'): ?>
 
 				<?php else: ?>
-					<?php  _e("Producto temporalmente sin existencias","esgalla"); ?>
+					<?php  _e("Producto temporalmente sin existencias online. Consulta disponibilidad en tu distribuidor más cercano","esgalla"); ?>
 				<?php endif; ?>
 
 				<div class="product-terms mt-4 py-3 border-top border-bottom border-gray w-100">

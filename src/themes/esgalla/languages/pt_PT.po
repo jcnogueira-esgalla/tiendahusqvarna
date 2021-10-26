@@ -420,5 +420,8 @@ msgstr "Viva, %1$s"
 msgid "Producto temporalmente sin existencias"
 msgstr "Produto temporariamente sem stock"
 
+msgid "Producto temporalmente sin existencias online. Consulta disponibilidad en tu distribuidor más cercano"
+msgstr "Produto temporariamente sem stock online. Consulte disponibilidade no seu revendedor mais próximo"
+
 msgid "Este campo es obligatorio"
 msgstr "Este campo é obrigatório"
