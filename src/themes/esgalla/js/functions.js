@@ -93,14 +93,25 @@ jQuery(document).ready(function(){
 
   // Cerrar menú on click fuera
   jQuery(document).click(function (event) {
-        var click = jQuery(event.target);
-        var _open = jQuery(".navbar-collapse").hasClass("show");
-        if (_open === true && !click.hasClass("navbar-toggler")) {
-            jQuery(".navbar-toggler").click();
-        }
-    });
+    var click = jQuery(event.target);
+    var _open = jQuery(".navbar-collapse").hasClass("show");
+    if (_open === true && !click.hasClass("navbar-toggler")) {
+      jQuery(".navbar-toggler").click();
+    }
+  });
 });
 
+jQuery(document).on('updated_checkout', function() {
+  //Inicializamos popover
+  jQuery('[data-toggle="popover"]').popover({html:true});
+  jQuery(document).on('show.bs.popover', function() {
+    jQuery('.popover').not(this).popover('hide');
+  });
+});
+
+// jQuery('.link-popover').click(function(){
+//   jQuery('.link-popover').not(this).popover('hide'); //all but this
+// });
 
 
 

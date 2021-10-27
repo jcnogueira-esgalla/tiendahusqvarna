@@ -157,7 +157,7 @@ return $wpdb->get_col("
 					<?php endif; ?>
 
 					<?php if(isset($_GET['test']) && get_field('eco_tasa')): ?>
-						<p style="font-size:12px;">Eco Tasa <?php echo get_field('eco_tasa'); ?>€ incluida.</p>
+						<p class="text-dark" style="font-size:12px;">Eco Tasa <?php echo get_field('eco_tasa'); ?>€ incluida.</p>
 					<?php endif; ?>
 
 				<?php endif; ?>
@@ -174,7 +174,15 @@ return $wpdb->get_col("
 
 					<div class="font-weight-bold"><i class="fas fa-truck fs-fa pr-2"></i><?php _e("¡Envio GRATIS!","esgalla"); ?></div>
 
-					<div class="font-weight-bold"><i class="fas fa-sync-alt pr-2"></i></i><?php _e("2 años de garantía","esgalla"); ?></div>
+					<?php 
+						$link_garantias = '';
+						if(get_current_blog_id() == 1) {
+							$link_garantias = 'https://tiendahusqvarna.com/terminos-y-condiciones/#info-garantias';
+						} else if(get_current_blog_id() == 2) {
+							$link_garantias = 'https://lojahusqvarna.com/termos-e-condicoes/#info-garantias';
+						}
+					?>
+					<a href="<?php echo $link_garantias; ?>" class="text-secondary"><div class="font-weight-bold"><i class="fas fa-sync-alt pr-2"></i></i><?php _e("2 años de garantía","esgalla"); ?></div></a>
 
 					<div class="font-weight-bold"><i class="fas fa-check pr-2"></i></i><?php _e("14 días de devolución","esgalla"); ?></div>
 
@@ -184,20 +192,20 @@ return $wpdb->get_col("
 					$terms = get_the_terms( $post->ID, 'product_cat' );
 				?>
 				<?php if($terms[0]->slug == 'automower'): ?>
-						<div class="alert alert-info alert-dismissible fade show mb-3 p-3" role="alert">
-								<p class="h4"><?php _e('Atención', "esgalla"); ?></a>
-								<p><?php _e('Automower® necesita ser instalado, te ofrecemos dos opciones:', "esgalla"); ?></p>
-								<ul class="m-0 p-0 mb-3" style="list-style-type: none;">
-										<li><?php esc_html_e('- Lo puedes hacer tú mismo gracias a un kit de instalación.', "esgalla"); ?></li>
-										<li><?php esc_html_e('- Lo puede hacer un técnico profesional autorizado.',"esgalla"); ?></li>
-								</ul>
-								<p class="">
-										<?php _e('De la calidad de la instalación dependerá el correcto funcionamiento de Automower®, por ello, salvo en el modelo Automower® 105, recomendamos que escojas la Instalación Profesional.', "esgalla"); ?>
-								</p>
-								<p class="mb-0">
-										<?php _e('En la Instalación Profesional no esta incluida la instalación de ninguna toma de corriente ni cortes en pavimentos.', "esgalla"); ?>
-								</p>
-						</div>
+					<div class="alert alert-info alert-dismissible fade show mb-3 p-3" role="alert">
+						<p class="h4"><?php _e('Atención', "esgalla"); ?></a>
+						<p><?php _e('Automower® necesita ser instalado, te ofrecemos dos opciones:', "esgalla"); ?></p>
+						<ul class="m-0 p-0 mb-3" style="list-style-type: none;">
+							<li><?php esc_html_e('- Lo puedes hacer tú mismo gracias a un kit de instalación.', "esgalla"); ?></li>
+							<li><?php esc_html_e('- Lo puede hacer un técnico profesional autorizado.',"esgalla"); ?></li>
+						</ul>
+						<p class="">
+							<?php _e('De la calidad de la instalación dependerá el correcto funcionamiento de Automower®, por ello, salvo en el modelo Automower® 105, recomendamos que escojas la Instalación Profesional.', "esgalla"); ?>
+						</p>
+						<p class="mb-0">
+							<?php _e('En la Instalación Profesional no esta incluida la instalación de ninguna toma de corriente ni cortes en pavimentos.', "esgalla"); ?>
+						</p>
+					</div>
 				<?php endif; ?>
 
 				<p class="fs-19 mt-3 font-weight-light text-gray long-contenido-producto"><?php echo strip_tags($product->get_short_description(), '<strong><ul><li>') ?></p>

@@ -172,6 +172,10 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 				</p>
 
+				<p class="form-row form-row-wide">
+					<label for="reg_billing_birthdate"><?php _e( 'Fecha de nacimiento', 'esgalla' ); ?> <span class="required">*</span></label>
+					<input type="date" class="input-text" name="billing_birthdate" id="reg_billing_birthdate" value="<?php if ( ! empty( $_POST['billing_birthdate'] ) ) esc_attr_e( $_POST['billing_birthdate'] ); ?>" />
+				</p>
 
 
 				<?php if ( 'no' === get_option( 'woocommerce_registration_generate_password' ) ) : ?>

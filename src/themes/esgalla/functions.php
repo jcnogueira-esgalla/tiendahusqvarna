@@ -260,6 +260,7 @@ function esgalla_scripts() {
 
 
 		// Main theme related functions
+		wp_enqueue_script('popper-js', get_template_directory_uri() . '/js/popper.min.js', array('jquery') );
 		wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery') );
 
 		wp_enqueue_script('core-js', get_template_directory_uri() . '/js/core.min.js', array('jquery'), false, true );
@@ -599,6 +600,186 @@ function limitar_dni_caracteres() {
 }
 //Validacion NIFs
 
-include("func/analytics.php");
 
-?>
+/* Campos extra en form registro */
+function wooc_validate_extra_register_fields( $username, $email, $validation_errors ) {	//Validar campos
+	if ( isset( $_POST['billing_birthdate'] ) && empty( $_POST['billing_birthdate'] ) ) {	//Fecha de nacimiento
+		$validation_errors->add( 'billing_birthdate_error', __( 'Fecha de nacimiento es un campo requerido.', 'woocommerce' ) );
+	}
+}
+add_action( 'woocommerce_register_post', 'wooc_validate_extra_register_fields', 10, 3 );
+
+function wooc_save_extra_register_fields( $customer_id ) {	//Guardar campos
+	if ( isset( $_POST['billing_birthdate'] ) ) {
+		// WooCommerce billing birthdate.
+		update_user_meta( $customer_id, 'billing_birthdate', sanitize_text_field( $_POST['billing_birthdate'] ) );
+	}
+}
+add_action( 'woocommerce_created_customer', 'wooc_save_extra_register_fields' );
+
+
+//Añadimos el campo fecha de nacimiento a la parte admin
+// @param WP_User $user
+function custom_user_profile_fields( $user ) { ?>
+	<table class="form-table">
+		<tr>
+			<th>
+				<label for="code"><?php _e( 'Fecha de nacimiento', 'esgalla' ); ?></label>
+			</th>
+			<td>
+				<input type="date" name="billing_birthdate" id="reg_billing_birthdate" value="<?php echo esc_attr( get_user_meta( $user->ID, 'billing_birthdate', true ) ); ?>" class="regular-text" />
+			</td>
+		</tr>
+	</table>
+<?php }
+add_action('show_user_profile', 'custom_user_profile_fields');
+add_action('edit_user_profile', 'custom_user_profile_fields');
+
+
+function update_extra_profile_fields( $user_id ) {
+	if ( current_user_can( 'edit_user', $user_id ) )
+		update_user_meta( $user_id, 'billing_birthdate', $_POST['billing_birthdate'] );
+}
+add_action( 'personal_options_update', 'update_extra_profile_fields' );
+add_action( 'edit_user_profile_update', 'update_extra_profile_fields' );
+
+
+//Añadimos el campo fecha de nacimiento a la parte pública
+add_action( 'woocommerce_edit_account_form', 'add_birthdate_to_edit_account_form' );
+function add_birthdate_to_edit_account_form() {
+	$user = wp_get_current_user();
+	?>
+		<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+		<label for="reg_billing_birthdate"><?php _e( 'Fecha de nacimiento', 'esgalla' ); ?></label>
+		<input type="date" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_birthdate" id="reg_billing_birthdate" value="<?php echo esc_attr( $user->billing_birthdate ); ?>" />
+	</p>
+	<?php
+}
+
+// Save the custom field 'birthdate' 
+add_action( 'woocommerce_save_account_details', 'save_birthdate_account_details', 12, 1 );
+function save_birthdate_account_details( $user_id ) {
+	// For Fecha de nacimiento
+	if( isset( $_POST['billing_birthdate'] ) )
+		update_user_meta( $user_id, 'billing_birthdate', sanitize_text_field( $_POST['billing_birthdate'] ) );
+}
+
+
+//Add info a productos combustión del carrito
+add_filter( 'woocommerce_checkout_cart_item_quantity', 'qty_input_field_on_checkout', 20, 3 );
+function qty_input_field_on_checkout( $quantity_html, $cart_item, $cart_item_key ) {
+	$product_id = $cart_item['product_id'];
+	$categorias_combustion = [
+		//ES
+		'motosierras-gasolina',
+		'cortacesped-gasolina',
+		'rider-gasolina-riders',
+		'tractores-cortacesped-gasolina',
+		'cortasetos-gasolina',
+		'desbrozadoras-gasolina',
+		'motoazadas-gasolina',
+		'soplador-gasolina',
+		'motobombas-generadores',
+		//PT
+		'gasolina',
+		'corta-sebes-gasolina',
+		'geradores',
+		'motoenxadas',
+		'motosserras-a-gasolina',
+		'rocadoras-gasolina',
+		'sopradores-gasolina',
+	];
+
+	$quantity_string = '';
+	if(has_term($categorias_combustion, 'product_cat', $product_id)) {
+		if(get_current_blog_id() == 1) {	//España
+			$quantity_string = '<strong class="product-quantity">×&nbsp;' . $cart_item['quantity'] . '&nbsp;
+			<a href="javascript:void(0)" class="link-popover" data-toggle="popover" data-placement="top" data-container="body" title="" data-content="Este producto necesita ser regulado por un Distribuidor Oficial Husqvarna antes del primer uso. <a href=\'https://tiendahusqvarna.com/terminos-y-condiciones/#info-garantias\' target=\'_blank\'>Más info</a>">
+				<i class="fas fa-info-circle text-primary"></i>
+			</a></strong>';
+		} else if(get_current_blog_id() == 2) {	//Portugal
+			$quantity_string = '<strong class="product-quantity">×&nbsp;' . $cart_item['quantity'] . '&nbsp;
+			<a href="javascript:void(0)" class="link-popover" data-toggle="popover" data-placement="top" data-container="body" title="" data-content="Este produto deve ser verificado por um Revendedor Oficial Husqvarna antes do primeiro uso. <a href=\'https://lojahusqvarna.com/termos-e-condicoes/#info-garantias\' target=\'_blank\'>Mais info</a>">
+				<i class="fas fa-info-circle text-primary"></i>
+			</a></strong>';
+		}
+	} else {
+		$quantity_string = '<strong class="product-quantity">×&nbsp;' . $cart_item['quantity'] . '</strong>';
+	}
+
+	return $quantity_string;
+}
+
+
+// Displaying product description in new email notifications
+add_action( 'woocommerce_order_item_meta_end', 'add_aviso_linea_producto_email_pedido_procesando_y_completado', 10, 3 );
+function add_aviso_linea_producto_email_pedido_procesando_y_completado( $item_id, $item, $order = null ){
+	$refNameGlobalsVar = $GLOBALS;
+	$email_id = $refNameGlobalsVar['email_id_str'];
+	$product_id = $item->get_variation_id() > 0 ? $item->get_variation_id() : $item->get_product_id();
+	$categorias_combustion = [
+		//ES
+		'motosierras-gasolina',
+		'cortacesped-gasolina',
+		'rider-gasolina-riders',
+		'tractores-cortacesped-gasolina',
+		'cortasetos-gasolina',
+		'desbrozadoras-gasolina',
+		'motoazadas-gasolina',
+		'soplador-gasolina',
+		'motobombas-generadores',
+		//PT
+		'gasolina',
+		'corta-sebes-gasolina',
+		'geradores',
+		'motoenxadas',
+		'motosserras-a-gasolina',
+		'rocadoras-gasolina',
+		'sopradores-gasolina',
+	];
+
+	if(has_term($categorias_combustion, 'product_cat', $product_id)) {
+		echo '&nbsp;<span style="color:#F35321;font-weight:bold;font-size: 20px;">*</span>';
+	}
+}
+
+
+add_action( 'woocommerce_email_after_order_table', 'add_aviso_email_pedido_procesando_y_completado', 20, 4 );
+function add_aviso_email_pedido_procesando_y_completado( $order, $sent_to_admin, $plain_text, $email ) {
+	foreach ( $order->get_items() as $item ) {
+		// Product ID
+		$product_id = $item->get_variation_id() > 0 ? $item->get_variation_id() : $item->get_product_id();
+		$categorias_combustion = [
+			//ES
+			'motosierras-gasolina',
+			'cortacesped-gasolina',
+			'rider-gasolina-riders',
+			'tractores-cortacesped-gasolina',
+			'cortasetos-gasolina',
+			'desbrozadoras-gasolina',
+			'motoazadas-gasolina',
+			'soplador-gasolina',
+			'motobombas-generadores',
+			//PT
+			'gasolina',
+			'corta-sebes-gasolina',
+			'geradores',
+			'motoenxadas',
+			'motosserras-a-gasolina',
+			'rocadoras-gasolina',
+			'sopradores-gasolina',
+		];
+		if(has_term($categorias_combustion, 'product_cat', $product_id)) {
+			if ( $email->id == 'customer_completed_order' || $email->id == 'customer_processing_order' ) {
+				if(get_current_blog_id() == 1) {	//España
+					echo '<p class="aviso-productos" style="font-weight:bold;margin-bottom:20px;"><span style="color:#F35321;font-weight:bold;font-size: 20px;">*</span> Este producto necesita ser regulado por un Distribuidor Oficial Husqvarna antes del primer uso. <a href="https://tiendahusqvarna.com/terminos-y-condiciones/#info-garantias" target="_blank">Más info</a></p>';
+				}	else if(get_current_blog_id() == 2) {	//Portugal
+					echo '<p class="aviso-productos" style="font-weight:bold;margin-bottom:20px;"><span style="color:#F35321;font-weight:bold;font-size: 20px;">*</span> Este produto deve ser verificado por um Revendedor Oficial Husqvarna antes do primeiro uso. <a href="https://lojahusqvarna.com/termos-e-condicoes/#info-garantias" target="_blank">Mais info</a></p>';
+				}
+			}
+			break;
+		}
+	}
+}
+
+include("func/analytics.php");
