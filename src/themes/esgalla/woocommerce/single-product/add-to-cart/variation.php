@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
     <div class="woocommerce-variation-availability mt-10 ta-c">{{{ data.variation.availability_html }}}</div>
 	<div class="woocommerce-variation-price ta-l mt-10 mb-0 fs-1-2 fw-b">{{{ data.variation.price_html }}}</div>
 	
-    <?php if(isset($_GET['test']) && get_field('eco_tasa')): ?>
+    <?php if(get_field('eco_tasa')): ?>
         <p class="text-dark mb-4" style="font-size:12px;">Eco Tasa <?php echo get_field('eco_tasa'); ?>€ incluida.</p>
     <?php endif; ?>
 

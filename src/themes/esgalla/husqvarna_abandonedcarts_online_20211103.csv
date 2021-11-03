@@ -1,0 +1,5 @@
+order_id;customer_key;store_id;order_date;shipping_amount;discount_amount;tax_amount;total_amount;currency;url_carrito
+6;ivanprzf@gmail.com;tiendahusqvarna;2021-11-03 11:46:48;0;0;0;799.00;€;https://tiendahusqvarna.com/finalizar-compra/
+8;marcoscarames@hotmail.com;tiendahusqvarna;2021-11-03 12:20:40;0;0;0;0.31;€;https://tiendahusqvarna.com/finalizar-compra/
+11;marcoscarames@hotmail.com;tiendahusqvarna;2021-11-03 12:28:03;0;0;0;1550.95;€;https://tiendahusqvarna.com/finalizar-compra/
+12;ramagachas@icloud.com;tiendahusqvarna;2021-11-03 12:49:45;0;0;0;203.25;€;https://tiendahusqvarna.com/finalizar-compra/

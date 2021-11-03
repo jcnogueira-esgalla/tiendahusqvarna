@@ -271,6 +271,9 @@ function esgalla_scripts() {
 		// Main js file
 		wp_enqueue_script( 'scripts-js', get_template_directory_uri() . '/js/scripts.js', array('jquery') );
 
+		// Multiselect jQuery
+		wp_enqueue_script( 'multiselect-js', get_template_directory_uri() . '/js/jquery.multi-select.js', array('jquery') );
+
 		//Woocommerce
 		//wp_enqueue_script( 'js-woocommerce', get_template_directory_uri() . '/js/woocommerce-esgalla.js', array('jquery'), '1.01', true );
 		if(class_exists('WooCommerce')) {
@@ -293,6 +296,14 @@ function esgalla_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'esgalla_scripts' );
+
+
+function custom_admin_style() {
+	if( (current_user_can('administrator') && wp_get_current_user()->user_login != 'esgalla') ) {
+  	wp_enqueue_style('admin-styles', get_stylesheet_directory_uri().'/css/admin.css');
+	}
+}
+add_action('admin_enqueue_scripts', 'custom_admin_style');
 
 
 /**
@@ -604,7 +615,7 @@ function limitar_dni_caracteres() {
 /* Campos extra en form registro */
 function wooc_validate_extra_register_fields( $username, $email, $validation_errors ) {	//Validar campos
 	if ( isset( $_POST['billing_birthdate'] ) && empty( $_POST['billing_birthdate'] ) ) {	//Fecha de nacimiento
-		$validation_errors->add( 'billing_birthdate_error', __( 'Fecha de nacimiento es un campo requerido.', 'woocommerce' ) );
+		$validation_errors->add( 'billing_birthdate_error', __( 'Fecha de nacimiento es un campo requerido.', 'esgalla' ) );
 	}
 }
 add_action( 'woocommerce_register_post', 'wooc_validate_extra_register_fields', 10, 3 );
@@ -613,6 +624,9 @@ function wooc_save_extra_register_fields( $customer_id ) {	//Guardar campos
 	if ( isset( $_POST['billing_birthdate'] ) ) {
 		// WooCommerce billing birthdate.
 		update_user_meta( $customer_id, 'billing_birthdate', sanitize_text_field( $_POST['billing_birthdate'] ) );
+	}
+	if ( isset( $_POST['comunicaciones_comerciales'] ) && $_POST['comunicaciones_comerciales'] == 1 ) {
+		update_user_meta( $customer_id, 'comunicaciones_comerciales', sanitize_text_field( $_POST['comunicaciones_comerciales'] ) );
 	}
 }
 add_action( 'woocommerce_created_customer', 'wooc_save_extra_register_fields' );
@@ -665,6 +679,22 @@ function save_birthdate_account_details( $user_id ) {
 }
 
 
+//Add birthdate to checkout billing form
+add_filter( 'woocommerce_checkout_fields' , 'add_birthdate_to_checkout_form' );
+// Our hooked in function – $fields is passed via the filter!
+function add_birthdate_to_checkout_form( $fields ) {
+	$fields['billing']['billing_birthdate'] = array(
+		'label'     => __( 'Fecha de nacimiento', 'esgalla' ),
+		'placeholder'   => __( 'Fecha de nacimiento', 'esgalla' ),
+		'required'  => true,
+		'class'     => array('form-row-wide'),
+		'clear'     => true,
+		'type'			=> 'date'
+		);
+	return $fields;
+}
+
+
 //Add info a productos combustión del carrito
 add_filter( 'woocommerce_checkout_cart_item_quantity', 'qty_input_field_on_checkout', 20, 3 );
 function qty_input_field_on_checkout( $quantity_html, $cart_item, $cart_item_key ) {
@@ -711,7 +741,6 @@ function qty_input_field_on_checkout( $quantity_html, $cart_item, $cart_item_key
 }
 
 
-// Displaying product description in new email notifications
 add_action( 'woocommerce_order_item_meta_end', 'add_aviso_linea_producto_email_pedido_procesando_y_completado', 10, 3 );
 function add_aviso_linea_producto_email_pedido_procesando_y_completado( $item_id, $item, $order = null ){
 	$refNameGlobalsVar = $GLOBALS;
@@ -781,5 +810,103 @@ function add_aviso_email_pedido_procesando_y_completado( $order, $sent_to_admin,
 		}
 	}
 }
+
+
+//Add cron para comprobar tabla de carritos abandonados y updatear fichero .txt
+
+// add_action('evento_10_min', 'comprobar_tabla_carritos');
+add_action( 'comprobar_tabla_carritos', 'comprobar_tabla_carritos' );
+function comprobar_tabla_carritos() {
+	// do something every hour
+
+	// NOMBRE FICHERO: husqvarna_abandonedcarts_online_AAAAMMDD.csv
+	// CABECERA FICHERO: order_id;customer_key;store_id;order_date;shipping_amount;discount_amount;tax_amount;total_amount;currency;url_carrito
+
+	// NOMBRE FICHERO: husqvarna_ordersitems_carritos_AAAAMMDD.csv
+	// CABECERA FICHERO: order_id;product_id;unit_price;quantity;discount_amount;tax_amount;total_line_amount;currency;img_producto;url_producto;nombre_producto
+
+	$filename_cart = WP_CONTENT_DIR . '/carritos/ES/husqvarna_abandonedcarts_online_' . date('Ymd') . '.csv';
+	$filename_cart_lines = WP_CONTENT_DIR . '/carritos/ES/husqvarna_ordersitems_carritos_' . date('Ymd') . '.csv';
+
+	//Comprobamos si existe
+	if( !file_exists($filename_cart) ) {
+		//No existe. Lo creamos con sus cabeceras.
+		$open = fopen($filename_cart, "a");
+		$cabecera_carritos = 'order_id;customer_key;store_id;order_date;shipping_amount;discount_amount;tax_amount;total_amount;currency;url_carrito' . "\r\n";
+		$write = fputs($open, $cabecera_carritos);
+		fclose($open);
+	}
+	if( !file_exists($filename_cart_lines) ) {
+		//No existe. Lo creamos con sus cabeceras.
+		$open = fopen($filename_cart_lines, "a");
+		$cabecera_items_carritos = 'order_id;product_id;unit_price;quantity;discount_amount;tax_amount;total_line_amount;currency;img_producto;url_producto;nombre_producto' . "\r\n";
+		$write = fputs($open, $cabecera_items_carritos);
+		fclose($open);
+	}
+	//Pasamos el contenido de la tabla 'gKcN57I_cartbounty' al fichero
+	global $wpdb;
+	$table_name = $wpdb->prefix . "cartbounty";
+	// Usamos el campito "mail_sent" para marcar cuales hemos enviado ya a Splio ya que
+	// el plugin de recuperación de carritos nunca lo vamos a usar para enviar estos emails de recuperacion
+	$retrieve_data = $wpdb->get_results( "SELECT * FROM $table_name WHERE mail_sent = 0" );
+	$carrito = '';
+	$items_carrito = '';
+	$carritos_guardados = [];
+	foreach ($retrieve_data as $retrieved_data) {
+		if($retrieved_data->email) {
+			$carrito .= $retrieved_data->id . ';' .
+									$retrieved_data->email . ';' .
+									'husqvarna' . ';' .
+									$retrieved_data->time . ';' .
+									'0' . ';' .
+									'0' . ';' .
+									'0' . ';' .
+									$retrieved_data->cart_total . ';' .
+									'EUR' . ';' .
+									'https://tiendahusqvarna.com/finalizar-compra/' . "\r\n";
+			$carritos_guardados[] = $retrieved_data->id;
+
+			//Obtenemos los contenidos del carrito
+			$cart_contents = maybe_unserialize($retrieved_data->cart_contents);
+			foreach ($cart_contents as $cart_content) {
+				if ($cart_content['product_variation_id'] != 0) {
+					$product_id = $cart_content['product_variation_id'];
+				} else {
+					$product_id = $cart_content['product_id'];
+				}
+
+				$items_carrito .= $retrieved_data->id . ';' .
+													$product_id . ';' .
+													$cart_content['product_variation_price'] . ';' .
+													$cart_content['quantity'] . ';' .
+													'0' . ';' .
+													'0' . ';' .
+													$cart_content['product_variation_price'] * $cart_content['quantity'] . ';' .
+													'EUR' . ';' .
+													wp_get_attachment_image_src( get_post_thumbnail_id( $cart_content['product_id'] ), 'medium' )[0] . ';' .
+													get_permalink($product_id) . ';' .
+													get_the_title($product_id) . "\r\n";
+			}
+		}
+	}
+	$update = $wpdb->query("UPDATE `$table_name` SET mail_sent = 1 WHERE id IN (" . implode(',', $carritos_guardados) . ")");
+
+
+
+	//Escribo en fichero de carritos
+	$open = fopen($filename_cart, "a");
+	$write = fputs($open, $carrito);
+	fclose($open);
+
+	//Escribo en fichero de items de carritos
+	$open = fopen($filename_cart_lines, "a");
+	$write = fputs($open, $items_carrito);
+	fclose($open);
+	// $delete = $wpdb->query("TRUNCATE TABLE `$table_name`");
+	// $delete = $wpdb->query("DELETE FROM `$table_name`");
+	//FIN fichero carritos
+
+}
+
 
 include("func/analytics.php");

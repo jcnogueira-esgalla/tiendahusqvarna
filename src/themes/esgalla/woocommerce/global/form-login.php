@@ -53,7 +53,7 @@ if ( is_user_logged_in() ) {
 
 	<p class="form-row woocommerce-form__label-for-checkbox d-n">
 		<label for="rememberme" class="inline">
-			<input class="woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" checked/> 
+			<input class="woocommerce-Input woocommerce-Input--checkbox" name="comunicaciones_comerciales" type="checkbox" id="comunicaciones_comerciales" value="1" checked/> 
 			<?php (get_current_blog_id() == 1 ? _e( '<span>Autorizo el envío de comunicaciones relacionadas con campañas y mantenimientos respecto del producto que he adquirido</span>', 'woocommerce' ) : '')?>
 		</label>
 	</p>

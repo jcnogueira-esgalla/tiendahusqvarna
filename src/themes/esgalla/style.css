@@ -375,3 +375,81 @@ a.reset_variations {
 .single-post .post-content a {
   font-size: 1.188rem;
 }
+
+
+
+
+.gform_submission_error {
+	display:none;
+}
+.multi-select-container {
+  display: inline-block;
+  position: relative;
+	width: 100%;
+}
+
+.multi-select-menu {
+  position: absolute;
+  left: 0;
+  top: 0.8em;
+  float: left;
+  min-width: 100%;
+  background: #fff;
+  margin: 1em 0;
+  padding: 0.4em 0;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.multi-select-menu input {
+  margin-right: 0.3em;
+  vertical-align: 0.1em;
+}
+
+.multi-select-button {
+  display: inline-block;
+  font-size: 0.875em;
+  padding: 0.2em 0.6em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: -0.5em;
+  background-color: #F35321;
+  border: none !important;
+	border-bottom: 1px solid #fff;
+  cursor: default;
+	border-bottom: 1px solid #fff !important;
+	color: #fff;
+	font-style: italic;
+	width: 100% !important;
+	padding: 12px 5px!important;
+	font-size: 16px;
+}
+
+.multi-select-button:after {
+	content: "\f078";
+	font-family: "Font Awesome 5 Pro";
+	font-style: initial;
+	font-size: 10px;
+	font-weight: bold;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 0.4em;
+  vertical-align: 0.1em;
+	position: absolute;
+	right: 15px;
+	top: 20px;
+}
+
+.multi-select-container--open .multi-select-menu { display: block; }
+
+.multi-select-container--open .multi-select-button:after {
+  border-width: 0 0.4em 0.4em 0.4em;
+  border-color: transparent transparent #fff transparent;
+}
+
+.multi-select-menuitem {
+	width:100%;
+}

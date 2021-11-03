@@ -300,9 +300,9 @@
     add_action( 'woocommerce_register_form', 'add_aceptacion_privacidad_registro', 11 );
 
 
-    function add_aceptacion_privacidad_registro1() {
+    function add_aceptacion_comunicaciones_comerciales() {
 
-      woocommerce_form_field( 'privacy_policy_reg', array(
+      woocommerce_form_field( 'comunicaciones_comerciales', array(
 
          'type'          => 'checkbox',
 
@@ -324,7 +324,7 @@
 
     }
 
-    add_action( 'woocommerce_register_form', 'add_aceptacion_privacidad_registro1', 11 );
+    add_action( 'woocommerce_register_form', 'add_aceptacion_comunicaciones_comerciales', 11 );
 
 
 

@@ -90,7 +90,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 					<label class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
 
-						<input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="autorizo" value="forever" /> 			<?php (get_current_blog_id() == 1 ? _e( '<span>Autorizo el envío de comunicaciones relacionadas con campañas y mantenimientos respecto del producto que he adquirido</span>', 'woocommerce' ) : '')?>
+						<input class="woocommerce-form__input woocommerce-form__input-checkbox" name="comunicaciones_comerciales" type="checkbox" id="comunicaciones_comerciales" value="1" /> 			<?php (get_current_blog_id() == 1 ? _e( '<span>Autorizo el envío de comunicaciones relacionadas con campañas y mantenimientos respecto del producto que he adquirido</span>', 'woocommerce' ) : '')?>
 
 					</label>
 

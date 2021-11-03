@@ -431,3 +431,6 @@ msgstr "Data de nascimento"
 
 msgid "Este producto necesita ser regulado por un Distribuidor Oficial Husqvarna antes del primer uso."
 msgstr "Este producto necesita ser regulado por un Distribuidor Oficial Husqvarna antes del primer uso."
+
+msgid "Fecha de nacimiento es un campo requerido"
+msgstr "Data de nascimento é um campo obrigatório"

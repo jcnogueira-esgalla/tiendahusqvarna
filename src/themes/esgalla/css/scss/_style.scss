@@ -753,7 +753,8 @@ html {
 		position: absolute;
 		top: -20px;
 		right: 60px;
-		height: 110%;
+		height: auto;
+		max-width:430px;
 	}
 
 	@include media-breakpoint-down(sm) {
