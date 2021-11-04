@@ -618,13 +618,13 @@ function wooc_validate_extra_register_fields( $username, $email, $validation_err
 		$validation_errors->add( 'billing_birthdate_error', __( 'Fecha de nacimiento es un campo requerido.', 'esgalla' ) );
 	}
 }
-add_action( 'woocommerce_register_post', 'wooc_validate_extra_register_fields', 10, 3 );
+//add_action( 'woocommerce_register_post', 'wooc_validate_extra_register_fields', 10, 3 );
 
 function wooc_save_extra_register_fields( $customer_id ) {	//Guardar campos
-	if ( isset( $_POST['billing_birthdate'] ) ) {
+	//if ( isset( $_POST['billing_birthdate'] ) ) {
 		// WooCommerce billing birthdate.
-		update_user_meta( $customer_id, 'billing_birthdate', sanitize_text_field( $_POST['billing_birthdate'] ) );
-	}
+		//update_user_meta( $customer_id, 'billing_birthdate', sanitize_text_field( $_POST['billing_birthdate'] ) );
+	//}
 	if ( isset( $_POST['comunicaciones_comerciales'] ) && $_POST['comunicaciones_comerciales'] == 1 ) {
 		update_user_meta( $customer_id, 'comunicaciones_comerciales', sanitize_text_field( $_POST['comunicaciones_comerciales'] ) );
 	}
@@ -638,10 +638,20 @@ function custom_user_profile_fields( $user ) { ?>
 	<table class="form-table">
 		<tr>
 			<th>
-				<label for="code"><?php _e( 'Fecha de nacimiento', 'esgalla' ); ?></label>
+				<label for="billing_birthdate"><?php _e( 'Fecha de nacimiento', 'esgalla' ); ?></label>
 			</th>
 			<td>
 				<input type="date" name="billing_birthdate" id="reg_billing_birthdate" value="<?php echo esc_attr( get_user_meta( $user->ID, 'billing_birthdate', true ) ); ?>" class="regular-text" />
+			</td>
+		</tr>
+	</table>
+	<table class="form-table">
+		<tr>
+			<th>
+				<label for="comunicaciones_comerciales"><?php _e( 'Deseo recibir comunicaciones comerciales', 'esgalla' ); ?></label>
+			</th>
+			<td>
+				<input type="checkbox" name="comunicaciones_comerciales" id="reg_comunicaciones_comerciales" value="true" <? if(get_user_meta( $user->ID, 'comunicaciones_comerciales', true ) == '1') echo 'checked'; ?> />
 			</td>
 		</tr>
 	</table>
@@ -651,8 +661,14 @@ add_action('edit_user_profile', 'custom_user_profile_fields');
 
 
 function update_extra_profile_fields( $user_id ) {
-	if ( current_user_can( 'edit_user', $user_id ) )
+	if ( current_user_can( 'edit_user', $user_id ) ) {
 		update_user_meta( $user_id, 'billing_birthdate', $_POST['billing_birthdate'] );
+		if($_POST['comunicaciones_comerciales']) {
+			update_user_meta( $user_id, 'comunicaciones_comerciales', '1' );
+		} else {
+			update_user_meta( $user_id, 'comunicaciones_comerciales', '0' );
+		}
+	}
 }
 add_action( 'personal_options_update', 'update_extra_profile_fields' );
 add_action( 'edit_user_profile_update', 'update_extra_profile_fields' );
@@ -664,9 +680,13 @@ function add_birthdate_to_edit_account_form() {
 	$user = wp_get_current_user();
 	?>
 		<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-		<label for="reg_billing_birthdate"><?php _e( 'Fecha de nacimiento', 'esgalla' ); ?></label>
-		<input type="date" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_birthdate" id="reg_billing_birthdate" value="<?php echo esc_attr( $user->billing_birthdate ); ?>" />
-	</p>
+			<label for="reg_billing_birthdate"><?php _e( 'Fecha de nacimiento', 'esgalla' ); ?></label>
+			<input type="date" class="woocommerce-Input woocommerce-Input--text input-text" name="billing_birthdate" id="reg_billing_birthdate" value="<?php echo esc_attr( $user->billing_birthdate ); ?>" />
+		</p>
+		<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+			<label for="reg_comunicaciones_comerciales"><?php _e( 'Deseo recibir comunicaciones comerciales', 'esgalla' ); ?></label>
+			<input type="checkbox" class="woocommerce-Input woocommerce-Input--text input-text" style="width: auto;margin-right: auto;margin-left: 12px;" name="comunicaciones_comerciales" id="reg_comunicaciones_comerciales" value="true" <? if($user->comunicaciones_comerciales == '1') echo 'checked'; ?> />
+		</p>
 	<?php
 }
 
@@ -676,6 +696,12 @@ function save_birthdate_account_details( $user_id ) {
 	// For Fecha de nacimiento
 	if( isset( $_POST['billing_birthdate'] ) )
 		update_user_meta( $user_id, 'billing_birthdate', sanitize_text_field( $_POST['billing_birthdate'] ) );
+
+	if( isset( $_POST['comunicaciones_comerciales'] ) )
+		update_user_meta( $user_id, 'comunicaciones_comerciales', '1' );
+	else
+		update_user_meta( $user_id, 'comunicaciones_comerciales', '0' );
+
 }
 
 

@@ -88,12 +88,6 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 					</label>
 
-					<label class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
-
-						<input class="woocommerce-form__input woocommerce-form__input-checkbox" name="comunicaciones_comerciales" type="checkbox" id="comunicaciones_comerciales" value="1" /> 			<?php (get_current_blog_id() == 1 ? _e( '<span>Autorizo el envío de comunicaciones relacionadas con campañas y mantenimientos respecto del producto que he adquirido</span>', 'woocommerce' ) : '')?>
-
-					</label>
-
 					<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
 
 					<button type="submit" class="woocommerce-button btn btn-primary woocommerce-form-login__submit pos-r w-100 mt-30" name="login" value="<?php esc_attr_e( 'Log in', 'woocommerce' ); ?>"><?php esc_html_e( 'Log in', 'woocommerce' ); ?><div class="item-anim-carga"><span class="fa fa-spinner fa-spin fa-fw"></span></div></button>
@@ -170,11 +164,6 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 					<?php endif; ?>
 
-				</p>
-
-				<p class="form-row form-row-wide">
-					<label for="reg_billing_birthdate"><?php _e( 'Fecha de nacimiento', 'esgalla' ); ?> <span class="required">*</span></label>
-					<input type="date" class="input-text" name="billing_birthdate" id="reg_billing_birthdate" value="<?php if ( ! empty( $_POST['billing_birthdate'] ) ) esc_attr_e( $_POST['billing_birthdate'] ); ?>" />
 				</p>
 
 
