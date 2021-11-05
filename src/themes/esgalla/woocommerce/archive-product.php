@@ -20,6 +20,8 @@ defined( 'ABSPATH' ) || exit;
 // Inicializada la variable para evitar errores de ejecución
 $ficha = '';
 
+$queried_object = get_queried_object();
+
 //Si es Automower cambiamos orden de productos
 // if(isset($_GET['test'])) {
 // 	if(get_queried_object()->slug == 'automower') {
@@ -83,8 +85,26 @@ $ficha = '';
 			</div>
 
 		</div>
+		<? if( isset($_GET['test']) ): ?>
 
+			<?
+				$children_terms = get_terms(['taxonomy' => 'product_cat', 'parent' => $queried_object->term_id]);
+			?>
+			<? if( !empty($children_terms) && count($children_terms) > 1 ): ?>
 
+				<div class="row mt-3 mb-4 my-md-5">
+					<? foreach ( $children_terms as $term ): ?>
+						<div class="col-12 col-sm-6 col-lg text-center d-flex align-items-center p-3 p-md-4">
+							<a href="<? echo get_term_link( $term ) ?>" class="w-100 btn btn-primary btn-cart text-white spacing font-weight-regular fs-125 text-center">
+								<? echo $term->name; ?>
+							</a>
+						</div>
+					<? endforeach; ?>
+				</div>
+
+			<? endif; ?>
+
+		<? endif; ?>
 
 		<div class="row align-items-start">
 
@@ -108,39 +128,137 @@ $ficha = '';
 
 				<?php echo facetwp_display( 'facet', 'price_range' ); ?>
 
-				<?php echo facetwp_display( 'facet', 'categoria_motosierras' ); ?>
+				<?php
+					switch ($queried_object->term_id) {
+						case '1815':	//Automower
+						case '1838':	//Automower máquinas
+							echo facetwp_display( 'facet', 'categoria_automower' );
+							echo facetwp_display( 'facet', 'superficie_jardn' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categoria_aceites_y_gasolinas' ); ?>
+						case '1836':	//Accesorios Automower
+							echo facetwp_display( 'facet', 'categoria_automower' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categoria_aspiradoras' ); ?>
+						case '864':		//Cortacesped
+						case '1817':	//Cortacéspedes
+						case '1826':	//Riders cortacésped
+						case '1823':	//Tractores cortacésped
+						case '1818':	//Accesorios cortacésped
+						case '1819':	//Cortacésped batería
+						case '1820':	//Cortacésped gasolina
+						case '1821':	//Cortacésped manual
+							echo facetwp_display( 'facet', 'categoria_cortacespedes' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categoria_cortacespedes' ); ?>
+						case '871':	//Motosierras
+						case '872':	//Accesorios motosierras
+						case '884':	//Aceites de cadena de motosierra
+						case '900':	//Motosierras batería
+						case '902':	//Motosierras eléctricas
+						case '876':	//Motosierras gasolina
+							echo facetwp_display( 'facet', 'categoria_motosierras' );
+							echo facetwp_display( 'facet', 'categoria_aceites_y_gasolinas' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categoria_cortasetos' ); ?>
+						case '869':	//Desbrozadoras
+						case '877':	//Accesorios desbrozadoras
+						case '910':	//Desbrozadoras batería
+						case '870':	//Desbrozadoras gasolina
+							echo facetwp_display( 'facet', 'categoria_desbrozadoras' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categoria_desbrozadoras' ); ?>
+						case '893':	//Cortasetos
+						case '916':	//Accesorios cortasetos
+						case '911':	//Cortasetos batería
+						case '897':	//Cortasetos gasolina
+							echo facetwp_display( 'facet', 'categoria_cortasetos' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categoria_herramientas_forestales' ); ?>
+						case '899':	//Motoazadas
+						case '925':	//Motoazadas gasolina
+							echo facetwp_display( 'facet', 'categoria_motoazada' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categora_hidrolimpiadoras' ); ?>
+						case '915':	//Hidrolimpiadoras
+						case '920':	//Accesorios hidrolimpiadoras
+							echo facetwp_display( 'facet', 'categora_hidrolimpiadoras' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categoria_juguetes' ); ?>
+						case '882':	//Sopladores
+						case '918':	//Accesorios soplador de hojas
+						case '912':	//Soplador de hojas batería
+						case '883':	//Soplador de hojas gasolina
+							echo facetwp_display( 'facet', 'categoria_sopladores' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categoria_merchandising' ); ?>
+						case '921':	//Aspiradoras
+						case '923':	//Accesorios de aspiradoras
+							echo facetwp_display( 'facet', 'categoria_aspiradoras' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categoria_motoazada' ); ?>
+						case '914':	//Soplanieves
+							echo facetwp_display( 'facet', 'categora_soplanieves' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categoria_ropa' ); ?>
+						case '1834':	//Motobombas y Generadores
+							//echo facetwp_display( 'facet', 'categora_soplanieves' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categoria_sopladores' ); ?>
+						case '885':	//Aceites y gasolinas
+						case '889':	//Accesorios para aceites y gasolinas
+						case '887':	//Aceite motor 2 tiempos
+						case '886':	//Aceite motor 4 tiempos
+						case '927':	//Aceites de cadena de motosierra
+						case '928':	//Gasolinas
+							echo facetwp_display( 'facet', 'categoria_aceites_y_gasolinas' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categora_soplanieves' ); ?>
+						case '873':	//Herramientas Forestales
+							echo facetwp_display( 'facet', 'categoria_herramientas_forestales' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categoria_automower' ); ?>
+						case '878':	//Ropa
+						case '880':	//Ropa de protección
+						case '879':	//Ropa de trabajo
+						case '922':	//Xplorer
+							echo facetwp_display( 'facet', 'categoria_ropa' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'categoria_escarificadores_cesped' ); ?>
+						case '903':	//Juguetes
+							echo facetwp_display( 'facet', 'categoria_juguetes' );
+						break;
 
-				<?php echo facetwp_display( 'facet', 'superficie_jardn' ); ?>
+						case '919':	//Merchandising
+							echo facetwp_display( 'facet', 'categoria_merchandising' );
+						break;
+
+						case '1816':	//Escarificadores de césped
+							echo facetwp_display( 'facet', 'categoria_escarificadores_cesped' );
+						break;
+
+						default:	//Si no está contemplado metemos todos los facets
+							echo facetwp_display( 'facet', 'categoria_automower' );
+							echo facetwp_display( 'facet', 'superficie_jardn' );
+							echo facetwp_display( 'facet', 'categoria_cortacespedes' );
+							echo facetwp_display( 'facet', 'categoria_motosierras' );
+							echo facetwp_display( 'facet', 'categoria_aceites_y_gasolinas' );
+							echo facetwp_display( 'facet', 'categoria_desbrozadoras' );
+							echo facetwp_display( 'facet', 'categoria_cortasetos' );
+							echo facetwp_display( 'facet', 'categoria_motoazada' );
+							echo facetwp_display( 'facet', 'categora_hidrolimpiadoras' );
+							echo facetwp_display( 'facet', 'categoria_sopladores' );
+							echo facetwp_display( 'facet', 'categoria_aspiradoras' );
+							echo facetwp_display( 'facet', 'categora_soplanieves' );
+							echo facetwp_display( 'facet', 'categoria_aceites_y_gasolinas' );
+							echo facetwp_display( 'facet', 'categoria_herramientas_forestales' );
+							echo facetwp_display( 'facet', 'categoria_ropa' );
+							echo facetwp_display( 'facet', 'categoria_juguetes' );
+							echo facetwp_display( 'facet', 'categoria_merchandising' );
+							echo facetwp_display( 'facet', 'categoria_escarificadores_cesped' );
+						break;
+					}
+				?>
 
 
 				<div class="ta-c"><a class="btn btn-primary" href="javascript:void(0)" onclick="FWP.reset()"><?php _e("Limpiar filtros", "esgalla"); ?></a></div>
