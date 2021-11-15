@@ -934,5 +934,14 @@ function comprobar_tabla_carritos() {
 
 }
 
+add_action( 'mandar_csvs_a_splio', 'mandar_csvs_a_splio' );
+function mandar_csvs_a_splio() {
+	// include( WP_CONTENT_DIR . '/../script_ftp/upload.php' );
+	$cliente = curl_init();
+	curl_setopt($cliente, CURLOPT_URL, "https://tiendahusqvarna.com/script_ftp/upload.php");
+	curl_setopt($cliente, CURLOPT_HEADER, 0);
+	curl_exec($cliente);
+	curl_close($cliente);
+}
 
 include("func/analytics.php");
