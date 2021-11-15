@@ -1,6 +1,10 @@
 jQuery(document).ready(function() {
 
 
+	if(jQuery('.woocommerce-edit-address').length && !jQuery('#billing_tipo_documento').val()) {
+		jQuery('#billing_tipo_documento').val(1);
+	}
+
 	// Nav classes on scroll
 	jQuery(window).scroll(function () {
 		var topbarHeight = jQuery('.topbar').outerHeight();
