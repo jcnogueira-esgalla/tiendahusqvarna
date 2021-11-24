@@ -185,12 +185,22 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 		<div class="row py-4 mt-4">
 			<div class="col-12">
 				<?php if(get_site_url( ) == 'https://tiendahusqvarna.com'){ ?>
-					<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarna&utm_medium=banner&utm_campaign=renovacion-otono" target="_blank"><img src="https://tiendahusqvarna.com/files/2021/10/BANNERS-ES_1440x670px.jpg" class="img-fluid"/></a>
-					<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarna&utm_medium=banner&utm_campaign=renovacion-otono" target="_blank" class="text-primary subtit-arrow font-italic font-weight-bold text-decoration-none d-block mt-3">ver todas las ofertas</a>
+					<? date_default_timezone_set('Europe/Madrid'); //Nos aseguramos de que pillamos la hora Española ?>
+					<? if( (date("Ymd") > 20211125) && (date("Ymd") < 20211129) ): //Período promo Black Friday  ?>
+						<img src="https://tiendahusqvarna.com/files/2021/11/BF-2246-x-970-px_Mesa-de-trabajo-1-scaled.jpg" class="img-fluid"/>
+					<? else: ?>
+						<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarna&utm_medium=banner&utm_campaign=renovacion-otono" target="_blank"><img src="https://tiendahusqvarna.com/files/2021/10/BANNERS-ES_1440x670px.jpg" class="img-fluid"/></a>
+						<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarna&utm_medium=banner&utm_campaign=renovacion-otono" target="_blank" class="text-primary subtit-arrow font-italic font-weight-bold text-decoration-none d-block mt-3">ver todas las ofertas</a>
+					<? endif; ?>
 				<?php } ?>
 				<?php if(get_site_url( ) == 'https://lojahusqvarna.com'){ ?>
-					<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=banner&utm_campaign=renovacao-outono" target="_blank"><img src="https://lojahusqvarna.com/files/sites/2/2021/10/BANNERS-PT_1440x670px.jpg" class="img-fluid"/></a>
-					<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=banner&utm_campaign=renovacao-outono" target="_blank" class="text-primary subtit-arrow font-italic font-weight-bold text-decoration-none d-block mt-3">veja todas as promoções</a>
+					<? date_default_timezone_set('Europe/Lisbon'); //Nos aseguramos de que pillamos la hora Portuguesa ?>
+					<? if( (date("Ymd") > 20211125) && (date("Ymd") < 20211129) ): //Período promo Black Friday ?>
+						<img src="https://lojahusqvarna.com/files/sites/2/2021/11/BF-PT-2246-x-970-px_Mesa-de-trabajo-1-scaled.jpg" class="img-fluid"/>
+					<? else: ?>
+						<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=banner&utm_campaign=renovacao-outono" target="_blank"><img src="https://lojahusqvarna.com/files/sites/2/2021/10/BANNERS-PT_1440x670px.jpg" class="img-fluid"/></a>
+						<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=banner&utm_campaign=renovacao-outono" target="_blank" class="text-primary subtit-arrow font-italic font-weight-bold text-decoration-none d-block mt-3">veja todas as promoções</a>
+					<? endif; ?>
 				<?php } ?>
 			</div>
 		</div>
