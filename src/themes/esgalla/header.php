@@ -102,6 +102,15 @@
 	<?php wp_head(); ?>
 	<script src="https://kit.fontawesome.com/e09e280ac0.js" crossorigin="anonymous"></script>
 
+    <!-- Hreflang -->
+    <?php if(get_current_blog_id() == 1): //España ?>
+        <link rel="alternate" hreflang="es-ES" href="https://tiendahusqvarna.com/"/>
+    <?php endif; ?>
+    <?php if(get_current_blog_id() == 2): //Portugal ?>
+        <link rel="alternate" hreflang="pt-PT" href="https://lojahusqvarna.com/"/>
+    <?php endif; ?>
+
+
 </head>
 
 <body <?php body_class(); ?>>
