@@ -16,7 +16,7 @@
 
 			<div class="row mx-1 my-4 mx-md-4 bg-primary">
 				<div class="col-12 bg-primary col-xl-7 py-3 my-sm-4 px-sm-5 form-nuestras-ofertas">
-					<h2 class="h3 text-white font-weight-normal"><?php _e("¡No te pierdas nuestras novedades y promociones!","esgalla"); ?></h2>
+					<p class="h3 text-white font-weight-normal"><?php _e("¡No te pierdas nuestras novedades y promociones!","esgalla"); ?></p>
 					<p class="text-white font-weight-light pt-1 fs-125"><?php _e("Suscríbete a nuestra newsletter y no te pierdas nada sobre Husqvarna. Cubre el formulario y recibe información sobre promociones, novedades y ¡mucho más!","esgalla"); ?></p>
 					<?php echo do_shortcode( '[gravityform id="1" title="false" description="false" ajax="true" tabindex="49"]' ); ?>
 				</div>
@@ -80,7 +80,7 @@
 	<div class="modal fade search-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content buscador-principal p-4 p-md-6">
-		<h2 class="text-center text-dark font-weight-bold w-100 text-uppercase mb-3"><?php _e("Encuentra las herramientas","esgalla"); ?> <span class="h1 font-weight-bold text-primary">HUSQVARNA</span> <?php _e("que estás buscando","esgalla"); ?></h2>
+		<p class="h2 text-center text-dark font-weight-bold w-100 text-uppercase mb-3"><?php _e("Encuentra las herramientas","esgalla"); ?> <span class="h1 font-weight-bold text-primary">HUSQVARNA</span> <?php _e("que estás buscando","esgalla"); ?></p>
 		<form role="search" method="get" class="search-form input-group border modal-form-search" action="<?php echo get_home_url( ) ?>">
 			<input type="search" data-swpengine="default" class="form-control" placeholder="<?php _e("¿Qué estás buscando?","esgalla"); ?>" value="" name="s" data-swplive="true">
 			<button class="btn btn-secondary rounded shadow font-weight-bold text-uppercase" type="submit"><?php _e("Buscar","esgalla"); ?></button>

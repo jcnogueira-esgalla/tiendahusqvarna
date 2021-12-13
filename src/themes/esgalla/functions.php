@@ -118,9 +118,9 @@ function esgalla_header_menu() {
 					        </a></div>		<div class="buscador-principal mt-4"><form role="search" method="get" class="search-form input-group border" action="/">
 									<input type="search" data-swpengine="default" lass="form-control" placeholder="' . __("¿Qué estás buscando?","esgalla") . '" value="" name="s" data-swplive="true">
 									<button class="btn btn-secondary rounded shadow font-weight-bold text-uppercase" style="width: auto;" type="submit">' . __("Buscar","esgalla") . '</button>
-								</form></div><ul id="%1$s" class="%2$s"><h3 class="mt-3">' . __("Menú","esgalla") . '</h3>%3$s</ul>
+								</form></div><ul id="%1$s" class="%2$s"><p class="h3 font-weight-bold mt-3">' . __("Menú","esgalla") . '</p>%3$s</ul>
 					        <div class="selector-idioma"></div>
-									<div class="pt-3"><h3 class="mt-3 mb-4">Contacto</h3><a href="tel:'.str_replace(' ', '', __("+34 981 680 101", "esgalla")).'" class="text-secondary font-weight-bold h6 w-100 d-block"><i class="fas fa-phone pr-sm-2"></i>'.__("+34 981 680 101", "esgalla").'</a><a href="mailto:'.__("soportecliente@tiendahusqvarna.com", "esgalla").'" class="text-secondary font-weight-bold h6 w-100 d-block word-break-all mt-3"><i class="fas fa-envelope pr-2"></i>'.__("soportecliente@tiendahusqvarna.com", "esgalla").'</a>
+									<div class="pt-3"><p class="h3 font-weight-bold mt-3 mb-4">Contacto</p><a href="tel:'.str_replace(' ', '', __("+34 981 680 101", "esgalla")).'" class="text-secondary font-weight-bold h6 w-100 d-block"><i class="fas fa-phone pr-sm-2"></i>'.__("+34 981 680 101", "esgalla").'</a><a href="mailto:'.__("soportecliente@tiendahusqvarna.com", "esgalla").'" class="text-secondary font-weight-bold h6 w-100 d-block word-break-all mt-3"><i class="fas fa-envelope pr-2"></i>'.__("soportecliente@tiendahusqvarna.com", "esgalla").'</a>
 									<div class="mt-4">
 									<a href="' . __("https://www.facebook.com/Husqvarna.es", "esgalla") . '" target="_blank"><i class="fab fa-facebook text-secondary fs-fa pr-3"></i></a>
 									<a href="' . __("https://www.instagram.com/husqvarna_es/", "esgalla") . '" target="_blank"><i class="fab fa-instagram text-secondary fs-fa pr-3"></i></a>

@@ -211,7 +211,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 		<div class="container">
 			<div class="row justify-content-between align-items-center">
 				<div class="col-12 col-xl-3">
-					<div class="h1 font-weight-bold"><?php _e("Motosierras","esgalla"); ?></div>
+					<h2 class="h1 font-weight-bold"><?php _e("Motosierras","esgalla"); ?></h2>
 					<a href="<?php echo get_term_link($categorias_tienda['motosierras']); ?>" class="text-primary font-italic font-weight-bold subtit-arrow text-decoration-none"><?php _e("ver todas las motosierras","esgalla"); ?></a>
 				</div>
 				<div class="col-12 col-xl-8 col-xl-offset-1">
@@ -239,7 +239,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 					<? endif; ?>
 				</div>
 				<div class="d-none d-md-block col-md-3 img-banner-cat p-3">
-					<h2 class="text-light text-shadow text-uppercase"><?php _e("Motosierras husqvarna","esgalla"); ?></h2>
+					<p class="h2 text-light text-shadow text-uppercase font-weight-bold"><?php _e("Motosierras husqvarna","esgalla"); ?></p>
 				</div>
 			</div>
 		</div>
@@ -251,7 +251,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 		<div class="container">
 			<div class="row justify-content-between align-items-center">
 				<div class="col-12 col-xl-3">
-					<div class="h1 font-weight-bold"><?php _e("Cortacéspedes","esgalla"); ?></div>
+					<h2 class="h1 font-weight-bold"><?php _e("Cortacéspedes","esgalla"); ?></h2>
 					<a href="<?php echo get_term_link($categorias_tienda['cortacespedes']); ?>" class="text-primary font-italic font-weight-bold subtit-arrow text-decoration-none"><?php _e("ver todos los cortacéspedes","esgalla"); ?></a>
 				</div>
 				<div class="col-12 col-xl-8 col-xl-offset-1">
@@ -279,7 +279,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 					<? endif; ?>
 				</div>
 				<div class="d-none d-md-block col-md-3 img-banner-cat cortacespedes p-3">
-					<h2 class="text-light text-shadow text-uppercase"><?php _e("Cortacéspedes husqvarna","esgalla"); ?></h2>
+					<p class="h2 text-light text-shadow text-uppercase font-weight-bold"><?php _e("Cortacéspedes husqvarna","esgalla"); ?></p>
 				</div>
 			</div>
 		</div>
@@ -291,7 +291,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 		<div class="container">
 			<div class="row justify-content-between align-items-center">
 				<div class="col-12 col-xl-3">
-					<div class="h1 font-weight-bold"><?php _e("Desbrozadoras","esgalla"); ?></div>
+					<h2 class="h1 font-weight-bold"><?php _e("Desbrozadoras","esgalla"); ?></h2>
 					<a href="<?php echo get_term_link($categorias_tienda['desbrozadoras']); ?>" class="text-primary font-italic font-weight-bold subtit-arrow text-decoration-none"><?php _e("ver todas las desbrozadoras","esgalla"); ?></a>
 				</div>
 				<div class="col-12 col-xl-8 col-xl-offset-1">
@@ -319,7 +319,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 					<? endif; ?>
 				</div>
 				<div class="d-none d-md-block col-md-3 img-banner-cat desbrozadoras p-3">
-					<h2 class="text-light text-shadow text-uppercase"><?php _e("Desbrozadoras husqvarna","esgalla"); ?></h2>
+					<p class="h2 text-light text-shadow text-uppercase font-weight-bold"><?php _e("Desbrozadoras husqvarna","esgalla"); ?></p>
 				</div>
 			</div>
 		</div>
@@ -344,23 +344,19 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 			<div class="row pt-5">
 
 				<div class="col-sm-6 col-md-4 mb-4">
-
-				    <a class="" href="<?php echo get_term_link($categorias_tienda['motozada']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-categoria-motoazada.jpg" alt="motoazadas husqvarna"><div class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Motoazada husqvarna","esgalla"); ?></div></a>
-
-
-
+				    <a class="" href="<?php echo get_term_link($categorias_tienda['motozada']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-categoria-motoazada.jpg" alt="motoazadas husqvarna"><h2 class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Motoazada husqvarna","esgalla"); ?></h2></a>
 				</div>
 
 
 				<?php if(get_site_url( ) == 'https://tiendahusqvarna.com'){ ?>
 					<div class="col-sm-6 col-md-4 mb-4">
-						<a class="" href="<?php echo get_term_link($categorias_tienda['hidrolimpiadora']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/foto-categoria-hidrolimpiadora.jpg" alt="motoazadas husqvarna"><div class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Hidrolimpiadora husqvarna","esgalla"); ?></div></a>
+						<a class="" href="<?php echo get_term_link($categorias_tienda['hidrolimpiadora']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/foto-categoria-hidrolimpiadora.jpg" alt="motoazadas husqvarna"><h2 class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Hidrolimpiadora husqvarna","esgalla"); ?></h2></a>
 					</div>
 				<?php } ?>
 
 				<div class="col-sm-6 col-md-4 mb-4">
 
-					<a class="" href="<?php echo get_term_link($categorias_tienda['aspiradora']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-categoria-aspiradora.jpg" alt="motoazadas husqvarna"><div class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Aspiradora husqvarna","esgalla"); ?></div></a>
+					<a class="" href="<?php echo get_term_link($categorias_tienda['aspiradora']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-categoria-aspiradora.jpg" alt="motoazadas husqvarna"><h2 class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Aspiradora husqvarna","esgalla"); ?></h2></a>
 
 
 
@@ -368,7 +364,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 
 				<div class="col-sm-6 col-md-4 mb-4">
 
-					<a class="" href="<?php echo get_term_link($categorias_tienda['soplanieves']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-categoria-quitanieves.jpg" alt="motoazadas husqvarna"><div class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Soplanieves husqvarna","esgalla"); ?></div></a>
+					<a class="" href="<?php echo get_term_link($categorias_tienda['soplanieves']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-categoria-quitanieves.jpg" alt="motoazadas husqvarna"><h2 class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Soplanieves husqvarna","esgalla"); ?></h2></a>
 
 
 
@@ -376,7 +372,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 
 				<div class="col-sm-6 col-md-4 mb-4">
 
-					<a class="" href="<?php echo get_term_link($categorias_tienda['herramientas']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-cat-herramientas.jpg" alt="motoazadas husqvarna"><div class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Herramientas forestales husqvarna","esgalla"); ?></div></a>
+					<a class="" href="<?php echo get_term_link($categorias_tienda['herramientas']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-cat-herramientas.jpg" alt="motoazadas husqvarna"><h2 class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Herramientas forestales husqvarna","esgalla"); ?></h2></a>
 
 
 
@@ -384,7 +380,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 
 				<div class="col-sm-6 col-md-4 mb-4">
 
-					<a class="" href="<?php echo get_term_link($categorias_tienda['aceites-gasolinas']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-cat-aceites-ok.jpg" alt="motoazadas husqvarna"><div class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Aceites y gasolinas husqvarna","esgalla"); ?></div></a>
+					<a class="" href="<?php echo get_term_link($categorias_tienda['aceites-gasolinas']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-cat-aceites-ok.jpg" alt="motoazadas husqvarna"><h2 class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Aceites y gasolinas husqvarna","esgalla"); ?></h2></a>
 
 
 
@@ -488,7 +484,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 
 						<p  class="text-primary font-weight-bold h6 pt-2"><i class="fas fa-map-marker-alt pr-2"></i><?php _e("INTERNACO S.A. Lg. Queirúa s/n, 15680 - Órdenes, A Coruña", "esgalla") ?></p>
 
-						<h2 class="tit-contacta mt-4"><?php _e("Si quieres saber más...","esgalla"); ?></h2>
+						<p class="h2 tit-contacta font-weight-bold mt-4"><?php _e("Si quieres saber más...","esgalla"); ?></p>
 
 						<p class="h6 text-gray font-weight-light py-3"><?php _e("¿Quieres saber más sobre Husqvarna España? Si es así, no dudes en visitar nuestra página web oficial. En ella encontrarás todos los productos disponibles, información útil sobre toda nuestra gama y todos nuestros distribuidores oficiales Husqvarna.", "esgalla") ?></p>
 

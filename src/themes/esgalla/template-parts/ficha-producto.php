@@ -19,8 +19,11 @@ $producto = wc_get_product( $id_producto );
 	<div class="ficha-body d-flex flex-column align-content-start ">
 
 		<div class="producto-ref text-dark">Ref. <?php echo $producto->get_sku() ?></div>
-
-		<h5 class="text-dark"><?php echo $producto->get_name() ?></h5>
+		<?php if( is_product_category() ): //En categoría de producto van a ser H2s ?>
+			<h2 class="h5 text-dark font-weight-bold"><?php echo $producto->get_name() ?></h2>
+		<?php else: ?>
+			<h3 class="h5 text-dark font-weight-bold"><?php echo $producto->get_name() ?></h3>
+		<?php endif; ?>
 
 		<div class="producto-precio d-flex justify-content-between align-items-end">
 

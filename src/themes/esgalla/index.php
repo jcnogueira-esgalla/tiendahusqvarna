@@ -39,7 +39,7 @@ get_header();
 	<div class="container">
 		<div class="row">
             <div class="col-12 col-md-3">
-            	<h2 class="fs-40"><?php _e("Blog","esgalla"); ?></h2>
+            	<p class="h2 font-weight-bold fs-40"><?php _e("Blog","esgalla"); ?></p>
             </div>
             <div class="col-12 col-md-9">
             	<p class="font-weight-light fs-19 text-gray pt-2 pr-lg-5">¿Tienes un jardín y no sabes cómo cuidarlo? ¿Quieres decorar un espacio soso o aburrido y buscas inspiración? Si es así, nuestros artículos de jardinería y fichas te ayudarán a lograrlo.
