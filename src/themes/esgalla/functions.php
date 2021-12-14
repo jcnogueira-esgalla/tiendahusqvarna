@@ -880,6 +880,9 @@ function comprobar_tabla_carritos() {
 	$carritos_guardados = [];
 	foreach ($retrieve_data as $retrieved_data) {
 		if($retrieved_data->email) {
+			//Creamos al usuario en splio para poder enviar su carrito a la plataforma
+			createUserSplio($retrieved_data->name, $retrieved_data->surname, $retrieved_data->email, $retrieved_data->phone);
+
 			$carrito .= $retrieved_data->id . ';' .
 									$retrieved_data->email . ';' .
 									'husqvarna' . ';' .
@@ -936,12 +939,60 @@ function comprobar_tabla_carritos() {
 
 add_action( 'mandar_csvs_a_splio', 'mandar_csvs_a_splio' );
 function mandar_csvs_a_splio() {
-	// include( WP_CONTENT_DIR . '/../script_ftp/upload.php' );
+	include( WP_CONTENT_DIR . '/../script_ftp/upload.php' );
 	$cliente = curl_init();
 	curl_setopt($cliente, CURLOPT_URL, "https://tiendahusqvarna.com/script_ftp/upload.php");
 	curl_setopt($cliente, CURLOPT_HEADER, 0);
 	curl_exec($cliente);
 	curl_close($cliente);
+}
+
+function createUserSplio($user_name, $user_surname, $user_email, $user_phone) {
+	//API key esgalla: b988fd0db0d0e16de45c516ccb4319d8bb25dbdf33b73c08680cfb16c0a231c5
+	//eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiI5YWU1NTA5ZC01NDA4LTQyNzEtYWZiNi1iYTAyNjk3YTg0MzMiLCJzdWIiOiJ1c2VyIiwiYXVkIjoiYXBpLmNsaWVudCIsImlzX2FwaSI6dHJ1ZSwiZXhwIjoxNjM4NTQ3ODM5LCJpYXQiOjE2Mzg0NTc4MzksImp0aSI6IjEzMTYuNjFhOGUxZWY0MzZiNSIsIm5hbWUiOiJlc2dhbGxhIiwibG9jYWxlIjpudWxsLCJ1c2VyIjp7ImlkIjoxMzE2LCJ1bml2ZXJzZSI6Imh1c3F2YXJuYSJ9fQ.VuaZDujbqV5ahvFgyNThCij1vAt7H371jL9UR96Y4MMX0V-5XMH7rBsLWe8LZtYfRKVbOpRZljQ8POCI1vBT0n7Wt4mOGI92XYOgF1OikrNw_kOw8NUEaZ9qpfc9yJqZdProZpKJlqXzVkza6HVOGR8lfYyBtFY4zjDkSaJOTsIjjcDejxS6YTBnTmwfPGfQcstKN7V2B4mg_uEI2HZR2KXMoBHV0Yh2EM_2pd6xbB042-dRjlf4MJz2KNM5z2jSH1U9KWxwJuRijticLUsIdagZoBx5jmYCkOPhPtl3SCGpptgDSzFmQq3gJlIU_L8Pd2SE7Qcavi6vZxCrruJoymifdcH_r0XeS2bI2SguXNHaLd1vsKDHGXBgqy3tQB1Rkx1eNKgC-TfA_yMkzVqtYyxC6Ax1mTiHHynspHmpJYPAWrP6yodwnoK64CJA2phbowXAU2C0eVMSVbDGsYIJgyGgTIacqygQBBwXfrCffMI5N-DX1BnbnvSN_c3l4mDJYZiw9Dsfa_eA0hfrQi8nYf8D5TVlQg3siY2ZKjCcF8M7TAJuD8hXy_CWjG90oRNnO2xDQI7CGi2fyU5GpOcaHwfxSoqDHo_DaGLJdFTn6Ma6tRAjWWB1wD9JPFLjhdzyrOpRFeCdz-kcT2ZNS8bBo6NdPT7lI2bIpLvf3lsl-3Q
+	
+	//Solicitud token acceso - SPLIO
+	$ch = curl_init();
+
+	curl_setopt($ch, CURLOPT_URL, 'https://api.splio.com/authenticate');
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"api_key\":\"b988fd0db0d0e16de45c516ccb4319d8bb25dbdf33b73c08680cfb16c0a231c5\"}");
+
+	$headers = array();
+	$headers[] = 'Accept: application/json';
+	$headers[] = 'Content-Type: application/json';
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+	$result = curl_exec($ch);
+	$token = json_decode($result)->token;
+	if (curl_errno($ch)) {
+		return false;
+	}
+	curl_close($ch);
+
+	//Creacion usuario - SPLIO
+	$ch = curl_init();
+
+	curl_setopt($ch, CURLOPT_URL, 'https://api.splio.com/data/contacts');
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, "{\"double_optin\":{},\"email\":\"" . $user_email . "\",\"language\":\"es\",\"lists\":[{\"id\":2,\"name\":\"Prueba carritos\"}],\"lastname\":\"" . $user_surname . "\",\"firstname\":\"" . $user_name . "\",\"cellphone\":\"" . $user_phone . "\"}");
+
+	
+	$headers = array();
+	$headers[] = 'Accept: application/json';
+	$headers[] = 'Authorization: Bearer ' . $token;
+	$headers[] = 'Content-Type: application/json';
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+	
+	$result = curl_exec($ch);
+	if (curl_errno($ch)) {
+		return false;
+	}
+	curl_close($ch);
+	return true;
+
 }
 
 include("func/analytics.php");
