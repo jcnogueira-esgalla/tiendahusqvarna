@@ -559,6 +559,27 @@ if(get_current_blog_id() == 1) {	//Solo España
 		}
 	}
 	add_action( 'woocommerce_checkout_process', 'validar_nifcifnie_esp' );
+
+	//Validando el campo NIF/CIF
+	function validar_telefono_esp() {
+		$falso = false;
+
+		if ( isset( $_POST['billing_phone'] ) ) {
+			$tlf = $_POST['billing_phone'];
+
+			//Validamos que el teléfono sea español
+			$input = str_replace(array(" ","-"),"",$tlf);
+			$pattern = "/^(\+34|0034|34)?[9|8|6|7][0-9]{8}$/";
+			if(!preg_match( $pattern, $input )){
+				$falso = true;
+			}
+		}
+
+		if ( $falso ) {
+			wc_add_notice( __( 'Por favor, añade un número de teléfono válido de España.' ), 'error' );
+		}
+	}
+	add_action( 'woocommerce_checkout_process', 'validar_telefono_esp' );
 }
 if(get_current_blog_id() == 2) {	//Solo Portugal
 	//Validando el campo NIF
