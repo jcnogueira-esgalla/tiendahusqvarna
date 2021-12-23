@@ -28,6 +28,7 @@ function print_data_product_analytics(WC_Product $product, $class = 'analytic-pr
     data-' . $class . '-name="' . $name . '" 
     data-' . $class . '-price="' . wc_get_price_including_tax($product) . '" 
     data-' . $class . '-category="' . $category . '" 
+    data-' . $class . '-sku="' . $product->get_sku() . '" 
     data-' . $class . '-quantity="' . $quantity . '" 
     data-' . $class . '-categories="' . strip_tags(wc_get_product_category_list($product->get_id(), ' - ', '', '')) . '" 
     data-' . $class . '-stock="' . $product->get_max_purchase_quantity() . '" ';
@@ -90,8 +91,11 @@ function bysidecar_analytics()
     if (is_admin()) {
         return; //Si es una pagina de administracion no cargamos analytics
     }
+    $the_theme     = wp_get_theme();
+    $theme_version = $the_theme->get( 'Version' );
 
-    wp_register_script('analytics-js', get_template_directory_uri() . '/js/analytics.js', array('jquery'), '1.0.7');
+    $js_version = $theme_version . '.' . filemtime( get_template_directory() . '/js/analytics.js' );
+    wp_register_script('analytics-js', get_template_directory_uri() . '/js/analytics.js', array('jquery'), $js_version);
     wp_localize_script('analytics-js', 'breadcrumb', ['value' => implode(' - ', get_breadcrums())]);
 
 
@@ -123,6 +127,7 @@ function bysidecar_analytics()
             'id' => $product->get_id(),
             'name' => $product->get_name(),
             'price' => $product->get_price(),
+            'sku' => $product->get_sku(),
             'category' => $category,
             'categories' => strip_tags(wc_get_product_category_list($product->get_id(), ' - ', '', '')),
             'quantity' => null
@@ -319,9 +324,11 @@ function action_thankyou_send_event($order_id)
 
         ];
         $products_facebook[] = [
-            'id' => $product->get_id(),
+            'id' => $product->get_sku().'_'.$product->get_id(),
             'quantity' => $item['quantity'],
         ];
+
+
     }
     $coupons = [];
     if ($order->get_coupon_codes()) {
@@ -424,6 +431,21 @@ function action_thankyou_send_event($order_id)
             'transaction_id': '<?php echo $order_id;?>'
         });
     </script>
+    <!-- bing tracking -->
+    <script>
+        window.uetq.push(
+            'event',
+            'compra',
+            {
+                'event_category': 'ventas',
+                'event_label': 'producto',
+                'event_value': '0',
+                'revenue_value': <?php echo $order->get_total();?>,
+                'currency': 'EUR'
+            }
+        );
+    </script>
+    <!-- end bing tracking -->
     <?php
     if (get_current_blog_id() == 1):
         ?>
@@ -454,6 +476,7 @@ function action_thankyou_send_event($order_id)
                 currency: 'EUR',
                 contents: <?php echo json_encode($products_facebook);?>,
                 content_ids: '<?php echo $order_id;?>',
+                content_category:'<?php echo implode(',',get_breadcrums());?>'
             });
         </script>
         <!-- facebook Tracking Code END -->
@@ -483,6 +506,11 @@ function action_thankyou_send_event($order_id)
             });
         </script>
         <!-- end Pinterest Tag -->
+
+        <!-- Splio purchase pixel -->
+        <img src="https://s3s.fr/sales.php?universe=husqvarna&amount=<?=$order->get_total();?>&id=<?=$order_id;?>" width="0" height="0" border="0" alt=""/>
+        <!-- Splio purchase pixel END -->
+
     <?php
     endif;
 
