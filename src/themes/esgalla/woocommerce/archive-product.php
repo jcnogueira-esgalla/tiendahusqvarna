@@ -95,8 +95,8 @@ $queried_object = get_queried_object();
 				<div class="row mt-3 mb-4 my-md-5">
 					<? foreach ( $children_terms as $term ): ?>
 						<div class="col-12 col-sm-6 col-lg text-center d-flex align-items-center p-3 p-md-4">
-							<a href="<? echo get_term_link( $term ) ?>" class="w-100 btn btn-primary btn-cart text-white spacing font-weight-regular fs-125 text-center">
-								<? echo $term->name; ?>
+							<a href="<? echo get_term_link( $term ) ?>" class="d-flex justify-content-center align-items-center w-100 h-100 btn btn-primary btn-cart text-white rounded-0 spacing font-weight-regular fs-125 text-center">
+								<? echo $term->name . '&nbsp;' . '(' . $term->count . ')'; ?>
 							</a>
 						</div>
 					<? endforeach; ?>
@@ -158,7 +158,7 @@ $queried_object = get_queried_object();
 						case '902':	//Motosierras eléctricas
 						case '876':	//Motosierras gasolina
 							echo facetwp_display( 'facet', 'categoria_motosierras' );
-							echo facetwp_display( 'facet', 'categoria_aceites_y_gasolinas' );
+							//echo facetwp_display( 'facet', 'categoria_aceites_y_gasolinas' );
 						break;
 
 						case '869':	//Desbrozadoras
