@@ -40,7 +40,7 @@ $producto = wc_get_product( $id_producto );
 				<?php else: ?>
 
 					<? if($producto->has_child( )): ?>
-						<div class="price text-primary font-weight-bold"><?php echo round(wc_get_price_including_tax($producto,array('price'=>$producto->get_variation_price( 'min', true ))), 2) ?>€</div>
+						<div class="price text-primary font-weight-bold"><span class="font-weight-normal">Desde </span><?php echo round(wc_get_price_including_tax($producto,array('price'=>$producto->get_variation_price( 'min', true ))), 2) ?>€</div>
 					<?  else: //Tiene variaciones. Pillamos el más alto. ?>
 						<div class="price text-primary font-weight-bold"><?php echo round(wc_get_price_including_tax($producto,array('price'=>$producto->get_regular_price())), 2) ?>€</div>
 					<? endif; ?>
