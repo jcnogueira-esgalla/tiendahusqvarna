@@ -95,7 +95,7 @@ $queried_object = get_queried_object();
 				<div class="row mt-3 mb-4 my-md-5">
 					<? foreach ( $children_terms as $term ): ?>
 						<div class="col-12 col-sm-6 col-lg text-center d-flex align-items-center p-3 p-md-4">
-							<a href="<? echo get_term_link( $term ) ?>" class="d-flex justify-content-center align-items-center w-100 h-100 btn btn-primary btn-cart text-white rounded-0 spacing font-weight-regular fs-125 text-center">
+							<a href="<? echo get_term_link( $term ) ?>" class="d-flex justify-content-center align-items-center w-100 h-100 btn btn-secondary btn-cart text-white spacing font-weight-regular fs-125 text-center">
 								<? echo $term->name . '&nbsp;' . '(' . $term->count . ')'; ?>
 							</a>
 						</div>
