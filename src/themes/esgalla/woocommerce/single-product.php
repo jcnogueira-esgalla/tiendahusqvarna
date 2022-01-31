@@ -182,7 +182,7 @@ return $wpdb->get_col("
 							$link_garantias = 'https://lojahusqvarna.com/termos-e-condicoes/#info-garantias';
 						}
 					?>
-					<a href="<?php echo $link_garantias; ?>" class="text-secondary"><div class="font-weight-bold"><i class="fas fa-sync-alt pr-2"></i></i><?php _e("2 años de garantía","esgalla"); ?></div></a>
+					<a href="<?php echo $link_garantias; ?>" class="text-secondary"><div class="font-weight-bold position-relative"><i class="fas fa-sync-alt pr-2"></i></i><?php _e("3 años de garantía","esgalla"); ?> <br/><p class="ml-3 mb-0" style="font-size:10px;position: absolute;bottom: -10px;">&nbsp;<i>*<?php _e("ver condiciones","esgalla"); ?></i></p></div></a>
 
 					<div class="font-weight-bold"><i class="fas fa-check pr-2"></i></i><?php _e("14 días de devolución","esgalla"); ?></div>
 

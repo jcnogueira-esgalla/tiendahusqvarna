@@ -39,6 +39,9 @@ msgstr "https://lojahusqvarna.com/files/sites/2/2021/05/Group-2.png"
 msgid "2 años de garantía"
 msgstr "2 anos de garantia"
 
+msgid "3 años de garantía"
+msgstr "3 anos de garantia"
+
 msgid "+34 981 680 101"
 msgstr "+351 800 834137"
 
@@ -437,3 +440,6 @@ msgstr "Data de nascimento é um campo obrigatório"
 
 msgid "Deseo recibir comunicaciones comerciales"
 msgstr "Desejo receber comunicações comerciais"
+
+msgid "ver condiciones"
+msgstr "ver condições"
