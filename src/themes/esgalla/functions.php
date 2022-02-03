@@ -925,13 +925,14 @@ function comprobar_tabla_carritos() {
 					$product_id = $cart_content['product_id'];
 				}
 
+				$item_price = $cart_content['product_variation_price'] + $cart_content['product_tax'];
 				$items_carrito .= $retrieved_data->id . ';' .
 													$product_id . ';' .
-													$cart_content['product_variation_price'] . ';' .
+													$item_price . ';' .
 													$cart_content['quantity'] . ';' .
 													'0' . ';' .
 													'0' . ';' .
-													$cart_content['product_variation_price'] * $cart_content['quantity'] . ';' .
+													$item_price * $cart_content['quantity'] . ';' .
 													'EUR' . ';' .
 													wp_get_attachment_image_src( get_post_thumbnail_id( $cart_content['product_id'] ), 'medium' )[0] . ';' .
 													get_permalink($product_id) . ';' .
