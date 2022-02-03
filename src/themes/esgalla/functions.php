@@ -936,7 +936,7 @@ function comprobar_tabla_carritos() {
 													'EUR' . ';' .
 													wp_get_attachment_image_src( get_post_thumbnail_id( $cart_content['product_id'] ), 'medium' )[0] . ';' .
 													get_permalink($product_id) . ';' .
-													get_the_title($product_id) . "\r\n";
+													$cart_content['product_title'] . "\r\n";
 			}
 		}
 	}
