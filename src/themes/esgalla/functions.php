@@ -926,8 +926,9 @@ function comprobar_tabla_carritos() {
 				}
 
 				$item_price = $cart_content['product_variation_price'] + $cart_content['product_tax'];
+				$item_sku = get_post_meta( $product_id, '_sku', true );
 				$items_carrito .= $retrieved_data->id . ';' .
-													$product_id . ';' .
+													$item_sku . ';' .
 													$item_price . ';' .
 													$cart_content['quantity'] . ';' .
 													'0' . ';' .
