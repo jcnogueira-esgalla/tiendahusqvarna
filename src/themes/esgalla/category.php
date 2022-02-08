@@ -114,18 +114,27 @@ get_header();
 		<div class="row my-3 my-md-5">
 
 			<?php
-				$ultimas_entradas = get_posts( array('numberposts'=>12,'category'=>get_queried_object()->term_id) );
-				foreach ($ultimas_entradas as $entrada) {
-					echo '<div class="col-12 col-sm-6 col-lg-4 col-xl-3">';
-					get_template_part( 'template-parts/ficha','noticia',array('id_noticia'=>$entrada->ID));
-					echo '</div>';
+				$args = [
+					'cat' => get_queried_object()->term_id,
+					'posts_per_page' => 12,
+					'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1 ),
+				];
+				$query = new WP_Query( $args );
+				if ( $query->have_posts() ) {
+					while ( $query->have_posts() ) {
+						$query->the_post();
+						echo '<div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex">';
+						get_template_part( 'template-parts/ficha','noticia',array('id_noticia'=>get_the_ID()));
+						echo '</div>';
+					}
 				}
+
 			?>
 		</div>
 
 		<div class="w-100 d-flex justify-content-center">
 
-			<?php echo do_shortcode( '[facetwp facet="paginacin"]' ) ?>
+			<?php the_posts_pagination(); ?>
 		</div>
 
 	</div>
