@@ -13868,4 +13868,12 @@ body.search-results .ficha-producto {
   text-decoration: underline;
   font-weight: bold;
 }
+
+.envios-garantia-producto div {
+  font-size: 14px;
+}
+
+.shipping input[type=radio] {
+  opacity: 1;
+}
 /*# sourceMappingURL=custom.css.map */

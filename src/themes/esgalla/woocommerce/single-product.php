@@ -170,9 +170,14 @@ return $wpdb->get_col("
 					<?php  _e("Producto temporalmente sin existencias online. Consulta disponibilidad en tu distribuidor más cercano","esgalla"); ?>
 				<?php endif; ?>
 
-				<div class="product-terms mt-4 py-3 border-top border-bottom border-gray w-100">
+				<div class="row envios-garantia-producto mt-4 py-3 border-top border-bottom border-gray w-100">
 
-					<div class="font-weight-bold"><i class="fas fa-truck fs-fa pr-2"></i><?php _e("¡Envio GRATIS!","esgalla"); ?></div>
+					<div class="col-6 col-lg-4 font-weight-bold mb-3 text-nowrap">
+						<i class="fas fa-truck fs-fa pr-2"></i><?php _e("¡Envio GRATIS!","esgalla"); ?>
+					</div>
+					<div class="col-12 col-lg-6 font-weight-bold mb-3 text-nowrap d-none">
+						<i class="fas fa-truck fs-fa pr-2"></i><?php _e("¡Envío gratis a partir de 19€!","esgalla"); ?>
+					</div>
 
 					<?php 
 						$link_garantias = '';
@@ -182,9 +187,13 @@ return $wpdb->get_col("
 							$link_garantias = 'https://lojahusqvarna.com/termos-e-condicoes/#info-garantias';
 						}
 					?>
-					<a href="<?php echo $link_garantias; ?>" class="text-secondary"><div class="font-weight-bold position-relative"><i class="fas fa-sync-alt pr-2"></i></i><?php _e("3 años de garantía","esgalla"); ?> <br/><p class="ml-3 mb-0" style="font-size:10px;position: absolute;bottom: -10px;">&nbsp;<i>*<?php _e("ver condiciones","esgalla"); ?></i></p></div></a>
+					<div class="col-6 col-lg-4 mb-3 text-nowrap">
+						<a href="<?php echo $link_garantias; ?>" class="text-secondary"><div class="font-weight-bold position-relative"><i class="fas fa-sync-alt pr-2"></i></i><?php _e("3 años de garantía","esgalla"); ?> <br/><p class="ml-3 mb-0" style="font-size:10px;position: absolute;bottom: -10px;">&nbsp;<i>*<?php _e("ver condiciones","esgalla"); ?></i></p></div></a>
+					</div>
 
-					<div class="font-weight-bold"><i class="fas fa-check pr-2"></i></i><?php _e("14 días de devolución","esgalla"); ?></div>
+					<div class="col-6 col-lg-4 mb-3 font-weight-bold text-nowrap">
+						<i class="fas fa-check pr-2"></i></i><?php _e("14 días de devolución","esgalla"); ?>
+					</div>
 
 				</div>
 

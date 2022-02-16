@@ -279,6 +279,9 @@ msgstr "Envio GRÁTIS!"
 msgid "¡Envíos GRATIS!"
 msgstr "Envios GRÁTIS!"
 
+msgid "¡Envío gratis a partir de 19€!"
+msgstr "Envio grátis a partir de 19€"
+
 msgid "¡No te pierdas nuestras novedades y promociones!"
 msgstr "Não perca as nossas novidades e promoções!"
 
