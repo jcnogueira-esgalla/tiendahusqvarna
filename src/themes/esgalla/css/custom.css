@@ -1310,13 +1310,8 @@
   height: auto;
 }
 
-.shipping li label:before {
-  border-radius: 50%;
-  padding-right: 3px;
-}
-
-.shipping li input:checked + label:before {
-  content: "\f111";
+.shipping label:before {
+  display: none;
 }
 
 .order-total {
