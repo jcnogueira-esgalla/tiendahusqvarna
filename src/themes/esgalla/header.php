@@ -141,8 +141,7 @@
 			<a href="mailto:<?php _e("soportecliente@tiendahusqvarna.com", "esgalla") ?>" class="text-light p"><i class="fas fa-envelope pr-2"></i><?php _e("soportecliente@tiendahusqvarna.com", "esgalla") ?></a>
 			<p class="text-light"><i class="fas fa-undo pr-2"></i><?php _e("Devolución garantizada", "esgalla") ?></p>
 			<p class="text-light"><i class="fas fa-check pr-2"></i><?php _e("Garantía Husqvarna", "esgalla") ?></p>
-			<p class="text-light"><i class="fas fa-truck pr-2"></i><?php _e("¡Envíos GRATIS!", "esgalla") ?></p>
-            <p class="text-light d-none"><i class="fas fa-truck pr-2"></i><?php _e("¡Envío gratis a partir de 19€!", "esgalla") ?></p>
+            <p class="text-light"><i class="fas fa-truck pr-2"></i><?php _e("¡Envío gratis a partir de 19€!", "esgalla") ?></p>
 			<p class="text-light"><i class="fas fa-money-bill-wave pr-2"></i><?php _e("Pago seguro", "esgalla") ?></p>
 			<?php if(get_post_type()!='post'): ?>
 			<a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ) ?>" class="text-light p"><?php _e("BLOG", "esgalla") ?></a>

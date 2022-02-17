@@ -1310,6 +1310,15 @@
   height: auto;
 }
 
+.shipping li label:before {
+  border-radius: 50%;
+  padding-right: 3px;
+}
+
+.shipping li input:checked + label:before {
+  content: "\f111";
+}
+
 .order-total {
   margin-top: 20px;
   padding-top: 20px;
@@ -13871,9 +13880,5 @@ body.search-results .ficha-producto {
 
 .envios-garantia-producto div {
   font-size: 14px;
-}
-
-.shipping input[type=radio] {
-  opacity: 1;
 }
 /*# sourceMappingURL=custom.css.map */

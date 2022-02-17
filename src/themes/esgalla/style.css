@@ -364,9 +364,9 @@ a.reset_variations {
 	display:none;
 }
 
-.woocommerce-shipping-methods label:before {
+/* .woocommerce-shipping-methods label:before {
 	display:none;
-}
+} */
 
 .navbar-toggler img {
 	min-width: 25px;

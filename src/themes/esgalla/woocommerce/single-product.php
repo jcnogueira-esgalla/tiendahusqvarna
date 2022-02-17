@@ -172,10 +172,7 @@ return $wpdb->get_col("
 
 				<div class="row envios-garantia-producto mt-4 py-3 border-top border-bottom border-gray w-100">
 
-					<div class="col-6 col-lg-4 font-weight-bold mb-3 text-nowrap">
-						<i class="fas fa-truck fs-fa pr-2"></i><?php _e("¡Envio GRATIS!","esgalla"); ?>
-					</div>
-					<div class="col-12 col-lg-6 font-weight-bold mb-3 text-nowrap d-none">
+					<div class="col-12 col-lg-6 font-weight-bold mb-3 text-nowrap">
 						<i class="fas fa-truck fs-fa pr-2"></i><?php _e("¡Envío gratis a partir de 19€!","esgalla"); ?>
 					</div>
 
