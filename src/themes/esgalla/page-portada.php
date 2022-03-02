@@ -186,22 +186,23 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 			<div class="col-12">
 				<?php if(get_site_url( ) == 'https://tiendahusqvarna.com'){ ?>
 					<? date_default_timezone_set('Europe/Madrid'); //Nos aseguramos de que pillamos la hora Española ?>
-					<? if( (date("Ymd") > 20220228) ): //Despues de esta fecha se acaba el período promo Ofertas Otoño  ?>
+					<? //if( (date("Ymd") > 20220228) ): //Despues de esta fecha se acaba el período promo Ofertas Otoño  ?>
 						<a href="https://folleto.tiendahusqvarna.com/" target="_blank">
 							<img src="https://tiendahusqvarna.com/files/2022/02/banner-primavera-tiendahusqvarna.2-1-1-scaled.jpg" class="img-fluid"/>
 						</a>
-					<? else: ?>
+					<? //else: ?>
 						
-					<? endif; ?>
+					<? //endif; ?>
 				<?php } ?>
 				<?php if(get_site_url( ) == 'https://lojahusqvarna.com'){ ?>
 					<? date_default_timezone_set('Europe/Lisbon'); //Nos aseguramos de que pillamos la hora Portuguesa ?>
-					<? if( (date("Ymd") > 20220131) ): //Despues de esta fecha se acaba el período promo Ofertas Otoño ?>
-						<!-- <img src="https://lojahusqvarna.com/files/sites/2/2021/11/BF-PT-2246-x-970-px_Mesa-de-trabajo-1-scaled.jpg" class="img-fluid"/> -->
-					<? else: ?>
-						<!-- <a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=banner&utm_campaign=renovacao-outono" target="_blank"><img src="https://lojahusqvarna.com/files/sites/2/2021/10/BANNERS-PT_1440x670px.jpg" class="img-fluid"/></a>
-						<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=banner&utm_campaign=renovacao-outono" target="_blank" class="text-primary subtit-arrow font-italic font-weight-bold text-decoration-none d-block mt-3">veja todas as promoções</a> -->
-					<? endif; ?>
+					<? //if( (date("Ymd") > 20220228) ): //Despues de esta fecha se acaba el período promo Ofertas Otoño ?>
+						<a href="https://folheto.lojahusqvarna.com/" target="_blank">
+							<img src="https://lojahusqvarna.com/files/sites/2/2022/03/2246x970_PT_Mesa-de-trabajo-1-1-scaled.jpg" class="img-fluid"/>
+						</a>
+					<? //else: ?>
+						
+					<? //endif; ?>
 				<?php } ?>
 			</div>
 		</div>
