@@ -187,7 +187,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 				<?php if(get_site_url( ) == 'https://tiendahusqvarna.com'){ ?>
 					<? date_default_timezone_set('Europe/Madrid'); //Nos aseguramos de que pillamos la hora Española ?>
 					<? //if( (date("Ymd") > 20220228) ): //Despues de esta fecha se acaba el período promo Ofertas Otoño  ?>
-						<a href="https://folleto.tiendahusqvarna.com/" target="_blank">
+						<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarnab&utm_medium=BannerHome&utm_campaign=primavera22" target="_blank">
 							<img src="https://tiendahusqvarna.com/files/2022/02/banner-primavera-tiendahusqvarna.2-1-1-scaled.jpg" class="img-fluid"/>
 						</a>
 					<? //else: ?>
@@ -197,7 +197,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 				<?php if(get_site_url( ) == 'https://lojahusqvarna.com'){ ?>
 					<? date_default_timezone_set('Europe/Lisbon'); //Nos aseguramos de que pillamos la hora Portuguesa ?>
 					<? //if( (date("Ymd") > 20220228) ): //Despues de esta fecha se acaba el período promo Ofertas Otoño ?>
-						<a href="https://folheto.lojahusqvarna.com/" target="_blank">
+						<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=BannerHome&utm_campaign=primavera22" target="_blank">
 							<img src="https://lojahusqvarna.com/files/sites/2/2022/03/2246x970_PT_Mesa-de-trabajo-1-1-scaled.jpg" class="img-fluid"/>
 						</a>
 					<? //else: ?>
