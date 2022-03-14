@@ -1005,6 +1005,23 @@ footer .row {width: 1248px;}
 	}
 }
 
+/***************************************************** Ficha noticia new **/
+.ficha-noticia-new {
+	.contenedor-titulo-noticia {
+		min-height: 250px;
+		padding: 25px 16px;
+		background-repeat: no-repeat, no-repeat!important;
+		background-size: cover, cover!important;
+		background-position: center, center!important;
+	}
+	.link-noticia {
+		
+	}
+	&:hover {
+		
+	}
+}
+
 /***************************************************** Blog **/
 // .blog, .single-post {
 // 	.logo-azul {display: none;}

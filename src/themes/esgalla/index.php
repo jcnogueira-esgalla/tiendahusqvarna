@@ -23,18 +23,6 @@ get_header();
 	</div>
 </header>
 
-<?php /*
-<section id="breadcrumb" class="py-2 py-md-4 bg-light">
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<div class="text-primary breadcrumbs"><span class="pr-1"><a href="<?php echo get_home_url(); ?>"><?php _e("inicio","esgalla"); ?></a></span><i class="fas fa-angle-left pr-1"></i><span class="last-breadcrumb"><a href="#">blog</a></span></div>
-			</div>
-		</div>
-	</div>
-</section>
-*/ ?>
-
 <section class="pt-md-4 py-3 pb-md-4 bg-light">
 	<div class="container">
 		<div class="row">
@@ -57,124 +45,61 @@ if(get_site_url( ) == 'https://lojahusqvarna.com') $categorias_principales = arr
 foreach ($categorias_principales as $categoria):
 	$datos_categoria = get_term( $categoria );
 ?>
-<section class="py-2 py-md-5">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-md-3">
-				<h3 class="fs-40"><?php echo $datos_categoria->name ?></h3>
-				<div class="text-primary subtit-arrow pt-3 font-weight-bold font-italic fs-18 position-relative"><a href="<?php echo get_term_link( $categoria ) ?>"><?php _e("ver más","esgalla"); ?> <?php echo mb_strtolower($datos_categoria->name) ?></a></div>
+
+<? if( isset($_GET['newblog']) ): ?>
+
+	<section class="py-2 py-md-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-3">
+					<h3 class="fs-40"><?php echo $datos_categoria->name ?></h3>
+					<div class="text-primary subtit-arrow pt-3 font-weight-bold font-italic fs-18 position-relative"><a href="<?php echo get_term_link( $categoria ) ?>"><?php _e("ver más","esgalla"); ?> <?php echo mb_strtolower($datos_categoria->name) ?></a></div>
+				</div>
+				<div class="col-12 col-md-8 col-lg-7">
+					<p class="font-weight-light fs-19 text-gray pt-2 pr-md-5 pr-lg-6"><?php echo $datos_categoria->description ?></p>
+				</div>
 			</div>
-			<div class="col-12 col-md-8 col-lg-7">
-				<p class="font-weight-light fs-19 text-gray pt-2 pr-md-5 pr-lg-6"><?php echo $datos_categoria->description ?></p>
+			<div class="row">
+				<div class="col-12 mt-4 mt-lg-5 slick-noticias">
+					<?php
+						$ultimas_entradas = get_posts( array('numberposts'=>12,'category'=>$categoria) );
+						foreach ($ultimas_entradas as $entrada) {
+									get_template_part( 'template-parts/ficha','noticia-new',array('id_noticia'=>$entrada->ID));
+						}
+					?>
+				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-12 mt-4 mt-lg-5 slick-noticias">
-				<?php
-					$ultimas_entradas = get_posts( array('numberposts'=>12,'category'=>$categoria) );
-					foreach ($ultimas_entradas as $entrada) {
-		            get_template_part( 'template-parts/ficha','noticia',array('id_noticia'=>$entrada->ID));
-					}
-				?>
+	</section>
+
+<? else: ?>
+
+	<section class="py-2 py-md-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-3">
+					<h3 class="fs-40"><?php echo $datos_categoria->name ?></h3>
+					<div class="text-primary subtit-arrow pt-3 font-weight-bold font-italic fs-18 position-relative"><a href="<?php echo get_term_link( $categoria ) ?>"><?php _e("ver más","esgalla"); ?> <?php echo mb_strtolower($datos_categoria->name) ?></a></div>
+				</div>
+				<div class="col-12 col-md-8 col-lg-7">
+					<p class="font-weight-light fs-19 text-gray pt-2 pr-md-5 pr-lg-6"><?php echo $datos_categoria->description ?></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 mt-4 mt-lg-5 slick-noticias">
+					<?php
+						$ultimas_entradas = get_posts( array('numberposts'=>12,'category'=>$categoria) );
+						foreach ($ultimas_entradas as $entrada) {
+									get_template_part( 'template-parts/ficha','noticia',array('id_noticia'=>$entrada->ID));
+						}
+					?>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+<? endif; ?>
+
 <?php endforeach; ?>
 
-<?php /*
-<section class="py-2 py-md-5">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-md-3">
-				<h3 class="fs-40"><?php _e("Fichas","esgalla"); ?></h3>
-				<div class="text-primary subtit-arrow pt-3 font-weight-bold font-italic fs-18 position-relative"><?php _e("ver más fichas","esgalla"); ?></div>
-			</div>
-			<div class="col-12 col-md-8 col-lg-7">
-				<p class="font-weight-light fs-19 text-gray pt-2 pr-md-5 pr-lg-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur egestas mi nec posuere elementum. Mauris fringilla lectus et ipsum venenatis dapibus.
-				Mauris fringilla lectus et ipsum venenatis dapibus.
-				</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12 mt-4 mt-lg-5 slick-noticias">
-				<?php echo do_shortcode('[fichas t=post c=8]'); ?>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="py-2 py-md-5">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-md-3">
-				<h3 class="fs-40"><?php _e("Profesional","esgalla"); ?></h3>
-				<div class="text-primary subtit-arrow pt-3 font-weight-bold font-italic fs-18 position-relative"><?php _e("ver más artículos profesionales","esgalla"); ?></div>
-			</div>
-			<div class="col-12 col-md-8 col-lg-7">
-				<p class="font-weight-light fs-19 text-gray pt-2 pr-md-5 pr-lg-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur egestas mi nec posuere elementum. Mauris fringilla lectus et ipsum venenatis dapibus.
-				Mauris fringilla lectus et ipsum venenatis dapibus.
-				</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12 mt-4 mt-lg-5 slick-noticias">
-				<? for ($i = 1; $i <= 8; $i++): ?>
-
-					<? get_template_part('template-parts/ficha', 'post'); ?>
-
-				<? endfor; ?>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="py-2 py-md-5">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-md-3">
-				<h3 class="fs-40"><?php _e("Jardinería","esgalla"); ?></h3>
-				<div class="text-primary subtit-arrow pt-3 font-weight-bold font-italic fs-18 position-relative"><?php _e("ver más sobre jardinería","esgalla"); ?></div>
-			</div>
-			<div class="col-12 col-md-8 col-lg-7">
-				<p class="font-weight-light fs-19 text-gray pt-2 pr-md-5 pr-lg-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur egestas mi nec posuere elementum. Mauris fringilla lectus et ipsum venenatis dapibus.
-				Mauris fringilla lectus et ipsum venenatis dapibus.
-				</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12 mt-4 mt-lg-5 slick-noticias">
-				<? for ($i = 1; $i <= 8; $i++): ?>
-
-					<? get_template_part('template-parts/ficha', 'post'); ?>
-
-				<? endfor; ?>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="py-2 py-md-5">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-md-3">
-				<h3 class="fs-40"><?php _e("Naturaleza","esgalla"); ?></h3>
-				<div class="text-primary subtit-arrow pt-3 font-weight-bold font-italic fs-18 position-relative"><?php _e("ver más sobre naturaleza","esgalla"); ?></div>
-			</div>
-			<div class="col-12 col-md-8 col-lg-7">
-				<p class="font-weight-light fs-19 text-gray pt-2 pr-md-5 pr-lg-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur egestas mi nec posuere elementum. Mauris fringilla lectus et ipsum venenatis dapibus.
-				Mauris fringilla lectus et ipsum venenatis dapibus.
-				</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-12 mt-4 mt-lg-5 slick-noticias">
-				<? for ($i = 1; $i <= 8; $i++): ?>
-
-					<? get_template_part('template-parts/ficha', 'post'); ?>
-
-				<? endfor; ?>
-			</div>
-		</div>
-	</div>
-</section>
-*/ ?>
 <?php
 get_footer();

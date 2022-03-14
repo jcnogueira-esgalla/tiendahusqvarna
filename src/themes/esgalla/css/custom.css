@@ -13359,6 +13359,15 @@ footer .row {
   font-weight: 300;
 }
 
+/***************************************************** Ficha noticia new **/
+.ficha-noticia-new .contenedor-titulo-noticia {
+  min-height: 250px;
+  padding: 25px 16px;
+  background-repeat: no-repeat, no-repeat !important;
+  background-size: cover, cover !important;
+  background-position: center, center !important;
+}
+
 /***************************************************** Blog **/
 .portada-blog {
   margin-top: -60px;
