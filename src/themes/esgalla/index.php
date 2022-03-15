@@ -47,20 +47,20 @@ foreach ($categorias_principales as $categoria):
 ?>
 
 <? if( isset($_GET['newblog']) ): ?>
-
-	<section class="py-2 py-md-5">
+	<div class="mt-5"><!-- Borrar esta seccion cuanto se publique y meterle mb a la seccion de arriba --></div>
+	<section class="py-2 mb-4">
 		<div class="container">
 			<div class="row">
-				<div class="col-12 col-md-3">
+				<div class="col-12">
 					<h3 class="fs-40"><?php echo $datos_categoria->name ?></h3>
-					<div class="text-primary subtit-arrow pt-3 font-weight-bold font-italic fs-18 position-relative"><a href="<?php echo get_term_link( $categoria ) ?>"><?php _e("ver más","esgalla"); ?> <?php echo mb_strtolower($datos_categoria->name) ?></a></div>
 				</div>
-				<div class="col-12 col-md-8 col-lg-7">
-					<p class="font-weight-light fs-19 text-gray pt-2 pr-md-5 pr-lg-6"><?php echo $datos_categoria->description ?></p>
+				<div class="col-12 d-flex justify-content-between align-content-bottom">
+					<span class="fs-16 text-gray"><?php echo $datos_categoria->description ?></span>
+					<a href="<?php echo get_term_link( $categoria ) ?>" class="text-primary font-weight-bold font-italic fs-20 mb-2"><?php _e("Ver todas","esgalla"); ?></a>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-12 mt-4 mt-lg-5 slick-noticias">
+				<div class="col-12 mt-4 slick-noticias-new">
 					<?php
 						$ultimas_entradas = get_posts( array('numberposts'=>12,'category'=>$categoria) );
 						foreach ($ultimas_entradas as $entrada) {

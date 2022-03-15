@@ -1005,8 +1005,11 @@ footer .row {width: 1248px;}
 	}
 }
 
-/***************************************************** Ficha noticia new **/
+/***************************************************** Estilos blog new **/
 .ficha-noticia-new {
+	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+	border-radius: 5px;
+	transition: all 0.25s ease-in-out;
 	.contenedor-titulo-noticia {
 		min-height: 250px;
 		padding: 25px 16px;
@@ -1015,11 +1018,64 @@ footer .row {width: 1248px;}
 		background-position: center, center!important;
 	}
 	.link-noticia {
-		
+		i {
+			transition: all 0.25s ease-in-out;
+		}
 	}
 	&:hover {
-		
+		box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.55);
+		.link-noticia {
+			i {
+				transform: translateX(2px);
+			}
+		}
 	}
+}
+
+.category {
+	.pagination-new-blog {
+		.page-numbers {
+			color: $secondary;
+			margin: 0px 8px;
+			&.current,
+			&:hover {
+				color: $primary;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.slick-noticias-new {
+
+	/* the slides */
+	.slick-slide {
+		margin: 0 8px;
+	}
+
+	/* the parent */
+	.slick-list {
+		margin: 0 -8px;
+	}
+
+	.slick-dots li.slick-active button {
+    background-color: $secondary;
+	}
+	.slick-dots button {
+    background-color: #C4C4C4;
+		width: 12px;
+		height: 12px;
+		&:focus {
+			outline: none;
+		}
+	}
+
+}
+
+.cita-quotes {
+	background-image: url('/src/themes/esgalla/img/quote-izq.png'), url('/src/themes/esgalla/img/quote-dcha.png');
+	background-repeat: no-repeat, no-repeat;
+	background-position: top left, bottom right;
 }
 
 /***************************************************** Blog **/

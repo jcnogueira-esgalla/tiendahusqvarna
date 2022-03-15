@@ -460,6 +460,37 @@ jQuery(document).ready(function() {
 
 	 }
 
+	 if(jQuery('.slick-noticias-new')) {
+		jQuery('.slick-noticias-new').slick({
+			slidesToShow: 4,
+			slidesToScroll: 3,
+			arrows: false,
+			dots: true,
+			prevArrow: "<i class=\"fas fa-angle-left prev\"></i>",
+			nextArrow: "<i class=\"fas fa-angle-right next\"></i>",
+			responsive: [
+					{
+						breakpoint: 1200,
+						settings: {
+							slidesToShow: 3
+						}
+					},
+					{
+						breakpoint: 992,
+						settings: {
+							slidesToShow: 2
+						}
+					},
+					{
+						breakpoint: 768,
+						settings: {
+							slidesToShow: 1
+						}
+					}
+				]
+	});
+ }
+
 	 if(jQuery('#carousel-opiniones')) {
 
 		jQuery('#carousel-opiniones').slick({
