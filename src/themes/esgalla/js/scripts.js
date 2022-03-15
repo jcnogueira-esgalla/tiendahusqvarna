@@ -156,6 +156,37 @@ jQuery(document).ready(function() {
 
 	 }
 
+	 if(jQuery('.slick-productos-blog')) {
+		jQuery('.slick-productos-blog').slick({
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			arrows: false,
+			dots: true,
+			responsive: [
+					{
+						breakpoint: 1200,
+						settings: {
+							slidesToShow: 3
+						}
+					},
+					{
+						breakpoint: 992,
+						settings: {
+							slidesToShow: 2
+						}
+					},
+					{
+						breakpoint: 576,
+						settings: {
+							slidesToShow: 1,
+							slidesToScroll: 1,
+							dots: false
+						}
+					}
+				]
+	});
+ }
+
 	 /***
 
 	*
