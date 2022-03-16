@@ -13391,6 +13391,33 @@ footer .row {
           transform: translateX(2px);
 }
 
+.ficha-noticia-relacionada {
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  border-bottom: 1px solid #C4C4C4;
+  padding-bottom: 15px;
+}
+
+.ficha-noticia-relacionada img {
+  width: 75px;
+  height: 94px;
+  border-radius: 7px;
+}
+
+.ficha-noticia-relacionada .titulo-noticia {
+  min-height: 60px;
+}
+
+.ficha-noticia-relacionada .link-noticia i {
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.ficha-noticia-relacionada:hover .link-noticia i {
+  -webkit-transform: translateX(2px);
+          transform: translateX(2px);
+}
+
 .category .pagination-new-blog .page-numbers {
   color: #273A60;
   margin: 0px 8px;
@@ -13441,6 +13468,51 @@ footer .row {
 .tabla-post .tabla-post-descripcion {
   border: 1px solid #FFFFFF;
   background: rgba(153, 182, 242, 0.1);
+  color: #6C6C6C;
+}
+
+.acordeones-post .antetitulo {
+  font-weight: 700;
+  color: #6C6C6C;
+}
+
+.acordeones-post .acordeon-post {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.acordeones-post .acordeon-post .card {
+  border-width: 0px;
+}
+
+.acordeones-post .acordeon-post .card .card-header {
+  background: white;
+  border-radius: 0px;
+  border-width: 0px 0px 1px 0px;
+}
+
+.acordeones-post .acordeon-post .card .card-header .texto-header .btn:hover {
+  color: #777777 !important;
+}
+
+.acordeones-post .acordeon-post .card .card-header .texto-header .btn .icon-header {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.acordeones-post .acordeon-post .card .card-header .texto-header .btn.collapsed .icon-header {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.acordeones-post .acordeon-post .card .card-header .texto-header .btn:not(.collapsed) {
+  color: #777777 !important;
+}
+
+.acordeones-post .acordeon-post .card .card-body {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
   color: #6C6C6C;
 }
 

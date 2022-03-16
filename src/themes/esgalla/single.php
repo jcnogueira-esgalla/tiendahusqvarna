@@ -23,7 +23,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 						<div class="mb-5">
 							<div class="row" id="#seccion-post-<?=get_row_index()?>">
 								<div class="col-12 col-lg-6">
-									<?= (get_row_index() == 1) ? '<h1>' . get_the_title() . '</h1>' : '' ; ?>
+									<?= (get_row_index() == 1) ? '<h1 class="text-secondary">' . get_the_title() . '</h1>' : '' ; ?>
 									<div class="wysiwyg">
 										<?=$text?>
 									</div>
@@ -41,7 +41,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 						<div class="mb-5">
 							<div class="row" id="#seccion-post-<?=get_row_index()?>">
 								<div class="col-12 col-lg-6">
-									<?= (get_row_index() == 1) ? '<h1>' . get_the_title() . '</h1>' : '' ; ?>
+									<?= (get_row_index() == 1) ? '<h1 class="text-secondary">' . get_the_title() . '</h1>' : '' ; ?>
 									<div class="wysiwyg">
 										<?=$text?>
 									</div>
@@ -52,7 +52,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 							</div>
 						</div>
 
-					<? elseif( get_row_layout() == 'cita' ): 
+					<? elseif( get_row_layout() == 'cita' ):
 						$cita = get_sub_field('cita'); ?>
 						<div class="mb-5">
 							<div class="row" id="#seccion-post-<?=get_row_index()?>">
@@ -62,7 +62,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 							</div>
 						</div>
 
-					<? elseif( get_row_layout() == 'tabla' ): 
+					<? elseif( get_row_layout() == 'tabla' ):
 						$titulo = get_sub_field('titulo');
 						$tabla = get_sub_field('tabla'); ?>
 						<div class="mb-5">
@@ -88,7 +88,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 							</div>
 						</div>
 
-					<? elseif( get_row_layout() == 'slider_productos' ): 
+					<? elseif( get_row_layout() == 'slider_productos' ):
 						$productos = get_sub_field('slider_productos'); ?>
 						<div class="mb-5">
 							<div class="row" id="#seccion-post-<?=get_row_index()?>">
@@ -108,9 +108,49 @@ $shareUrl = urlencode(home_url( $wp->request ));
 						</div>
 
 					<? elseif( get_row_layout() == 'acordeones' ): 
-						// Do something...
+						$antetitulo = get_sub_field('antetitulo');
+						$titulo = get_sub_field('titulo');
+						$acordeones = get_sub_field('acordeones'); ?>
+						<div class="mb-5">
+							<div class="row acordeones-post" id="#seccion-post-<?=get_row_index()?>">
+								<? if( $antetitulo ): ?>
+									<div class="col-12 mb-3">
+										<span class="antetitulo fs-19"><?=$antetitulo?></span>
+									</div>
+								<? endif; ?>
+								<div class="col-12 text-secondary font-weight-bold fs-26 mb-4">
+									<?=$titulo?>
+								</div>
+								<div class="col-12">
+									<div id="accordion" class="acordeon-post">
+										<? $indexAcordeon = 1; ?>
+										<? foreach($acordeones as $acordeon): ?>
+											<?
+												$titulo = $acordeon['elemento']['titulo'];
+												$contenido = $acordeon['elemento']['contenido'];
+											?>
+											<div class="card">
+												<div class="card-header px-0 position-relative" id="heading<?=$indexAcordeon?>">
+													<div class="mb-0 texto-header">
+														<a class="btn btn-link text-secondary text-left font-weight-bold fs-18 text-decoration-none px-0 stretched-link d-flex justify-content-between collapsed" data-toggle="collapse" data-target="#collapse<?=$indexAcordeon?>" aria-expanded="true" aria-controls="collapse<?=$indexAcordeon?>">
+															<?=$titulo?><i class="fas fa-chevron-up icon-header"></i>
+														</a>
+													</div>
+												</div>
+												<div id="collapse<?=$indexAcordeon?>" class="collapse" aria-labelledby="heading<?=$indexAcordeon?>" data-parent="#accordion">
+													<div class="card-body px-0 fs-18">
+														<?=$contenido?>
+													</div>
+												</div>
+											</div>
+											<? $indexAcordeon++; ?>
+										<? endforeach; ?>
+									</div>
+								</div>
+							</div>
+						</div>
 
-					elseif( get_row_layout() == 'texto' ): ?>
+					<? elseif( get_row_layout() == 'texto' ): ?>
 						<div class="mb-5">
 							<div class="row" id="#seccion-post-<?=get_row_index()?>">
 								<div class="col-12 wysiwyg wysiwyg-blog">
@@ -135,8 +175,8 @@ $shareUrl = urlencode(home_url( $wp->request ));
 				</div>
 				<div class="mb-5">
 					<div class="row">
-						<div class="col-12">
-							<h4 class="font-weight-bold text-capitalize text-dark text-center text-lg-left"><?php _e("productos relacionados","esgalla"); ?></h4>
+						<div class="col-12 mb-4">
+							<h4 class="font-weight-bold text-capitalize text-secondary"><?php _e("productos relacionados","esgalla"); ?></h4>
 						</div>
 						<div class="col-12 slick-productos-blog">
 							<?
@@ -157,12 +197,43 @@ $shareUrl = urlencode(home_url( $wp->request ));
 						<p class="text-secondary font-weight-bold"><?php _e("¡Partilhe este artigo!","esgalla"); ?></p>
 					<?php endif; ?>
 					<div class="redes ml-3">
-						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $shareUrl; ?>" target="_blank"><i class="fab fa-facebook text-secondary mr-3 fs-fa"></i></a>
-						<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $shareUrl; ?>&title=&summary=<?php echo get_the_title(); ?>&source=" target="_blank"><i class="fab fa-linkedin text-secondary fs-fa mr-3"></i></a>
-						<a href="http://twitter.com/share?text=<?php echo get_the_title(); ?>&url=<?php echo $shareUrl; ?>&hashtags=husqvarna" target="_blank"><i class="fab fa-twitter text-secondary fs-fa"></i></a>
+						<a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo $shareUrl; ?>&title=&summary=<?php echo get_the_title(); ?>&source=" target="_blank"><i class="fab fa-linkedin-in text-secondary mr-2 fs-19"></i></a>
+						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $shareUrl; ?>" target="_blank"><i class="fab fa-facebook-f text-secondary mr-2 fs-19"></i></a>
+						<a href="http://twitter.com/share?text=<?php echo get_the_title(); ?>&url=<?php echo $shareUrl; ?>&hashtags=husqvarna" target="_blank"><i class="fab fa-twitter text-secondary mr-2 fs-19"></i></a>
 					</div>
 				</div>
+				<div class="categorias-post d-flex mt-3">
+					<?
+						$cats = get_the_category();
+						foreach ($cats as $cat) : ?>
+							<a href="<?=get_term_link($cat->term_id)?>" class="btn btn-outline-secondary mr-3"><?=$cat->name?></a>
+					<? endforeach; ?>
+				</div>
+				<?
+					$noticias_relacionadas = new WP_Query(
+						[
+							'category__in'   => wp_get_post_categories( get_the_ID() ),
+							'posts_per_page' => 6,
+							'post__not_in'   => [get_the_ID()]
+						]
+					);
+					if( $noticias_relacionadas->have_posts() ) : //Si tenemos noticias relacionadas, pintamos sección ?>
+						<div class="my-5">
+							<div class="row noticias-relacionadas">
+								<div class="col-12 mb-4">
+									<h4 class="font-weight-bold text-capitalize text-secondary"><?php _e("Noticias relacionadas","esgalla"); ?></h4>
+								</div>
+								<? while( $noticias_relacionadas->have_posts() ) : $noticias_relacionadas->the_post(); ?>
+									<div class="col-12 col-md-6 col-lg-4 mb-3">
+										<? get_template_part('template-parts/ficha', 'noticia-relacionada'); ?>
+									</div>
+								<? endwhile; ?>
+								<? wp_reset_postdata(); ?>
+							</div>
+						</div>
+					<? endif; ?>
 			</div>
+
 		<? else :
 			// Do something...
 		endif;
