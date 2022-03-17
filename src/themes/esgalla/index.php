@@ -26,17 +26,46 @@ get_header();
 <section class="pt-md-4 py-3 pb-md-4 bg-light">
 	<div class="container">
 		<div class="row">
-            <div class="col-12 col-md-3">
-            	<p class="h2 font-weight-bold fs-40"><?php _e("Blog","esgalla"); ?></p>
-            </div>
-            <div class="col-12 col-md-9">
-            	<p class="font-weight-light fs-19 text-gray pt-2 pr-lg-5">¿Tienes un jardín y no sabes cómo cuidarlo? ¿Quieres decorar un espacio soso o aburrido y buscas inspiración? Si es así, nuestros artículos de jardinería y fichas te ayudarán a lograrlo.
-				Además, nuestros post profesionales te enseñarán a trabajar con nuestras máquinas y equipos.
+			<div class="col-12 col-md-3">
+				<p class="h2 font-weight-bold fs-40"><?php _e("Blog","esgalla"); ?></p>
+			</div>
+			<div class="col-12 col-md-9">
+				<p class="font-weight-light fs-19 text-gray pt-2 pr-lg-5">
+					¿Tienes un jardín y no sabes cómo cuidarlo? ¿Quieres decorar un espacio soso o aburrido y buscas inspiración? Si es así, nuestros artículos de jardinería y fichas te ayudarán a lograrlo.
+					Además, nuestros post profesionales te enseñarán a trabajar con nuestras máquinas y equipos.
 				</p>
-            </div>
+			</div>
 		</div>
 	</div>
 </section>
+
+<? if( isset($_GET['newblog']) ): ?>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-9 ml-md-auto">
+				<div class="categorias-post d-lg-flex flex-wrap justify-content-between mt-3">
+					<?
+						$cats = get_categories([
+							'orderby' => 'count',
+							'order' 	=> 'desc'
+						]);
+						$index = 1;
+						foreach ($cats as $cat) : ?>
+							<? if( $index == 8 ) : ?> <div class="collapse" id="collapseBlogCategories"><div class="d-lg-flex flex-wrap justify-content-between"> <? endif; ?>
+								<a href="<?=get_term_link($cat->term_id)?>" class="btn btn-outline-secondary mb-2"><?=$cat->name?></a>
+							<? if( $index == count($cats) ) : ?> </div></div> <? endif; ?>
+							<? $index++; ?>
+					<? endforeach; ?>
+				</div>
+				<div class="text-right">
+					<a class="" data-toggle="collapse" href="#collapseBlogCategories" role="button" aria-expanded="false" aria-controls="collapseBlogCategories">
+						Ver más&nbsp;<i class="fas fa-chevron-down"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+<? endif; ?>
 
 <?php
 // print_r(get_categories(array('fields'=>'id=>slug')));
