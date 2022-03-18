@@ -42,7 +42,17 @@ get_header();
 <? if( isset($_GET['newblog']) ): ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-12 col-md-9 ml-md-auto">
+			<div class="col-12 col-md-9 ml-md-auto buscador-blog">
+				<div class="row">
+					<div class="col-12 col-lg-6">
+						<p class="mt-4 mb-2">Encuentra una noticia</p>
+						<form role="search" method="get" class="search-form input-group border modal-form-search" action="<?php echo get_home_url( '/blog/' ) ?>">
+							<input type="search" data-swpengine="buscador_blog" id="searchNoticia" class="form-control" placeholder="<?php _e("Buscar...","esgalla"); ?>" value="" name="search">
+							<button class="btn btn-secondary rounded font-weight-bold text-uppercase" type="submit"><i class="fas fa-search"></i></button>
+						</form>
+					</div>
+					<div class="col-12 col-lg-6"></div>
+				</div>
 				<div class="categorias-post d-lg-flex flex-wrap justify-content-between mt-3">
 					<?
 						$cats = get_categories([
@@ -52,19 +62,61 @@ get_header();
 						$index = 1;
 						foreach ($cats as $cat) : ?>
 							<? if( $index == 8 ) : ?> <div class="collapse" id="collapseBlogCategories"><div class="d-lg-flex flex-wrap justify-content-between"> <? endif; ?>
-								<a href="<?=get_term_link($cat->term_id)?>" class="btn btn-outline-secondary mb-2"><?=$cat->name?></a>
+								<a href="<?=get_term_link($cat->term_id)?>" class="btn btn-outline-secondary mb-3"><?=$cat->name?></a>
 							<? if( $index == count($cats) ) : ?> </div></div> <? endif; ?>
 							<? $index++; ?>
 					<? endforeach; ?>
 				</div>
 				<div class="text-right">
-					<a class="" data-toggle="collapse" href="#collapseBlogCategories" role="button" aria-expanded="false" aria-controls="collapseBlogCategories">
-						Ver más&nbsp;<i class="fas fa-chevron-down"></i>
+					<a class="font-weight-bold" data-toggle="collapse" href="#collapseBlogCategories" role="button" aria-expanded="false" aria-controls="collapseBlogCategories">
+						Ver más&nbsp;<i class="fas fa-chevron-down ml-2"></i>
 					</a>
 				</div>
 			</div>
 		</div>
 	</div>
+	<? if( isset($_GET['search']) && $_GET['search'] != '' ): ?>
+		<? 
+			$swppg = isset( $_REQUEST['swppg'] ) ? absint( $_REQUEST['swppg'] ) : 1;
+			$busqueda = isset( $_REQUEST['search'] ) ? sanitize_text_field( $_REQUEST['search'] ) : '';
+			if ( class_exists( 'SWP_Query' ) ) {
+
+				//$engine = 'bbpress'; // taken from the SearchWP settings screen
+				$swp_query = new SWP_Query(
+					// see all args at https://searchwp.com/docs/swp_query/
+					[
+						's'      => $busqueda,
+						'engine' => 'buscador_blog',
+						'page'   => $swppg,
+						'posts_per_page' => -1,
+					]
+				);
+				// var_dump($swp_query);
+				// set up pagination
+				// $pagination = paginate_links( array(
+				// 		'format'  => '?swppg=%#%',
+				// 		'current' => $swppg,
+				// 		'total'   => $swp_query->max_num_pages,
+				// ) );
+			}
+		?>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h1>Resultados de búsqueda para: <span class="h1 text-primary"><?=$busqueda?></span>
+				</div>
+			</div>
+			<div class="row my-3 mt-md-5 mb-md-3">
+				<? foreach ( $swp_query->posts as $post ) : ?>
+					<div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-3">
+						<? get_template_part( 'template-parts/ficha','noticia-new',array('id_noticia'=>$post->ID)); ?>
+					</div>
+				<? endforeach; ?>
+			</div>
+		</div>
+
+		
+	<? endif; ?>
 <? endif; ?>
 
 <?php
@@ -76,30 +128,33 @@ foreach ($categorias_principales as $categoria):
 ?>
 
 <? if( isset($_GET['newblog']) ): ?>
-	<div class="mt-5"><!-- Borrar esta seccion cuanto se publique y meterle mb a la seccion de arriba --></div>
-	<section class="py-2 mb-4">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<h3 class="fs-40"><?php echo $datos_categoria->name ?></h3>
+	<? if( !isset($_GET['search']) ): ?>
+		<div class="mt-5"><!-- Borrar esta seccion cuanto se publique y meterle mb a la seccion de arriba --></div>
+		<section class="py-2 mb-4">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h3 class="fs-40"><?php echo $datos_categoria->name ?></h3>
+					</div>
+					<div class="col-12 d-flex justify-content-between align-content-bottom">
+						<span class="fs-16 text-gray"><?php echo $datos_categoria->description ?></span>
+						<a href="<?php echo get_term_link( $categoria ) ?>" class="text-primary font-weight-bold font-italic fs-20 mb-2"><?php _e("Ver todas","esgalla"); ?></a>
+					</div>
 				</div>
-				<div class="col-12 d-flex justify-content-between align-content-bottom">
-					<span class="fs-16 text-gray"><?php echo $datos_categoria->description ?></span>
-					<a href="<?php echo get_term_link( $categoria ) ?>" class="text-primary font-weight-bold font-italic fs-20 mb-2"><?php _e("Ver todas","esgalla"); ?></a>
+				<div class="row">
+					<div class="col-12 mt-4 slick-noticias-new">
+						<?php
+							$ultimas_entradas = get_posts( array('numberposts'=>12,'category'=>$categoria) );
+							foreach ($ultimas_entradas as $entrada) {
+										get_template_part( 'template-parts/ficha','noticia-new',array('id_noticia'=>$entrada->ID));
+							}
+						?>
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12 mt-4 slick-noticias-new">
-					<?php
-						$ultimas_entradas = get_posts( array('numberposts'=>12,'category'=>$categoria) );
-						foreach ($ultimas_entradas as $entrada) {
-									get_template_part( 'template-parts/ficha','noticia-new',array('id_noticia'=>$entrada->ID));
-						}
-					?>
-				</div>
-			</div>
-		</div>
-	</section>
+		</section>
+	<? endif; ?>
+	
 
 <? else: ?>
 
