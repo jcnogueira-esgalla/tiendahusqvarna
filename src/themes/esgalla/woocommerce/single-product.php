@@ -173,7 +173,7 @@ return $wpdb->get_col("
 				<div class="row envios-garantia-producto mt-4 py-3 border-top border-bottom border-gray w-100">
 
 					<div class="col-12 col-lg-6 font-weight-bold mb-3 text-nowrap">
-						<i class="fas fa-truck fs-fa pr-2"></i><?php _e("¡Envío gratis a partir de 19€!","esgalla"); ?>
+						<i class="fas fa-truck pr-1"></i><?php _e("¡Envío gratis a partir de 19€!","esgalla"); ?>
 					</div>
 
 					<?php 
@@ -185,7 +185,7 @@ return $wpdb->get_col("
 						}
 					?>
 					<div class="col-12 col-md-6 col-lg-4 mb-3 text-nowrap">
-						<a href="<?php echo $link_garantias; ?>" class="text-secondary"><div class="font-weight-bold position-relative"><i class="fas fa-sync-alt pr-2"></i></i><?php _e("3 años de garantía","esgalla"); ?> <br/><p class="ml-3 mb-0" style="font-size:10px;position: absolute;bottom: -10px;">&nbsp;<i>*<?php _e("ver condiciones","esgalla"); ?></i></p></div></a>
+						<a href="<?php echo $link_garantias; ?>" class="text-dark"><div class="font-weight-bold position-relative"><i class="fas fa-sync-alt pr-2"></i></i><?php _e("3 años de garantía","esgalla"); ?> <br/><p class="ml-3 mb-0" style="font-size:10px;position: absolute;bottom: -10px;">&nbsp;<i>*<?php _e("ver condiciones","esgalla"); ?></i></p></div></a>
 					</div>
 
 					<div class="col-12 col-md-6 col-lg-6 mb-3 font-weight-bold text-nowrap">
