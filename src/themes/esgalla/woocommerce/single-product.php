@@ -184,13 +184,35 @@ return $wpdb->get_col("
 							$link_garantias = 'https://lojahusqvarna.com/termos-e-condicoes/#info-garantias';
 						}
 					?>
-					<div class="col-6 col-lg-4 mb-3 text-nowrap">
+					<div class="col-12 col-md-6 col-lg-4 mb-3 text-nowrap">
 						<a href="<?php echo $link_garantias; ?>" class="text-secondary"><div class="font-weight-bold position-relative"><i class="fas fa-sync-alt pr-2"></i></i><?php _e("3 años de garantía","esgalla"); ?> <br/><p class="ml-3 mb-0" style="font-size:10px;position: absolute;bottom: -10px;">&nbsp;<i>*<?php _e("ver condiciones","esgalla"); ?></i></p></div></a>
 					</div>
 
-					<div class="col-6 col-lg-4 mb-3 font-weight-bold text-nowrap">
+					<div class="col-12 col-md-6 col-lg-6 mb-3 font-weight-bold text-nowrap">
 						<i class="fas fa-check pr-2"></i></i><?php _e("14 días de devolución","esgalla"); ?>
 					</div>
+
+					<? if( get_current_blog_id() == 1 ): ?>
+						<?
+							if($product->is_type('variable')) {
+								$variations = $product->get_available_variations();
+								$precioProd = 0;
+								foreach ($variations as $prod) {
+									if($prod['display_price'] > $precioProd) {
+										$precioProd = $prod['display_price'];
+									}
+								}
+							} else {
+								$precioProd = wc_get_price_including_tax($product,array('price'=>$product->get_regular_price()));
+							}
+						?>
+						<? if( $precioProd >= 150 && $precioProd <= 3000 ): ?>
+							<div class="col-12 col-md-6 col-lg-6 mb-3 font-weight-bold text-nowrap">
+								<i class="fas fa-coins pr-2"></i></i><?php _e("Financia a 6 meses sin intereses","esgalla"); ?>
+								<br/><p class="ml-3 mb-0" style="font-size:10px;position: absolute;bottom: -10px;">&nbsp;<i>*<?php _e("sujeto a aprobación por la entidad financiera","esgalla"); ?></i></p>
+							</div>
+						<? endif; ?>
+					<? endif; ?>
 
 				</div>
 
