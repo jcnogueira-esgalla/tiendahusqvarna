@@ -144,7 +144,7 @@
             <p class="text-light"><i class="fas fa-truck pr-2"></i><?php _e("¡Envío gratis a partir de 19€!", "esgalla") ?></p>
 
             <? if(get_current_blog_id() == 1): //España ?>
-			    <p class="text-light"><i class="fas fa-money-bill-wave pr-2"></i><?php _e("Financiación a 6 meses sin intereses", "esgalla") ?></p>
+			    <p class="text-light"><i class="fas fa-money-bill-wave pr-2"></i><?php _e("Financiación hasta 6 meses sin intereses", "esgalla") ?></p>
             <? else: //Portugal ?>
                 <p class="text-light"><i class="fas fa-money-bill-wave pr-2"></i><?php _e("Pago seguro", "esgalla") ?></p>
             <?endif;?>
