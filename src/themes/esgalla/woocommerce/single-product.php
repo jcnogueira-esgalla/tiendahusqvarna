@@ -208,7 +208,7 @@ return $wpdb->get_col("
 						?>
 						<? if( $precioProd >= 150 && $precioProd <= 3000 ): ?>
 							<div class="col-12 col-md-6 col-lg-6 mb-3 font-weight-bold text-nowrap">
-								<i class="fas fa-coins pr-2"></i></i><?php _e("Financia a 6 meses sin intereses","esgalla"); ?>
+								<i class="fas fa-coins pr-2"></i></i><?php _e("Financia hasta 6 meses sin intereses","esgalla"); ?>
 								<br/><p class="ml-3 mb-0" style="font-size:10px;position: absolute;bottom: -10px;">&nbsp;<i>*<?php _e("sujeto a aprobación por la entidad financiera","esgalla"); ?></i></p>
 							</div>
 						<? endif; ?>
