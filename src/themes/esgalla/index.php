@@ -45,25 +45,50 @@ get_header();
 			<div class="col-12 col-md-9 ml-md-auto buscador-blog">
 				<div class="row">
 					<div class="col-12 col-lg-6">
-						<p class="mt-4 mb-2">Encuentra una noticia</p>
-						<form role="search" method="get" class="search-form input-group border modal-form-search" action="<?php echo get_home_url( '/blog/' ) ?>">
+						<p class="mt-4 mb-2">Encuentra un artículo</p>
+						<form role="search" method="get" class="search-form input-group border" action="<?php echo get_home_url( '/blog/' ) ?>">
 							<input type="search" data-swpengine="buscador_blog" id="searchNoticia" class="form-control" placeholder="<?php _e("Buscar...","esgalla"); ?>" value="" name="search">
 							<button class="btn btn-secondary rounded font-weight-bold text-uppercase" type="submit"><i class="fas fa-search"></i></button>
 						</form>
 					</div>
-					<div class="col-12 col-lg-6"></div>
+					<div class="col-12 col-lg-6">
+						<p class="mt-4 mb-2">Elige una categoría</p>
+						<div class="form-group">
+							<?
+								$catsPrincipales = get_categories([
+									'parent' => 0,
+								]);
+								$catsPrincipalesIds = [];
+							?>
+							<select class="form-control border px-2" id="selector-categoria-blog">
+								<option>Categoría</option>
+								<? foreach ($catsPrincipales as $cat) : ?>
+									<option data-url="<?=get_term_link($cat->term_id)?>"><?=$cat->name;?></option>
+									<? $catsPrincipalesIds[] =  $cat->term_id;?>
+								<? endforeach; ?>
+							</select>
+						</div>
+					</div>
 				</div>
-				<div class="categorias-post d-lg-flex flex-wrap justify-content-between mt-3">
+				<div class="categorias-post d-lg-flex flex-wrap justify-content-between mt-4">
 					<?
 						$cats = get_categories([
 							'orderby' => 'count',
-							'order' 	=> 'desc'
+							'order' 	=> 'desc',
 						]);
+						$catsFiltrado = [];
+						//Limpio las cats de las principales
+						foreach ($cats as $cat) {
+							if( !in_array($cat->term_id, $catsPrincipalesIds) ) {
+								$catsFiltrado[] = $cat;
+							}
+						}
+
 						$index = 1;
-						foreach ($cats as $cat) : ?>
+						foreach ($catsFiltrado as $cat) : ?>
 							<? if( $index == 8 ) : ?> <div class="collapse" id="collapseBlogCategories"><div class="d-lg-flex flex-wrap justify-content-between"> <? endif; ?>
 								<a href="<?=get_term_link($cat->term_id)?>" class="btn btn-outline-secondary mb-3"><?=$cat->name?></a>
-							<? if( $index == count($cats) ) : ?> </div></div> <? endif; ?>
+							<? if( $index == count($catsFiltrado) ) : ?> </div></div> <? endif; ?>
 							<? $index++; ?>
 					<? endforeach; ?>
 				</div>
@@ -144,9 +169,9 @@ foreach ($categorias_principales as $categoria):
 				<div class="row">
 					<div class="col-12 mt-4 slick-noticias-new">
 						<?php
-							$ultimas_entradas = get_posts( array('numberposts'=>12,'category'=>$categoria) );
-							foreach ($ultimas_entradas as $entrada) {
-										get_template_part( 'template-parts/ficha','noticia-new',array('id_noticia'=>$entrada->ID));
+							$entradas = get_posts( array('numberposts'=>12,'category'=>$categoria) );
+							foreach ($entradas as $entrada) {
+										get_template_part( 'template-parts/ficha','noticia-new',array('id_noticia' => $entrada->ID, 'categoria' => $categoria));
 							}
 						?>
 					</div>
