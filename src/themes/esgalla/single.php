@@ -14,14 +14,26 @@ $shareUrl = urlencode(home_url( $wp->request ));
 <? if( get_field('activar_plantilla_nueva') == true ): ?>
 	<? if( have_rows('campos_plantilla_nueva') ): ?>
 
-			<div class="container mt-5">
-				<? while ( have_rows('campos_plantilla_nueva') ) : the_row();
+			<div class="container mt-5 plantilla-blog-nueva">
+				<? $enlacesIndice = ''; ?>
+				<? while ( have_rows('campos_plantilla_nueva') ) : the_row(); //Recorremos los bloques para crear el índice de contenidos.
+					$rowIndex = get_row_index();
+					if( get_row_layout() == 'tabla' ) {
+						$enlacesIndice .= '<a href="#seccion-post-' . get_row_index() . '" class="d-block text-dark mb-3">' . get_sub_field('titulo') . '</a>';
+					} elseif( get_row_layout() == 'acordeones' ) {
+						$enlacesIndice .= '<a href="#seccion-post-' . get_row_index() . '" class="d-block text-dark mb-3">' . get_sub_field('titulo') . '</a>';
+					} elseif( get_row_layout() == 'slider_productos' ) {
+						$enlacesIndice .= '<a href="#seccion-post-' . get_row_index() . '" class="d-block text-dark mb-3">Nuestra gama de productos</a>';
+					}
+				endwhile; ?>
+				<? while ( have_rows('campos_plantilla_nueva') ) : the_row();	//Recorremos los bloques ya para pintarlos
 					if( get_row_layout() == 'texto_izq_con_imagen_dcha' ):
 						$content = get_sub_field('texto_izq_con_imagen_dcha');
 						$text = $content['texto'];
 						$imagen = $content['imagen']; ?>
 						<div class="mb-5">
-							<div class="row" id="#seccion-post-<?=get_row_index()?>">
+							<div class="row">
+								<div class="anchor" id="seccion-post-<?=get_row_index()?>"></div>
 								<div class="col-12 col-lg-6">
 									<?= (get_row_index() == 1) ? '<h1 class="text-secondary pb-3">' . get_the_title() . '</h1>' : '' ; ?>
 									<div class="wysiwyg">
@@ -33,13 +45,37 @@ $shareUrl = urlencode(home_url( $wp->request ));
 								</div>
 							</div>
 						</div>
-
+						<? if( get_row_index() == 1): //Indice de contenidos ?>
+							<div class="mb-5">
+								<div class="row acordeones-indice-contenidos" id="acordeones-indice-contenidos">
+									<div class="col-md-6">
+										<div id="accordionContenidos" class="acordeon-post">
+											<div class="card">
+												<div class="card-header position-relative border-0 bg-white" id="headingContenidos">
+													<div class="mb-0 texto-header">
+														<a class="btn btn-link text-secondary text-left font-weight-bold fs-18 text-decoration-none px-0 stretched-link d-flex justify-content-between collapsed" data-toggle="collapse" data-target="#collapseContenidos" aria-expanded="true" aria-controls="collapseContenidos">
+															Contenido de página<i class="fas fa-chevron-up icon-header"></i>
+														</a>
+													</div>
+												</div>
+												<div id="collapseContenidos" class="collapse" aria-labelledby="headingContenidos" data-parent="#accordionContenidos">
+													<div class="card-body fs-18">
+														<?=$enlacesIndice;?>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						<? endif; ?>
 					<? elseif( get_row_layout() == 'texto_dcha_con_imagen_izq' ):
 						$content = get_sub_field('texto_dcha_con_imagen_izq');
 						$text = $content['texto'];
 						$imagen = $content['imagen']; ?>
 						<div class="mb-5">
-							<div class="row" id="#seccion-post-<?=get_row_index()?>">
+							<div class="row">
+								<div class="anchor" id="seccion-post-<?=get_row_index()?>"></div>
 								<div class="col-12 col-lg-6">
 									<?= (get_row_index() == 1) ? '<h1 class="text-secondary pb-3">' . get_the_title() . '</h1>' : '' ; ?>
 									<div class="wysiwyg">
@@ -51,11 +87,36 @@ $shareUrl = urlencode(home_url( $wp->request ));
 								</div>
 							</div>
 						</div>
+						<? if( get_row_index() == 1): //Indice de contenidos ?>
+							<div class="mb-5">
+								<div class="row acordeones-indice-contenidos" id="acordeones-indice-contenidos">
+									<div class="col-md-6">
+										<div id="accordionContenidos" class="acordeon-post">
+											<div class="card">
+												<div class="card-header position-relative border-0 bg-white" id="headingContenidos">
+													<div class="mb-0 texto-header">
+														<a class="btn btn-link text-secondary text-left font-weight-bold fs-18 text-decoration-none px-0 stretched-link d-flex justify-content-between collapsed" data-toggle="collapse" data-target="#collapseContenidos" aria-expanded="true" aria-controls="collapseContenidos">
+															Contenido de página<i class="fas fa-chevron-up icon-header"></i>
+														</a>
+													</div>
+												</div>
+												<div id="collapseContenidos" class="collapse" aria-labelledby="headingContenidos" data-parent="#accordionContenidos">
+													<div class="card-body fs-18">
+														<?=$enlacesIndice;?>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						<? endif; ?>
 
 					<? elseif( get_row_layout() == 'cita' ):
 						$cita = get_sub_field('cita'); ?>
 						<div class="mb-5">
-							<div class="row" id="#seccion-post-<?=get_row_index()?>">
+							<div class="row">
+								<div class="anchor" id="seccion-post-<?=get_row_index()?>"></div>
 								<div class="col-12 col-md-8 col-lg-6 col-xl-5 mx-auto text-center">
 									<div class="text-secondary font-weight-bold fs-26 py-4 px-4 px-sm-5 px-md-5 cita-quotes"><?=$cita?></div>
 								</div>
@@ -66,7 +127,8 @@ $shareUrl = urlencode(home_url( $wp->request ));
 						$titulo = get_sub_field('titulo');
 						$tabla = get_sub_field('tabla'); ?>
 						<div class="mb-5">
-							<div class="row" id="#seccion-post-<?=get_row_index()?>">
+							<div class="row">
+								<div class="anchor" id="seccion-post-<?=get_row_index()?>"></div>
 								<div class="col-12 text-secondary font-weight-bold fs-26 mb-4">
 									<?=$titulo?>
 								</div>
@@ -91,7 +153,8 @@ $shareUrl = urlencode(home_url( $wp->request ));
 					<? elseif( get_row_layout() == 'slider_productos' ):
 						$productos = get_sub_field('slider_productos'); ?>
 						<div class="mb-5">
-							<div class="row" id="#seccion-post-<?=get_row_index()?>">
+							<div class="row">
+								<div class="anchor" id="seccion-post-<?=get_row_index()?>"></div>
 								<div class="col-12 text-secondary font-weight-bold fs-26 mb-4">
 									Decubre nuestra gama de productos
 								</div>
@@ -112,7 +175,8 @@ $shareUrl = urlencode(home_url( $wp->request ));
 						$titulo = get_sub_field('titulo');
 						$acordeones = get_sub_field('acordeones'); ?>
 						<div class="mb-5">
-							<div class="row acordeones-post" id="#seccion-post-<?=get_row_index()?>">
+							<div class="row acordeones-post">
+								<div class="anchor" id="seccion-post-<?=get_row_index()?>"></div>
 								<? if( $antetitulo ): ?>
 									<div class="col-12 mb-3">
 										<span class="antetitulo fs-19"><?=$antetitulo?></span>
@@ -152,7 +216,8 @@ $shareUrl = urlencode(home_url( $wp->request ));
 
 					<? elseif( get_row_layout() == 'texto' ): ?>
 						<div class="mb-5">
-							<div class="row" id="#seccion-post-<?=get_row_index()?>">
+							<div class="row">
+								<div class="anchor" id="seccion-post-<?=get_row_index()?>"></div>
 								<div class="col-12 wysiwyg wysiwyg-blog">
 									<div><?=get_sub_field('texto')?></div>
 								</div>
@@ -292,7 +357,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 			</div>
 		</div>
 	</section>
-	<section id="#ofertas" class="bg-white pt-6">
+	<section id="ofertas" class="bg-white pt-6">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">

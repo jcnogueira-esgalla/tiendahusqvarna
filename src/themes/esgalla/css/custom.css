@@ -13568,6 +13568,35 @@ footer .row {
   color: #6C6C6C;
 }
 
+.acordeones-indice-contenidos .acordeon-post .card {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.acordeones-indice-contenidos .acordeon-post .card .card-header .texto-header .btn:hover {
+  color: #F35321 !important;
+}
+
+.acordeones-indice-contenidos .acordeon-post .card .card-header .texto-header .btn .icon-header {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  top: 5px;
+  position: relative;
+}
+
+.acordeones-indice-contenidos .acordeon-post .card .card-header .texto-header .btn.collapsed .icon-header {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.acordeones-indice-contenidos .acordeon-post .card .card-body {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  color: #6C6C6C;
+}
+
 .ficha-producto-blog {
   -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
