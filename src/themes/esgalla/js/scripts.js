@@ -1,5 +1,10 @@
 jQuery(document).ready(function() {
 
+	jQuery('#selector-categoria-blog').change(function(){
+		let url_cat = jQuery(this).find(':selected').attr('data-url');
+  	window.location.href = url_cat;
+	});
+
 
 	if(jQuery('.woocommerce-edit-address').length && !jQuery('#billing_tipo_documento').val()) {
 		jQuery('#billing_tipo_documento').val(1);

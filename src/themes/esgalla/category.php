@@ -28,6 +28,12 @@
 
 get_header();
 
+if(get_queried_object()->parent == 0) {
+	$catIdImg = get_queried_object()->term_id;
+} else {
+	$catIdImg = get_queried_object()->parent;
+}
+
 ?>
 
 
@@ -56,7 +62,7 @@ get_header();
 					<? if ( $query->have_posts() ) : ?>
 						<? while ( $query->have_posts() ) : $query->the_post(); ?>
 							<div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-3">
-								<? get_template_part( 'template-parts/ficha','noticia-new',array('id_noticia'=>get_the_ID())); ?>
+								<? get_template_part( 'template-parts/ficha','noticia-new',array('id_noticia'=>get_the_ID(), 'categoria' => $catIdImg)); ?>
 							</div>
 						<? endwhile; ?>
 					<? endif; ?>

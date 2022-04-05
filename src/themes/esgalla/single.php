@@ -14,7 +14,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 <? if( get_field('activar_plantilla_nueva') == true ): ?>
 	<? if( have_rows('campos_plantilla_nueva') ): ?>
 
-			<div class="container">
+			<div class="container mt-5">
 				<? while ( have_rows('campos_plantilla_nueva') ) : the_row();
 					if( get_row_layout() == 'texto_izq_con_imagen_dcha' ):
 						$content = get_sub_field('texto_izq_con_imagen_dcha');
@@ -23,7 +23,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 						<div class="mb-5">
 							<div class="row" id="#seccion-post-<?=get_row_index()?>">
 								<div class="col-12 col-lg-6">
-									<?= (get_row_index() == 1) ? '<h1 class="text-secondary">' . get_the_title() . '</h1>' : '' ; ?>
+									<?= (get_row_index() == 1) ? '<h1 class="text-secondary pb-3">' . get_the_title() . '</h1>' : '' ; ?>
 									<div class="wysiwyg">
 										<?=$text?>
 									</div>
@@ -41,7 +41,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 						<div class="mb-5">
 							<div class="row" id="#seccion-post-<?=get_row_index()?>">
 								<div class="col-12 col-lg-6">
-									<?= (get_row_index() == 1) ? '<h1 class="text-secondary">' . get_the_title() . '</h1>' : '' ; ?>
+									<?= (get_row_index() == 1) ? '<h1 class="text-secondary pb-3">' . get_the_title() . '</h1>' : '' ; ?>
 									<div class="wysiwyg">
 										<?=$text?>
 									</div>
@@ -107,7 +107,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 							</div>
 						</div>
 
-					<? elseif( get_row_layout() == 'acordeones' ): 
+					<? elseif( get_row_layout() == 'acordeones' ):
 						$antetitulo = get_sub_field('antetitulo');
 						$titulo = get_sub_field('titulo');
 						$acordeones = get_sub_field('acordeones'); ?>
@@ -224,8 +224,13 @@ $shareUrl = urlencode(home_url( $wp->request ));
 									<h4 class="font-weight-bold text-capitalize text-secondary"><?php _e("Noticias relacionadas","esgalla"); ?></h4>
 								</div>
 								<? while( $noticias_relacionadas->have_posts() ) : $noticias_relacionadas->the_post(); ?>
+								<?
+									$category = get_the_category(get_the_ID());
+									$hierarchy = array_reverse( get_ancestors( $category[0]->term_id, 'category' ) );
+									$hierarchy[] = $category[0]->term_id;
+								?>
 									<div class="col-12 col-md-6 col-lg-4 mb-3">
-										<? get_template_part('template-parts/ficha', 'noticia-relacionada'); ?>
+										<? get_template_part('template-parts/ficha', 'noticia-relacionada', ['categoria' => $hierarchy[0]]); ?>
 									</div>
 								<? endwhile; ?>
 								<? wp_reset_postdata(); ?>
