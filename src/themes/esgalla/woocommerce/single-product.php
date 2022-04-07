@@ -48,7 +48,7 @@ do_action( 'woocommerce_before_single_product' );
 
 
 if(isset($_GET['sinstock'])) {
-	echo '<style>.cwginstock-subscribe-form {display:block!important;}</style>';
+	echo '<style>.cwg_popup_submit {display:block!important;}</style>';
 }
 
 

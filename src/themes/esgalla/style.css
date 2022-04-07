@@ -455,38 +455,68 @@ a.reset_variations {
 }
 
 /* Plugin Stock */
-.cwginstock-subscribe-form  {
+.cwg_popup_submit {
 	display: none;
 }
 .cwginstock-subscribe-form .panel  {
 	max-height: initial!important;
 	padding: 0;
-	border-color: #273A60!important;
+	border-color: transparent !important;
 }
 
 .cwginstock-subscribe-form .panel-heading {
-	background-color: #f35321!important;
-	border-color: #f35321!important;
+	background-color: transparent!important;
+	/* border-color: #f35321!important; */
 }
+
+.cwginstock-panel-heading h4,
+.cwginstock-subscribe-form .panel-primary>.panel-heading{
+	color: #343a40 !important;
+}
+
+.cwginstock-subscribe-form .panel-primary>.panel-heading{
+	border-color: transparent !important;
+}
+
 .cwginstock-subscribe-form .panel-heading h4 {
 	margin-bottom:0px!important;
 }
 
+.cwginstock-subscribe-form .panel{
+	border: none !important;
+	box-shadow: none !important;
+	margin-bottom: 0px !important;
+}
+
+.cwg_popup_submit,
 .cwginstock-subscribe-form .cwgstock_button {
 	margin-top: 12px;
-	width: 100%;
 	background: #F35321;
 	border: none;
 	border-radius: 0px;
 	transition: all 0.15s ease;
 	border: 1px solid transparent;
 	padding: 0.375rem 0.75rem;
-	font-size: 1rem;
+	font-size: 18px;
 	line-height: 1.5;
 	border-radius: 0.25rem;
 	text-transform: uppercase;
+	color: #FFFFFF;
 }
 
+.cwginstock-subscribe-form .cwgstock_button{
+	width: 100%;
+}
+
+.cwg_popup_submit{
+	min-width: 200px;
+	margin-bottom: 1rem;
+}
+
+.cwg_popup_submit:hover,
 .cwginstock-subscribe-form .cwgstock_button:hover {
 	background: #273A60;
+}
+.swal2-close:focus{
+	box-shadow: none !important;
 }
