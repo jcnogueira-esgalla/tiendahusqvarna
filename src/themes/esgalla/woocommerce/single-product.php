@@ -47,10 +47,6 @@ get_header();
 do_action( 'woocommerce_before_single_product' );
 
 
-if(isset($_GET['sinstock'])) {
-	echo '<style>.cwg_popup_submit {display:block!important;}</style>';
-}
-
 
 ?>
 

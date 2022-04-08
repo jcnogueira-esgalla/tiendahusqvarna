@@ -455,9 +455,6 @@ a.reset_variations {
 }
 
 /* Plugin Stock */
-.cwg_popup_submit {
-	display: none;
-}
 .cwginstock-subscribe-form .panel  {
 	max-height: initial!important;
 	padding: 0;
