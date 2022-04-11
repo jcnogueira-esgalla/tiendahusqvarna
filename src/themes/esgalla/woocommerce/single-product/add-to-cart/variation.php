@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <script type="text/template" id="tmpl-variation-template">
     <div class="woocommerce-variation-description wysiwyg fs-0-9">{{{ data.variation.variation_description }}}</div>
-    <div class="woocommerce-variation-availability mt-10 ta-c">{{{ data.variation.availability_html }}}</div>
+    <div class="woocommerce-variation-availability mt-10">{{{ data.variation.availability_html }}}</div>
 	<div class="woocommerce-variation-price ta-l mt-10 mb-0 fs-1-2 fw-b">{{{ data.variation.price_html }}}</div>
 	
     <?php if(get_field('eco_tasa')): ?>
