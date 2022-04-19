@@ -1043,9 +1043,9 @@ function action_after_shipping_rate ( $method, $index ) {
     if( is_cart() ) return; // Exit on cart page
 
 		if( get_current_blog_id() == 1 ) {
-			echo '<p class="allow" style="font-size:12px;">Plazo de entrega 24/48h. *<i>Este periodo puede verse alterado durante los próximos días por la huelga de transporte</i></p>';
+			echo '<p class="allow" style="font-size:12px;">Plazo de entrega 24/48h.</p>';
 		} elseif( get_current_blog_id() == 2 ) {
-			echo '<p class="allow" style="font-size:12px;">Prazo de entrega 48/72h. *<i>Esta estimativa pode ver-se afetada durante os próximos dias devido á greve das empresas de transporte a decorrer na Galiza</i></p>';
+			echo '<p class="allow" style="font-size:12px;">Prazo de entrega 48/72h.</p>';
 		}
 		
 }
