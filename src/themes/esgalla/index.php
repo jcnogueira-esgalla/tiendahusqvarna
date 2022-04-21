@@ -94,8 +94,8 @@ get_header();
 						<? endforeach; ?>
 					</div>
 					<div class="text-right">
-						<a class="font-weight-bold" data-toggle="collapse" href="#collapseBlogCategories" role="button" aria-expanded="false" aria-controls="collapseBlogCategories">
-							Ver más&nbsp;<i class="fas fa-chevron-down ml-2"></i>
+						<a class="font-weight-bold colapsar-categorias-blog text-decoration-capitalize" data-toggle="collapse" href="#collapseBlogCategories" role="button" aria-expanded="false" aria-controls="collapseBlogCategories">
+							<span class="colapse-vermas"><? _e("Ver más","esgalla"); ?></span><span class="colapse-vermenos d-none">Ver menos</span>&nbsp;<i class="fas fa-chevron-down ml-2"></i>
 						</a>
 					</div>
 				</div>
@@ -209,8 +209,8 @@ get_header();
 							<? endforeach; ?>
 						</div>
 						<div class="text-right">
-							<a class="font-weight-bold" data-toggle="collapse" href="#collapseBlogCategories" role="button" aria-expanded="false" aria-controls="collapseBlogCategories">
-								Ver más&nbsp;<i class="fas fa-chevron-down ml-2"></i>
+							<a class="font-weight-bold colapsar-categorias-blog text-decoration-capitalize" data-toggle="collapse" href="#collapseBlogCategories" role="button" aria-expanded="false" aria-controls="collapseBlogCategories">
+								<span class="colapse-vermas"><? _e("Ver más","esgalla"); ?></span><span class="colapse-vermenos d-none">Ver menos</span>&nbsp;<i class="fas fa-chevron-down ml-2"></i>
 							</a>
 						</div>
 					</div>

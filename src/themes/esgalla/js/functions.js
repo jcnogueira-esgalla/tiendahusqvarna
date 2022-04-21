@@ -99,6 +99,21 @@ jQuery(document).ready(function(){
       jQuery(".navbar-toggler").click();
     }
   });
+
+  let closedCats = true;
+  jQuery('.colapsar-categorias-blog').click(function() {
+    if(closedCats) {
+      jQuery(this).find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+      jQuery(this).find('.colapse-vermas').addClass('d-none');
+      jQuery(this).find('.colapse-vermenos').removeClass('d-none');
+      closedCats = false;
+    } else {
+      jQuery(this).find('i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+      jQuery(this).find('.colapse-vermenos').addClass('d-none');
+      jQuery(this).find('.colapse-vermas').removeClass('d-none');
+      closedCats = true;
+    }
+  });
 });
 
 jQuery(document).on('updated_checkout', function() {

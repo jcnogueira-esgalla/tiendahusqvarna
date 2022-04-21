@@ -152,25 +152,28 @@
 
 			<div class="col">
 
-				<div class="text-primary breadcrumbs">
-
-				<?php if( is_page( 17399 )) { ?>
- 					<div class="text-primary breadcrumbs">
-					 	<span><span><a href="/">Portada</a> &gt;  <a href="/automower/">Automower®</a> &gt; <strong class="breadcrumb_last" aria-current="page">Automower® > Opiniones</strong></span></span>		   
-			   		</div>
-					   
-				<?php } else if( is_page( 23130 )) { ?>
+				<? if( is_single() && get_field('activar_plantilla_nueva') ): ?>
+					<div class="text-secondary breadcrumbs">
+						<? yoast_breadcrumb( '',''); ?>
+					</div>
+				<? else: ?>
 					<div class="text-primary breadcrumbs">
-					 	<span><span><a href="/">Início</a> &gt;  <a href="/automower/">Automower®</a> &gt; <strong class="breadcrumb_last" aria-current="page">Automower® > Opiniões</strong></span></span>		   
-			   		</div>
-					   
-				<?php } else{ ?>
 
-					  <?php yoast_breadcrumb( '',''); ?>
+						<?php if( is_page( 17399 )) { ?>
+							<div class="text-primary breadcrumbs">
+								<span><span><a href="/">Portada</a> &gt;  <a href="/automower/">Automower®</a> &gt; <strong class="breadcrumb_last" aria-current="page">Automower® > Opiniones</strong></span></span>		   
+								</div>
+						<?php } else if( is_page( 23130 )) { ?>
+							<div class="text-primary breadcrumbs">
+								<span><span><a href="/">Início</a> &gt;  <a href="/automower/">Automower®</a> &gt; <strong class="breadcrumb_last" aria-current="page">Automower® > Opiniões</strong></span></span>		   
+								</div>
+						<?php } else{ ?>
+							<?php yoast_breadcrumb( '',''); ?>
+						<?php } ?>
+					</div>
+				<? endif; ?>
 
-				<?php } ?>
-				
-				</div>
+
 
 			</div>
 

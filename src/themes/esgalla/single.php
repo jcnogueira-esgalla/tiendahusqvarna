@@ -249,7 +249,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 							$productos_relacionados = (!get_field('productos_relacionados') || get_field('productos_relacionados')=='') ? $relacionados_por_defecto : get_field('productos_relacionados') ;
 							$post_idx =1;
 							foreach($productos_relacionados as $id_relacionado): ?>
-								<? get_template_part('template-parts/ficha', 'producto-blog', array('id_producto' => $producto, 'position' => $post_idx)); ?>
+								<? get_template_part('template-parts/ficha', 'producto-blog', array('id_producto' => $id_relacionado, 'position' => $post_idx)); ?>
 								<? $post_idx++; ?>
 							<?php endforeach; ?>
 						</div>
