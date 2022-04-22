@@ -13468,14 +13468,18 @@ footer .row {
 }
 
 .ficha-noticia-relacionada img {
-  width: 75px;
-  height: 94px;
-  border-radius: 7px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  height: 100%;
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
 }
 
 .ficha-noticia-relacionada .container-img {
+  width: 75px;
+  height: 94px;
   border-radius: 7px;
   overflow: hidden;
 }
