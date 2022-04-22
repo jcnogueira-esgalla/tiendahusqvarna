@@ -543,7 +543,7 @@ a.configurar-cookies:hover {
 }
 
 .slick-dots li{
-  z-index:999;
+  /* z-index:999; */
 }
 
 .contenido{

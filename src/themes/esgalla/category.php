@@ -69,7 +69,7 @@ if(get_queried_object()->parent == 0) {
 				</div>
 			</div>
 			<!-- Paginación -->
-			<div class="col-12 text-center d-flex justify-content-center pagination-new-blog">
+			<div class="col-12 text-center d-flex justify-content-center pagination-new-blog mb-5">
 				<? the_posts_pagination(
 						[
 							'mid_size'  => 3,
@@ -81,7 +81,70 @@ if(get_queried_object()->parent == 0) {
 			</div>
 			<!-- Paginación -->
 		</div>
+		<div class="" style="margin-bottom:80px;">
+			<div class="row">
+				<div class="col-12 col-md-9 m-md-auto buscador-blog">
+					<div class="row">
+						<div class="col-12 col-lg-6">
+							<p class="mt-4 mb-2">Encuentra un artículo</p>
+							<form role="search" method="get" class="search-form input-group border" action="<?php echo get_home_url( '/blog/' ) ?>">
+								<input type="search" data-swpengine="buscador_blog" id="searchNoticia" class="form-control" placeholder="<?php _e("Buscar...","esgalla"); ?>" value="" name="search">
+								<button class="btn btn-secondary rounded font-weight-bold text-uppercase" type="submit"><i class="fas fa-search"></i></button>
+							</form>
+						</div>
+						<div class="col-12 col-lg-6">
+							<p class="mt-4 mb-2">Elige una categoría</p>
+							<div class="form-group selector-categoria-blog">
+								<?
+									$catsPrincipales = get_categories([
+										'parent' => 0,
+									]);
+									$catsPrincipalesIds = [];
+								?>
+								<select class="form-control border px-2" id="selector-categoria-blog">
+									<option>Categoría</option>
+									<? foreach ($catsPrincipales as $cat) : ?>
+										<option data-url="<?=get_term_link($cat->term_id)?>"><?=$cat->name;?></option>
+										<? $catsPrincipalesIds[] =  $cat->term_id;?>
+									<? endforeach; ?>
+								</select>
+								<i class="fas fa-chevron-down text-secondary chevron-select"></i>
+							</div>
+						</div>
+					</div>
+					<div class="categorias-post d-lg-flex flex-wrap justify-content-between mt-4">
+						<?
+							$cats = get_categories([
+								'orderby' => 'count',
+								'order' 	=> 'desc',
+							]);
+							$catsFiltrado = [];
+							//Limpio las cats de las principales
+							foreach ($cats as $cat) {
+								if( !in_array($cat->term_id, $catsPrincipalesIds) ) {
+									$catsFiltrado[] = $cat;
+								}
+							}
+
+							$index = 1;
+							foreach ($catsFiltrado as $cat) : ?>
+								<? if( $index == 8 ) : ?> <div class="collapse" id="collapseBlogCategories"><div class="d-lg-flex flex-wrap justify-content-start"> <? endif; ?>
+									<a href="<?=get_term_link($cat->term_id)?>" class="btn btn-outline-secondary mb-3 mx-1"><?=$cat->name?></a>
+								<? if( $index == count($catsFiltrado) ) : ?> </div></div> <? endif; ?>
+								<? $index++; ?>
+						<? endforeach; ?>
+					</div>
+					<div class="text-right">
+						<a class="font-weight-bold colapsar-categorias-blog text-decoration-capitalize" data-toggle="collapse" href="#collapseBlogCategories" role="button" aria-expanded="false" aria-controls="collapseBlogCategories">
+							<span class="colapse-vermas"><? _e("Ver más","esgalla"); ?></span><span class="colapse-vermenos d-none">Ver menos</span>&nbsp;<i class="fas fa-chevron-down ml-2"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
+
+
 
 <? else: ?>
 	<header id="#masthead" class="portada-blog px-20">

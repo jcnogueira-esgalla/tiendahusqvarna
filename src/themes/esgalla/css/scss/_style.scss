@@ -1008,8 +1008,8 @@ footer .row {width: 1248px;}
 /***************************************************** Estilos blog new **/
 
 .buscador-blog {
-	.form-control {border: 1px $white solid; border-radius: 4px;}
-	.input-group {background-color: $white; border-radius: 4px;}
+	.form-control {border: 1px $white solid; border-radius: 4px;height: 44px;}
+	.input-group {background-color: $white; border-radius: 4px;height: 46px;}
 	input {padding: 0 16px;	}
 	::placeholder{ font-size: 18px; letter-spacing: 0.48px; opacity: 0.68; }
 	button {color: $secondary;
@@ -1017,21 +1017,34 @@ footer .row {width: 1248px;}
 		padding: 6px;
 		margin: 4px;
 		border: none;
-		font-size: 24px;
+		font-size: 16px;
 		@include media-breakpoint-down(sm) {
 			// width: 114px;
 		}
 	}
+	.form-group.selector-categoria-blog {
+		position: relative;
+		.chevron-select {
+			position:absolute;
+			top:15px;
+			right: 10px;
+			z-index: -1;
+		}
+	}
 	#selector-categoria-blog {
 		width: 100%;
-    height: 58px;
+    height: 45px;
+		-webkit-appearance: none;
+  	-moz-appearance: none;
+		background: transparent;
 	}
 }
 
 .ficha-noticia-new {
 	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
-	border-radius: 10px;
+	border-radius: 8px;
 	transition: all 0.25s ease-in-out;
+	overflow: hidden;
 	.contenedor-titulo-noticia {
 		min-height: 250px;
 		padding: 25px 16px;
@@ -1045,7 +1058,7 @@ footer .row {width: 1248px;}
 		}
 	}
 	&:hover {
-		box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.55);
+		box-shadow: 4px 4px 6px rgba(39, 58, 96, 0.40);
 		.link-noticia {
 			i {
 				transform: translateX(2px);
@@ -1081,16 +1094,14 @@ footer .row {width: 1248px;}
 	}
 }
 
-.category {
-	.pagination-new-blog {
-		.page-numbers {
-			color: $secondary;
-			margin: 0px 8px;
-			&.current,
-			&:hover {
-				color: $primary;
-				text-decoration: none;
-			}
+.pagination-new-blog {
+	.page-numbers {
+		color: $secondary;
+		margin: 0px 8px;
+		&.current,
+		&:hover {
+			color: $primary;
+			text-decoration: none;
 		}
 	}
 }

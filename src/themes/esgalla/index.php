@@ -54,7 +54,7 @@ get_header();
 						</div>
 						<div class="col-12 col-lg-6">
 							<p class="mt-4 mb-2">Elige una categoría</p>
-							<div class="form-group">
+							<div class="form-group selector-categoria-blog">
 								<?
 									$catsPrincipales = get_categories([
 										'parent' => 0,
@@ -68,6 +68,7 @@ get_header();
 										<? $catsPrincipalesIds[] =  $cat->term_id;?>
 									<? endforeach; ?>
 								</select>
+								<i class="fas fa-chevron-down text-secondary chevron-select"></i>
 							</div>
 						</div>
 					</div>
@@ -87,8 +88,8 @@ get_header();
 
 							$index = 1;
 							foreach ($catsFiltrado as $cat) : ?>
-								<? if( $index == 8 ) : ?> <div class="collapse" id="collapseBlogCategories"><div class="d-lg-flex flex-wrap justify-content-between"> <? endif; ?>
-									<a href="<?=get_term_link($cat->term_id)?>" class="btn btn-outline-secondary mb-3"><?=$cat->name?></a>
+								<? if( $index == 8 ) : ?> <div class="collapse" id="collapseBlogCategories"><div class="d-lg-flex flex-wrap justify-content-start"> <? endif; ?>
+									<a href="<?=get_term_link($cat->term_id)?>" class="btn btn-outline-secondary mb-3 mx-1"><?=$cat->name?></a>
 								<? if( $index == count($catsFiltrado) ) : ?> </div></div> <? endif; ?>
 								<? $index++; ?>
 						<? endforeach; ?>
@@ -126,6 +127,9 @@ get_header();
 						'format'  => '?swppg=%#%',
 						'current' => $swppg,
 						'total'   => $swp_query->max_num_pages,
+						'mid_size'  => 3,
+						'prev_text' => __( '<< Anterior', 'esgalla' ),
+						'next_text' => __( 'Siguiente >>', 'esgalla' ),
 				) );
 			}
 		?>
@@ -149,7 +153,7 @@ get_header();
 			</div>
 
 			<!-- paginación -->
-			<div class="w-100 d-flex justify-content-center mb-5">
+			<div class="w-100 d-flex justify-content-center mb-5 pagination-new-blog">
 				<div class="nav-links">
 					<?= $pagination; ?>
 				</div>
@@ -169,7 +173,7 @@ get_header();
 							</div>
 							<div class="col-12 col-lg-6">
 								<p class="mt-4 mb-2">Elige una categoría</p>
-								<div class="form-group">
+								<div class="form-group selector-categoria-blog">
 									<?
 										$catsPrincipales = get_categories([
 											'parent' => 0,
@@ -183,6 +187,7 @@ get_header();
 											<? $catsPrincipalesIds[] =  $cat->term_id;?>
 										<? endforeach; ?>
 									</select>
+									<i class="fas fa-chevron-down text-secondary chevron-select"></i>
 								</div>
 							</div>
 						</div>
@@ -202,8 +207,8 @@ get_header();
 
 								$index = 1;
 								foreach ($catsFiltrado as $cat) : ?>
-									<? if( $index == 8 ) : ?> <div class="collapse" id="collapseBlogCategories"><div class="d-lg-flex flex-wrap justify-content-between"> <? endif; ?>
-										<a href="<?=get_term_link($cat->term_id)?>" class="btn btn-outline-secondary mb-3"><?=$cat->name?></a>
+									<? if( $index == 8 ) : ?> <div class="collapse" id="collapseBlogCategories"><div class="d-lg-flex flex-wrap justify-content-start"> <? endif; ?>
+										<a href="<?=get_term_link($cat->term_id)?>" class="btn btn-outline-secondary mb-3 mx-1"><?=$cat->name?></a>
 									<? if( $index == count($catsFiltrado) ) : ?> </div></div> <? endif; ?>
 									<? $index++; ?>
 							<? endforeach; ?>
@@ -235,12 +240,13 @@ foreach ($categorias_principales as $categoria):
 		<section class="py-2 mb-4">
 			<div class="container">
 				<div class="row">
-					<div class="col-12">
+					<div class="col-12 d-flex justify-content-between">
 						<h3 class="fs-40"><?php echo $datos_categoria->name ?></h3>
+						<a href="<?php echo get_term_link( $categoria ) ?>" class="text-primary font-weight-bold font-italic fs-15 mt-auto mb-3 d-md-none"><?php _e("Ver todas","esgalla"); ?></a>
 					</div>
-					<div class="col-12 d-flex justify-content-between align-content-bottom">
+					<div class="col-12 d-flex justify-content-between">
 						<span class="fs-16 text-gray"><?php echo $datos_categoria->description ?></span>
-						<a href="<?php echo get_term_link( $categoria ) ?>" class="text-primary font-weight-bold font-italic fs-20 mb-2"><?php _e("Ver todas","esgalla"); ?></a>
+						<a href="<?php echo get_term_link( $categoria ) ?>" class="text-primary font-weight-bold font-italic fs-20 mt-auto mb-3 d-none d-md-block"><?php _e("Ver todas","esgalla"); ?></a>
 					</div>
 				</div>
 				<div class="row">
