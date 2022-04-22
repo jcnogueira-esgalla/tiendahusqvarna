@@ -1075,6 +1075,16 @@ footer .row {width: 1248px;}
 		width: 75px;
 		height: 94px;
 		border-radius: 7px;
+		transition: all 0.25s ease-in-out;
+	}
+	.container-img {
+		border-radius: 7px;
+		overflow: hidden;
+	}
+	&:hover {
+		img {
+			transform: scale(1.1);
+		}
 	}
 	.titulo-noticia {
 		min-height: 60px;
@@ -1130,6 +1140,12 @@ footer .row {width: 1248px;}
 		}
 	}
 
+}
+
+.newblogpost-breadcrumb {
+	span:not(.breadcrumb_last) {
+		color: $primary;
+	}
 }
 
 .cita-quotes {

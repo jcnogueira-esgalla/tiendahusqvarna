@@ -153,7 +153,7 @@
 			<div class="col">
 
 				<? if( is_single() && get_field('activar_plantilla_nueva') ): ?>
-					<div class="text-secondary breadcrumbs">
+					<div class="text-secondary breadcrumbs newblogpost-breadcrumb">
 						<? yoast_breadcrumb( '',''); ?>
 					</div>
 				<? else: ?>

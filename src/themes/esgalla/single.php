@@ -118,7 +118,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 							<div class="row">
 								<div class="anchor" id="seccion-post-<?=get_row_index()?>"></div>
 								<div class="col-12 col-md-8 col-lg-6 col-xl-5 mx-auto text-center">
-									<div class="text-secondary font-weight-bold fs-26 py-4 px-4 px-sm-5 px-md-5 cita-quotes"><?=$cita?></div>
+									<div class="text-secondary font-weight-bold fs-24 py-4 px-4 px-sm-5 px-md-5 cita-quotes"><?=$cita?></div>
 								</div>
 							</div>
 						</div>
@@ -129,7 +129,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 						<div class="mb-5">
 							<div class="row">
 								<div class="anchor" id="seccion-post-<?=get_row_index()?>"></div>
-								<div class="col-12 text-secondary font-weight-bold fs-26 mb-4">
+								<div class="col-12 text-secondary font-weight-bold fs-24 mb-4">
 									<?=$titulo?>
 								</div>
 								<div class="col-12 tabla-post">
@@ -155,7 +155,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 						<div class="mb-5">
 							<div class="row">
 								<div class="anchor" id="seccion-post-<?=get_row_index()?>"></div>
-								<div class="col-12 text-secondary font-weight-bold fs-26 mb-4">
+								<div class="col-12 text-secondary font-weight-bold fs-24 mb-4">
 									Decubre nuestra gama de productos
 								</div>
 								<div class="col-12 slick-productos-blog">
@@ -182,7 +182,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 										<span class="antetitulo fs-19"><?=$antetitulo?></span>
 									</div>
 								<? endif; ?>
-								<div class="col-12 text-secondary font-weight-bold fs-26 mb-4">
+								<div class="col-12 text-secondary font-weight-bold fs-24 mb-4">
 									<?=$titulo?>
 								</div>
 								<div class="col-12">
@@ -241,7 +241,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 				<div class="mb-5">
 					<div class="row">
 						<div class="col-12 mb-4">
-							<h4 class="font-weight-bold text-capitalize text-secondary"><?php _e("productos relacionados","esgalla"); ?></h4>
+							<h4 class="font-weight-bold text-capitalize text-secondary fs-24"><?php _e("productos relacionados","esgalla"); ?></h4>
 						</div>
 						<div class="col-12 slick-productos-blog">
 							<?
@@ -286,7 +286,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 						<div class="my-5">
 							<div class="row noticias-relacionadas">
 								<div class="col-12 mb-4">
-									<h4 class="font-weight-bold text-capitalize text-secondary"><?php _e("Noticias relacionadas","esgalla"); ?></h4>
+									<h4 class="font-weight-bold text-capitalize text-secondary fs-24"><?php _e("Noticias relacionadas","esgalla"); ?></h4>
 								</div>
 								<? while( $noticias_relacionadas->have_posts() ) : $noticias_relacionadas->the_post(); ?>
 								<?

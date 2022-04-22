@@ -13471,6 +13471,18 @@ footer .row {
   width: 75px;
   height: 94px;
   border-radius: 7px;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.ficha-noticia-relacionada .container-img {
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.ficha-noticia-relacionada:hover img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .ficha-noticia-relacionada .titulo-noticia {
@@ -13522,6 +13534,10 @@ footer .row {
 
 .slick-noticias-new .slick-dots button:focus {
   outline: none;
+}
+
+.newblogpost-breadcrumb span:not(.breadcrumb_last) {
+  color: #F35321;
 }
 
 .cita-quotes {

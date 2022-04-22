@@ -19,7 +19,9 @@
 ?>
 
 <div class="media ficha-noticia-relacionada position-relative">
-	<img src="<?=$imagen;?>"/>
+	<div class="container-img">
+		<img src="<?=$imagen;?>"/>
+	</div>
 	<div class="media-body d-flex flex-column pl-3">
 		<h5 class="mt-0 fs-16 titulo-noticia">
 			<a href="<?=get_permalink()?>" class="text-secondary stretched-link text-decoration-none"><?=mb_strimwidth(get_the_title(), 0, 80, '...')?></a>
