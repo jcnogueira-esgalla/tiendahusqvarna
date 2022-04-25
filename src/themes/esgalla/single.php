@@ -196,12 +196,12 @@ $shareUrl = urlencode(home_url( $wp->request ));
 											<div class="card">
 												<div class="card-header px-0 position-relative" id="heading<?=$indexAcordeon?>">
 													<div class="mb-0 texto-header">
-														<a class="btn btn-link text-secondary text-left font-weight-bold fs-18 text-decoration-none px-0 stretched-link d-flex justify-content-between collapsed" data-toggle="collapse" data-target="#collapse<?=$indexAcordeon?>" aria-expanded="true" aria-controls="collapse<?=$indexAcordeon?>">
+														<a class="btn btn-link text-secondary text-left font-weight-bold fs-18 text-decoration-none px-0 stretched-link d-flex justify-content-between <?= ($indexAcordeon == 1) ? '' : 'collapsed'; ?>" data-toggle="collapse" data-target="#collapse<?=$indexAcordeon?>" aria-expanded="true" aria-controls="collapse<?=$indexAcordeon?>">
 															<?=$titulo?><i class="fas fa-chevron-up icon-header"></i>
 														</a>
 													</div>
 												</div>
-												<div id="collapse<?=$indexAcordeon?>" class="collapse" aria-labelledby="heading<?=$indexAcordeon?>" data-parent="#accordion">
+												<div id="collapse<?=$indexAcordeon?>" class="collapse <?= ($indexAcordeon == 1) ? 'show' : ''; ?>" aria-labelledby="heading<?=$indexAcordeon?>" data-parent="#accordion">
 													<div class="card-body px-0 fs-18">
 														<?=$contenido?>
 													</div>
