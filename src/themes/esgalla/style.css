@@ -517,3 +517,12 @@ a.reset_variations {
 .swal2-close:focus{
 	box-shadow: none !important;
 }
+
+.woocommerce-variation-add-to-cart-disabled .wc-variation-is-unavailable,
+.woocommerce-variation-add-to-cart-disabled .add-cart-product-qty { 
+	display:none!important;
+}
+
+.woocommerce-variation-add-to-cart-disabled .mensaje-variacion-agotada { 
+	display:block!important;
+}

@@ -31,6 +31,7 @@ global $product;
 			do_action( 'woocommerce_after_add_to_cart_quantity' );
 		echo '</div>';
 	?>
+	<div class="mensaje-variacion-agotada" style="display:none;"><?= __("Producto temporalmente sin existencias online. Consulta disponibilidad en tu distribuidor más cercano","esgalla")?></div>
 	<button type="submit" name="add-cart-product-boton" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button add-cart-product-boton"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
 	<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	<input type="hidden" name="add-to-cart" value="<?php echo absint( $product->get_id() ); ?>" />
