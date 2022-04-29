@@ -1045,7 +1045,7 @@ function action_after_shipping_rate ( $method, $index ) {
 		if( get_current_blog_id() == 1 ) {
 			echo '<p class="allow" style="font-size:12px;">Plazo de entrega 24/48h.</p>';
 		} elseif( get_current_blog_id() == 2 ) {
-			echo '<p class="allow" style="font-size:12px;">Prazo de entrega 48/72h.</p>';
+			echo '<p class="allow" style="font-size:12px;">Prazo de entrega 48/72h. Esta estimativa pode ver-se afetada durante os proximos dias.</p>';
 		}
 		
 }
