@@ -75,8 +75,8 @@ get_header();
 					<div class="categorias-post d-lg-flex flex-wrap justify-content-between mt-4">
 						<?
 							$cats = get_categories([
-								'orderby' => 'count',
-								'order' 	=> 'desc',
+								'orderby' => 'name',
+								'order' 	=> 'asc',
 							]);
 							$catsFiltrado = [];
 							//Limpio las cats de las principales
@@ -194,8 +194,8 @@ get_header();
 						<div class="categorias-post d-lg-flex flex-wrap justify-content-between mt-4">
 							<?
 								$cats = get_categories([
-									'orderby' => 'count',
-									'order' 	=> 'desc',
+									'orderby' => 'name',
+									'order' 	=> 'asc',
 								]);
 								$catsFiltrado = [];
 								//Limpio las cats de las principales

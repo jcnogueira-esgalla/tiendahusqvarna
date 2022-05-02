@@ -115,8 +115,8 @@ if(get_queried_object()->parent == 0) {
 					<div class="categorias-post d-lg-flex flex-wrap justify-content-between mt-4">
 						<?
 							$cats = get_categories([
-								'orderby' => 'count',
-								'order' 	=> 'desc',
+								'orderby' => 'name',
+								'order' 	=> 'asc',
 							]);
 							$catsFiltrado = [];
 							//Limpio las cats de las principales
