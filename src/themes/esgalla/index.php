@@ -23,7 +23,7 @@ get_header();
 	</div>
 </header>
 
-<section class="pt-md-4 py-3 pb-md-4 bg-light">
+<section class="pt-md-4 py-3 pb-md-4 bg-light mb-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-md-3">
@@ -39,7 +39,6 @@ get_header();
 	</div>
 </section>
 
-<? if( isset($_GET['newblog']) ): ?>
 	<? if( !isset($_GET['search']) ): ?>
 		<div class="container mt-4">
 			<div class="row">
@@ -224,7 +223,6 @@ get_header();
 		</div>
 
 	<? endif; ?>
-<? endif; ?>
 
 <?php
 // print_r(get_categories(array('fields'=>'id=>slug')));
@@ -234,55 +232,25 @@ foreach ($categorias_principales as $categoria):
 	$datos_categoria = get_term( $categoria );
 ?>
 
-<? if( isset($_GET['newblog']) ): ?>
-	<? if( !isset($_GET['search']) ): ?>
-		<div class="mt-5"><!-- Borrar esta seccion cuanto se publique y meterle mb a la seccion de arriba --></div>
-		<section class="py-2 mb-4">
-			<div class="container">
-				<div class="row">
-					<div class="col-12 d-flex justify-content-between">
-						<h3 class="fs-40"><?php echo $datos_categoria->name ?></h3>
-						<a href="<?php echo get_term_link( $categoria ) ?>" class="text-primary font-weight-bold font-italic fs-15 mt-auto mb-3 d-md-none"><?php _e("Ver todas","esgalla"); ?></a>
-					</div>
-					<div class="col-12 d-flex justify-content-between">
-						<span class="fs-16 text-gray"><?php echo $datos_categoria->description ?></span>
-						<a href="<?php echo get_term_link( $categoria ) ?>" class="text-primary font-weight-bold font-italic fs-20 mt-auto mb-3 d-none d-md-block"><?php _e("Ver todas","esgalla"); ?></a>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12 mt-4 slick-noticias-new">
-						<?php
-							$entradas = get_posts( array('numberposts'=>12,'category'=>$categoria) );
-							foreach ($entradas as $entrada) {
-										get_template_part( 'template-parts/ficha','noticia-new',array('id_noticia' => $entrada->ID, 'categoria' => $categoria));
-							}
-						?>
-					</div>
-				</div>
-			</div>
-		</section>
-	<? endif; ?>
-	
-
-<? else: ?>
-
-	<section class="py-2 py-md-5">
+<? if( !isset($_GET['search']) ): ?>
+	<section class="py-2 mb-4">
 		<div class="container">
 			<div class="row">
-				<div class="col-12 col-md-3">
+				<div class="col-12 d-flex justify-content-between">
 					<h3 class="fs-40"><?php echo $datos_categoria->name ?></h3>
-					<div class="text-primary subtit-arrow pt-3 font-weight-bold font-italic fs-18 position-relative"><a href="<?php echo get_term_link( $categoria ) ?>"><?php _e("ver más","esgalla"); ?> <?php echo mb_strtolower($datos_categoria->name) ?></a></div>
+					<a href="<?php echo get_term_link( $categoria ) ?>" class="text-primary font-weight-bold font-italic fs-15 mt-auto mb-3 d-md-none"><?php _e("Ver todas","esgalla"); ?></a>
 				</div>
-				<div class="col-12 col-md-8 col-lg-7">
-					<p class="font-weight-light fs-19 text-gray pt-2 pr-md-5 pr-lg-6"><?php echo $datos_categoria->description ?></p>
+				<div class="col-12 d-flex justify-content-between">
+					<span class="fs-16 text-gray"><?php echo $datos_categoria->description ?></span>
+					<a href="<?php echo get_term_link( $categoria ) ?>" class="text-primary font-weight-bold font-italic fs-20 mt-auto mb-3 d-none d-md-block"><?php _e("Ver todas","esgalla"); ?></a>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-12 mt-4 mt-lg-5 slick-noticias">
+				<div class="col-12 mt-4 slick-noticias-new">
 					<?php
-						$ultimas_entradas = get_posts( array('numberposts'=>12,'category'=>$categoria) );
-						foreach ($ultimas_entradas as $entrada) {
-									get_template_part( 'template-parts/ficha','noticia',array('id_noticia'=>$entrada->ID));
+						$entradas = get_posts( array('numberposts'=>12,'category'=>$categoria) );
+						foreach ($entradas as $entrada) {
+									get_template_part( 'template-parts/ficha','noticia-new',array('id_noticia' => $entrada->ID, 'categoria' => $categoria));
 						}
 					?>
 				</div>
