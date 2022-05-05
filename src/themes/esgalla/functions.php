@@ -1049,3 +1049,15 @@ function action_after_shipping_rate ( $method, $index ) {
 		}
 		
 }
+
+add_filter( 'woocommerce_cart_shipping_method_full_label', 'change_cart_shipping_method_full_label', 10, 2 );
+function change_cart_shipping_method_full_label( $label, $method ) {
+	if( $method->get_method_id() == 'flat_rate') {
+		if( get_current_blog_id() == 1 ) {
+			$label .= '&nbsp;(incluye&nbsp;<b>€1,26</b>&nbsp;de&nbsp;IVA)';
+		} elseif( get_current_blog_id() == 2 ) {
+			$label .= '&nbsp;(inclui&nbsp;<b>€1,38</b>&nbsp;de&nbsp;IVA)';
+		}
+	}
+	return $label;
+}
