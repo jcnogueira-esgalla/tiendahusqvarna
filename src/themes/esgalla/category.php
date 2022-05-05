@@ -83,14 +83,14 @@ if(get_queried_object()->parent == 0) {
 			<div class="col-12 col-md-9 m-md-auto buscador-blog">
 				<div class="row">
 					<div class="col-12 col-lg-6">
-						<p class="mt-4 mb-2">Encuentra un artículo</p>
+						<p class="mt-4 mb-2"><? _e("Encuentra un artículo","esgalla") ?></p>
 						<form role="search" method="get" class="search-form input-group border" action="<?php echo get_home_url( '/blog/' ) ?>">
 							<input type="search" data-swpengine="buscador_blog" id="searchNoticia" class="form-control" placeholder="<?php _e("Buscar...","esgalla"); ?>" value="" name="search">
 							<button class="btn btn-secondary rounded font-weight-bold text-uppercase" type="submit"><i class="fas fa-search"></i></button>
 						</form>
 					</div>
 					<div class="col-12 col-lg-6">
-						<p class="mt-4 mb-2">Elige una categoría</p>
+						<p class="mt-4 mb-2"><? _e("Elige una categoría","esgalla") ?></p>
 						<div class="form-group selector-categoria-blog">
 							<?
 								$catsPrincipales = get_categories([
@@ -99,7 +99,7 @@ if(get_queried_object()->parent == 0) {
 								$catsPrincipalesIds = [];
 							?>
 							<select class="form-control border px-2" id="selector-categoria-blog">
-								<option>Categoría</option>
+								<option><? _e("Categoría","esgalla") ?></option>
 								<? foreach ($catsPrincipales as $cat) : ?>
 									<option data-url="<?=get_term_link($cat->term_id)?>"><?=$cat->name;?></option>
 									<? $catsPrincipalesIds[] =  $cat->term_id;?>

@@ -446,3 +446,24 @@ msgstr "Desejo receber comunicações comerciais"
 
 msgid "ver condiciones"
 msgstr "ver condições"
+
+msgid "¿Tienes un jardín y no sabes cómo cuidarlo? ¿Quieres decorar un espacio soso o aburrido y buscas inspiración? Si es así, nuestros artículos de jardinería y fichas te ayudarán a lograrlo. Además, nuestros post profesionales te enseñarán a trabajar con nuestras máquinas y equipos."
+msgstr "Tem um jardim e não sabe como cuidar dele? Quer decorar um espaço aborrecido e abandonado e procura inspiração? Se sim, os nossos artigos de jardinagem e fichas vão ajudar a consegui-lo. Além disso, os nossos posts profissionais vão ensinar-lhe a trabalhar com as nossas máquinas e equipamentos."
+
+msgid "Elige una categoría"
+msgstr "Escolha uma categoria"
+
+msgid "Encuentra un artículo"
+msgstr "Encontre um artigo"
+
+msgid "Categoría"
+msgstr "Categoria"
+
+msgid "Leer más"
+msgstr "Ler mais"
+
+msgid "<< Anterior"
+msgstr "<< Anterior"
+
+msgid "Siguiente >>"
+msgstr "Seguinte >>"
