@@ -922,7 +922,7 @@ function comprobar_tabla_carritos() {
 
 			$carrito .= $retrieved_data->id . ';' .
 									$retrieved_data->email . ';' .
-									'husqvarna' . ';' .
+									'tiendahusqvarna.com' . ';' .
 									$retrieved_data->time . ';' .
 									'0' . ';' .
 									'0' . ';' .
