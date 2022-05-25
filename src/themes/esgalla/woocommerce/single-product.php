@@ -164,7 +164,7 @@ return $wpdb->get_col("
 
 				<?php if($product->get_stock_status()=='instock'): ?>
 
-				<?php else: ?>
+				<?php elseif($product->is_type( 'simple' )): ?>
 					<?php  _e("Producto temporalmente sin existencias online. Consulta disponibilidad en tu distribuidor más cercano","esgalla"); ?>
 				<?php endif; ?>
 
