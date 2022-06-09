@@ -202,7 +202,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 													</div>
 												</div>
 												<div id="collapse<?=$indexAcordeon?>" class="collapse <?= ($indexAcordeon == 1) ? 'show' : ''; ?>" aria-labelledby="heading<?=$indexAcordeon?>" data-parent="#accordion">
-													<div class="card-body px-0 fs-18">
+													<div class="card-body px-0">
 														<?=$contenido?>
 													</div>
 												</div>
@@ -228,6 +228,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 
 				// End loop.
 				endwhile; ?>
+				<? if(is_null(get_field('banner_categoria_blog')) || get_field('banner_categoria_blog')): ?>
 				<div class="cta-categoria-blog mb-5">
 					<?php if(get_field('categoria_relacionada_productos')): ?>
 						<?php $cat_prod_relacionado = get_field('categoria_relacionada_productos'); ?>
@@ -238,10 +239,11 @@ $shareUrl = urlencode(home_url( $wp->request ));
 						<a href="<?php echo get_category_link(get_the_category( )[0]->term_taxonomy_id); ?>" class="text-light font-italic font-weight-bold subtit-automower text-decoration-none"><?php _e("ver más","esgalla"); ?> <?php echo get_the_category( )[0]->name ?></a>
 					<?php endif; ?>
 				</div>
+				<? endif; ?>
 				<div class="mb-5">
 					<div class="row">
 						<div class="col-12 mb-4">
-							<h4 class="font-weight-bold text-capitalize text-secondary fs-24"><?php _e("productos relacionados","esgalla"); ?></h4>
+							<h4 class="font-weight-bold text-secondary fs-24"><?= ucfirst(__("productos relacionados","esgalla")); ?></h4>
 						</div>
 						<div class="col-12 slick-productos-blog">
 							<?
@@ -286,7 +288,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 						<div class="my-5">
 							<div class="row noticias-relacionadas">
 								<div class="col-12 mb-4">
-									<h4 class="font-weight-bold text-capitalize text-secondary fs-24"><?php _e("Noticias relacionadas","esgalla"); ?></h4>
+									<h4 class="font-weight-bold text-secondary fs-24"><?= ucfirst(__("Noticias relacionadas","esgalla")); ?></h4>
 								</div>
 								<? while( $noticias_relacionadas->have_posts() ) : $noticias_relacionadas->the_post(); ?>
 								<?

@@ -13034,6 +13034,9 @@ html.overlayed body .menu-overlay {
   text-transform: uppercase;
   width: 50% !important;
   font-style: normal;
+  border-radius: 5px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .nuestras-ofertas input[type=submit]:hover {
@@ -13148,7 +13151,7 @@ html.overlayed body .menu-overlay {
   width: 100%;
   background: #F35321;
   border: none;
-  border-radius: 0px;
+  border-radius: 5px;
 }
 
 .slick-productos .btn-cart:hover, .slick-categorias .btn-cart:hover {
@@ -13242,6 +13245,14 @@ html.overlayed body .menu-overlay {
 
 .slick-accesorios .next.slick-arrow {
   top: 9%;
+}
+
+.slick-accesorios .ficha-accesorio .btn, .slick-accesorios .ficha-accesorio button {
+  border-radius: 5px;
+}
+
+.ficha-accesorio .btn, .ficha-accesorio button {
+  border-radius: 5px;
 }
 
 .slick-accesorios-mov {
@@ -13605,6 +13616,17 @@ footer .row {
   color: #6C6C6C;
 }
 
+.acordeones-post .acordeon-post .card .card-body a.btn, .acordeones-post .acordeon-post .card .card-body a.mlContentButton, .acordeones-post .acordeon-post .card .card-body button {
+  background-color: #F35321 !important;
+  border-radius: 5px !important;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.acordeones-post .acordeon-post .card .card-body a.btn:hover, .acordeones-post .acordeon-post .card .card-body a.mlContentButton:hover, .acordeones-post .acordeon-post .card .card-body button:hover {
+  background-color: #273A60 !important;
+}
+
 .acordeones-indice-contenidos .acordeon-post .card {
   border-radius: 10px;
   overflow: hidden;
@@ -13678,7 +13700,7 @@ footer .row {
   width: 100%;
   background: #F35321;
   border: none;
-  border-radius: 0px;
+  border-radius: 5px;
 }
 
 .slick-productos-blog .btn-cart:hover {
@@ -13697,6 +13719,28 @@ footer .row {
 
 .slick-productos-blog .slick-dots button:focus {
   outline: none;
+}
+
+.wysiwyg.wysiwyg-blog a.btn, .wysiwyg.wysiwyg-blog a.mlContentButton, .wysiwyg.wysiwyg-blog button {
+  background-color: #F35321 !important;
+  border-radius: 5px !important;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.wysiwyg.wysiwyg-blog a.btn:hover, .wysiwyg.wysiwyg-blog a.mlContentButton:hover, .wysiwyg.wysiwyg-blog button:hover {
+  background-color: #273A60 !important;
+}
+
+.wysiwyg a.btn, .wysiwyg a.mlContentButton, .wysiwyg button {
+  background-color: #F35321 !important;
+  border-radius: 5px !important;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.wysiwyg a.btn:hover, .wysiwyg a.mlContentButton:hover, .wysiwyg button:hover {
+  background-color: #273A60 !important;
 }
 
 .cta-categoria-blog {
@@ -14242,5 +14286,16 @@ body.search-results .ficha-producto {
 
 .envios-garantia-producto div {
   font-size: 14px;
+}
+
+.boton-producto .btn {
+  background-color: #F35321 !important;
+  border-radius: 5px !important;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.boton-producto .btn:hover {
+  background-color: #273A60 !important;
 }
 /*# sourceMappingURL=custom.css.map */
