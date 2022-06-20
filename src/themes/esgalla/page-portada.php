@@ -88,7 +88,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 
 		'motozada' => 498,
 
-		//'hidrolimpiadora' => 1078,
+		'hidrolimpiadora' => 1075,
 
 		'aspiradora' => 475,
 
@@ -346,46 +346,27 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 			<div class="row pt-5">
 
 				<div class="col-sm-6 col-md-4 mb-4">
-				    <a class="" href="<?php echo get_term_link($categorias_tienda['motozada']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-categoria-motoazada.jpg" alt="motoazadas husqvarna"><h2 class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Motoazada husqvarna","esgalla"); ?></h2></a>
+					<a class="" href="<?php echo get_term_link($categorias_tienda['motozada']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-categoria-motoazada.jpg" alt="motoazadas husqvarna"><h2 class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Motoazada husqvarna","esgalla"); ?></h2></a>
 				</div>
 
-
-				<?php if(get_site_url( ) == 'https://tiendahusqvarna.com'){ ?>
-					<div class="col-sm-6 col-md-4 mb-4">
-						<a class="" href="<?php echo get_term_link($categorias_tienda['hidrolimpiadora']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/foto-categoria-hidrolimpiadora.jpg" alt="motoazadas husqvarna"><h2 class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Hidrolimpiadora husqvarna","esgalla"); ?></h2></a>
-					</div>
-				<?php } ?>
+				<div class="col-sm-6 col-md-4 mb-4">
+					<a class="" href="<?php echo get_term_link($categorias_tienda['hidrolimpiadora']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/foto-categoria-hidrolimpiadora.jpg" alt="motoazadas husqvarna"><h2 class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Hidrolimpiadora husqvarna","esgalla"); ?></h2></a>
+				</div>
 
 				<div class="col-sm-6 col-md-4 mb-4">
-
 					<a class="" href="<?php echo get_term_link($categorias_tienda['aspiradora']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-categoria-aspiradora.jpg" alt="motoazadas husqvarna"><h2 class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Aspiradora husqvarna","esgalla"); ?></h2></a>
-
-
-
 				</div>
 
 				<div class="col-sm-6 col-md-4 mb-4">
-
 					<a class="" href="<?php echo get_term_link($categorias_tienda['soplanieves']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-categoria-quitanieves.jpg" alt="motoazadas husqvarna"><h2 class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Soplanieves husqvarna","esgalla"); ?></h2></a>
-
-
-
 				</div>
 
 				<div class="col-sm-6 col-md-4 mb-4">
-
 					<a class="" href="<?php echo get_term_link($categorias_tienda['herramientas']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-cat-herramientas.jpg" alt="motoazadas husqvarna"><h2 class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Herramientas forestales husqvarna","esgalla"); ?></h2></a>
-
-
-
 				</div>
 
 				<div class="col-sm-6 col-md-4 mb-4">
-
 					<a class="" href="<?php echo get_term_link($categorias_tienda['aceites-gasolinas']); ?>"><img src="<?php echo get_template_directory_uri() ?>/img/ficha-cat-aceites-ok.jpg" alt="motoazadas husqvarna"><h2 class="tit-herramientas fs-30 text-white font-weight-bold text-uppercase"><?php _e("Aceites y gasolinas husqvarna","esgalla"); ?></h2></a>
-
-
-
 				</div>
 
 			</div>

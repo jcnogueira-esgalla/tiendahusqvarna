@@ -39,7 +39,7 @@ jQuery(document).ready(function() {
 			jQuery(this).attr('href', href.split('?')[0]);
 		});
 		
-    if ('' == FWP.build_query_string()) {
+    if ('' == FWP.buildQueryString()) {
       //La primera vez que carga
 			//No hacemos nada
 			// console.log('restart filters');

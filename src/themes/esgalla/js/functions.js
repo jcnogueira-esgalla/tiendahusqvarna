@@ -125,6 +125,10 @@ jQuery(document).on('updated_checkout', function() {
 });
 
 jQuery(document).on('gform_post_render', function(e,f,p){
+  let placeholder = '¿En qué estás interesado?';
+  if (window.location.href.indexOf("lojahusqvarna") > -1) {
+    placeholder = 'Que temas lhe interessam?';
+  }
   jQuery('.jquery-multiselect select').multiSelect({
 
     // Custom templates
@@ -142,7 +146,7 @@ jQuery(document).on('gform_post_render', function(e,f,p){
     'activeClass': 'multi-select-container--open',
 
     // Text to show when no option is selected
-    'noneText': '¿En qué estás interesado?',
+    'noneText': placeholder,
 
     // Text to show when all options are selected
     'allText': undefined,
