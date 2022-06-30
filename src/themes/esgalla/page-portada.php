@@ -184,26 +184,30 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 	<div class="container-fluid container-md px-0" id="banner-folleto">
 		<div class="row py-4 mt-4">
 			<div class="col-12">
-				<?php if(get_site_url( ) == 'https://tiendahusqvarna.com'){ ?>
+				<? if(get_site_url( ) == 'https://tiendahusqvarna.com'): ?>
 					<? date_default_timezone_set('Europe/Madrid'); //Nos aseguramos de que pillamos la hora Española ?>
-					<? //if( (date("Ymd") > 20220228) ): //Despues de esta fecha se acaba el período promo Ofertas Otoño  ?>
+					<? if( (date("Ymd") < 20220701) ): //Antes de esta fecha pasa X, después Y  ?>
 						<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarnab&utm_medium=BannerHome&utm_campaign=primavera22" target="_blank">
 							<img src="https://tiendahusqvarna.com/files/2022/05/2246x970-ES_Mayo.jpg" class="img-fluid"/>
 						</a>
-					<? //else: ?>
-						
-					<? //endif; ?>
-				<?php } ?>
-				<?php if(get_site_url( ) == 'https://lojahusqvarna.com'){ ?>
+					<? else: ?>
+						<a href="https://tiendahusqvarna.com/automower/robots-automower/" target="_blank">
+							<img src="https://tiendahusqvarna.com/files/2022/06/Ad_-OFERTA-AM-2246-x-970-ES-01-scaled.jpg" class="img-fluid"/>
+						</a>
+					<? endif; ?>
+				<? endif; ?>
+				<? if(get_site_url( ) == 'https://lojahusqvarna.com'): ?>
 					<? date_default_timezone_set('Europe/Lisbon'); //Nos aseguramos de que pillamos la hora Portuguesa ?>
-					<? //if( (date("Ymd") > 20220228) ): //Despues de esta fecha se acaba el período promo Ofertas Otoño ?>
+					<? if( (date("Ymd") < 20220701) ): //Antes de esta fecha pasa X, después Y ?>
 						<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=BannerHome&utm_campaign=primavera22" target="_blank">
 							<img src="https://lojahusqvarna.com/files/sites/2/2022/05/2246x970_PT_Mayo.jpg" class="img-fluid"/>
 						</a>
-					<? //else: ?>
-						
-					<? //endif; ?>
-				<?php } ?>
+					<? else: ?>
+						<a href="https://lojahusqvarna.com/automower/robos-automower/" target="_blank">
+							<img src="https://lojahusqvarna.com/files/sites/2/2022/06/Ad_-OFERTA-AM-2246-x-970-PT-01-scaled.jpg" class="img-fluid"/>
+						</a>
+					<? endif; ?>
+				<? endif; ?>
 			</div>
 		</div>
 	</div>
