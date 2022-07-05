@@ -370,10 +370,10 @@ msgid "Automower® necesita ser instalado, te ofrecemos dos opciones:"
 msgstr "O Automower® necessita de ser instalado. Oferecemos-lhe duas opções:"
 
 msgid "- Lo puedes hacer tú mismo gracias a un kit de instalación."
-msgstr "- Podes fazer a instalação por si mesmo com o kit de instalação."
+msgstr "- Pode fazer a instalação por si mesmo com o kit de instalação."
 
 msgid "- Lo puede hacer un técnico profesional autorizado."
-msgstr "- Pode ser ealizada por um técnico profissional autorizado."
+msgstr "- Pode ser realizada por um técnico profissional autorizado."
 
 msgid "De la calidad de la instalación dependerá el correcto funcionamiento de Automower®, por ello, salvo en el modelo Automower® 105, recomendamos que escojas la Instalación Profesional."
 msgstr "Da qualidade da instalação dependerá o funcionamento correto do Automower®; por isso, salvo no modelo Automower® 105, recomendamos que escolha a Instalação Profissional."
