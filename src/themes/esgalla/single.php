@@ -54,7 +54,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 												<div class="card-header position-relative border-0 bg-white" id="headingContenidos">
 													<div class="mb-0 texto-header">
 														<a class="btn btn-link text-secondary text-left font-weight-bold fs-18 text-decoration-none px-0 stretched-link d-flex justify-content-between collapsed" data-toggle="collapse" data-target="#collapseContenidos" aria-expanded="true" aria-controls="collapseContenidos">
-															Contenido de página<i class="fas fa-chevron-up icon-header"></i>
+															<?= (get_current_blog_id() == 1) ? 'Contenido de página' : 'Conteúdo do artigo'; ?><i class="fas fa-chevron-up icon-header"></i>
 														</a>
 													</div>
 												</div>
@@ -96,7 +96,7 @@ $shareUrl = urlencode(home_url( $wp->request ));
 												<div class="card-header position-relative border-0 bg-white" id="headingContenidos">
 													<div class="mb-0 texto-header">
 														<a class="btn btn-link text-secondary text-left font-weight-bold fs-18 text-decoration-none px-0 stretched-link d-flex justify-content-between collapsed" data-toggle="collapse" data-target="#collapseContenidos" aria-expanded="true" aria-controls="collapseContenidos">
-															Contenido de página<i class="fas fa-chevron-up icon-header"></i>
+															<?= (get_current_blog_id() == 1) ? 'Contenido de página' : 'Conteúdo do artigo'; ?><i class="fas fa-chevron-up icon-header"></i>
 														</a>
 													</div>
 												</div>
