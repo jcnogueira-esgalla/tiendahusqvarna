@@ -979,7 +979,7 @@ footer .row {width: 1248px;}
 	button {
 		color: $white !important;
 		border: none;
-		border-radius: 0px;
+		border-radius: 5px;
 		&:hover {
 			background-color: $secondary;
 		}
@@ -1324,6 +1324,10 @@ footer .row {width: 1248px;}
 
 .wysiwyg {
 	&.wysiwyg-blog {
+		h1, h2, h3, h4, h5, h6,
+		.h1, .h2, .h3, .h4, .h5, .h6 {
+			color:#273A60!important;
+		}
 		a.btn, a.mlContentButton, button {
 			background-color: #F35321!important;
 			border-radius: 5px!important;

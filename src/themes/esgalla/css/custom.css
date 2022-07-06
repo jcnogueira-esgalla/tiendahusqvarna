@@ -13331,7 +13331,7 @@ footer .row {
 .products button {
   color: #fff !important;
   border: none;
-  border-radius: 0px;
+  border-radius: 5px;
 }
 
 .products button:hover {
@@ -13719,6 +13719,11 @@ footer .row {
 
 .slick-productos-blog .slick-dots button:focus {
   outline: none;
+}
+
+.wysiwyg.wysiwyg-blog h1, .wysiwyg.wysiwyg-blog h2, .wysiwyg.wysiwyg-blog h3, .wysiwyg.wysiwyg-blog h4, .wysiwyg.wysiwyg-blog h5, .wysiwyg.wysiwyg-blog h6,
+.wysiwyg.wysiwyg-blog .h1, .wysiwyg.wysiwyg-blog .h2, .wysiwyg.wysiwyg-blog .h3, .wysiwyg.wysiwyg-blog .h4, .wysiwyg.wysiwyg-blog .h5, .wysiwyg.wysiwyg-blog .h6 {
+  color: #273A60 !important;
 }
 
 .wysiwyg.wysiwyg-blog a.btn, .wysiwyg.wysiwyg-blog a.mlContentButton, .wysiwyg.wysiwyg-blog button {
