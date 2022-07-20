@@ -70,7 +70,6 @@
 
 </div><!-- #page -->
 
-<?php include('func/cookies.php') ?>
 <?php wp_footer(); ?>
 
 

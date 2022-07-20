@@ -254,9 +254,7 @@ function esgalla_scripts() {
 		
 
 
-		// Banner cookiesc
-		wp_enqueue_style('cookies-css', get_template_directory_uri() . '/css/cookies.css' );
-		wp_enqueue_script('cookies-js', get_template_directory_uri() . '/js/cookies.js', array('jquery'), '', true );
+		
 
 
 		// Main theme related functions
