@@ -132,7 +132,7 @@ return $wpdb->get_col("
 		
 		foreach($variations_skus as $variation){
             for( $i =  0; $i < $count_variations; $i++){
-			    echo '<span id="' . reset($product_variations[$i]["attributes"]) . '"class="sku-product sku-product-' . $x++ . '"' . (($i > 0) ? 'style="display:none" ' : '') . '>'. $product_variations[$i]['sku'] .'</span>';
+			    echo '<span id="' . reset($product_variations[$i]["attributes"]) . '"class="sku-product sku-product-' . $x++ . '"' . ((true) ? 'style="display:none" ' : '') . '>'. $product_variations[$i]['sku'] .'</span>';
             }
 			break;
 		}
