@@ -132,13 +132,15 @@ return $wpdb->get_col("
 		
 		foreach($variations_skus as $variation){
             for( $i =  0; $i < $count_variations; $i++){
-			    echo '<span id="' . reset($product_variations[$i]["attributes"]) . '"class=" sku-product sku-product-' . $x++ . '">'. $product_variations[$i]['sku'] .'</span>';
+			    echo '<span id="' . reset($product_variations[$i]["attributes"]) . '"class="sku-product sku-product-' . $x++ . '"' . (($i > 0) ? 'style="display:none" ' : '') . '>'. $product_variations[$i]['sku'] .'</span>';
             }
 			break;
 		}
 
 		 ?>
+		 			<? if(!$variations_skus): ?>
 					 <span class="sku-parent"><?php echo $product->get_sku(); ?></span> |
+					<? endif; ?>
 					<span class="text-primary fong-weight-light text-opacity"><?php if(!$postProductTerm->errors) echo '<a href="'.get_term_link( $postProductTerm->term_id ).'">'.$postProductTerm->name.'</a>' ?></span>
 				</div>
 
