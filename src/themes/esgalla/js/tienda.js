@@ -92,7 +92,7 @@ jQuery(document).on('submit', '.add-cart-product', function(e) {
     variacion = jQuery(this).find(".variation_id").val();
   }
   var orig = "product";
-  // console.log("id: " + itemKey + " -- can: " + quantity + " -- var: " + variacion + " -- orig: " + orig);
+  console.log("id: " + itemKey + " -- can: " + quantity + " -- var: " + variacion + " -- orig: " + orig);
   add_cart(itemKey,quantity,variacion,orig);
   e.preventDefault();
 });
@@ -218,6 +218,11 @@ function add_cart(itemKey,quantity,variacion,orig){
               let productToAddCart = getProductDataById(itemKey, 'analytic-cart-product');
               if(productToAddCart){
                   eventClickAddCart(productToAddCart, productToAddCart.position, quantity, undefined);
+              } else {
+                let productToAddCartVariation = getProductDataById(variacion, 'analytic-cart-product');
+                if(productToAddCartVariation){
+                    eventClickAddCart(productToAddCartVariation, productToAddCartVariation.position, quantity, undefined);
+                }
               }
               //jQuery(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, ""]);
           }
