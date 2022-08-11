@@ -186,20 +186,16 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 			<div class="col-12">
 				<? if(get_site_url( ) == 'https://tiendahusqvarna.com'): ?>
 					<? date_default_timezone_set('Europe/Madrid'); //Nos aseguramos de que pillamos la hora Española ?>
-					<? if( (date("Ymd") < 20220801) ): //Antes de esta fecha pasa X, después Y  ?>
-						<a href="https://tiendahusqvarna.com/automower/robots-automower/" target="_blank">
-							<img src="https://tiendahusqvarna.com/files/2022/06/Ad_-OFERTA-AM-2246-x-970-ES-01-scaled.jpg" class="img-fluid"/>
-						</a>
+					<? if( (date("Ymd") < 20220901) ): //Antes de esta fecha pasa X, después Y  ?>
+                        <img src="https://tiendahusqvarna.com/files/2022/08/OFERTAS-AGOSTO-2246-x-970-03.jpg" class="img-fluid"/>
 					<? else: //AQUÍ iría el banner de agosto ?>
 
 					<? endif; ?>
 				<? endif; ?>
 				<? if(get_site_url( ) == 'https://lojahusqvarna.com'): ?>
 					<? date_default_timezone_set('Europe/Lisbon'); //Nos aseguramos de que pillamos la hora Portuguesa ?>
-					<? if( (date("Ymd") < 20220801) ): //Antes de esta fecha pasa X, después Y ?>
-						<a href="https://lojahusqvarna.com/automower/robos-automower/" target="_blank">
-							<img src="https://lojahusqvarna.com/files/sites/2/2022/06/Ad_-OFERTA-AM-2246-x-970-PT-01-scaled.jpg" class="img-fluid"/>
-						</a>
+					<? if( (date("Ymd") < 20220901) ): //Antes de esta fecha pasa X, después Y ?>
+						<img src="https://tiendahusqvarna.com/files/2022/08/OFERTAS-AGOSTO-2246-x-970_PT-03.jpg" class="img-fluid"/>
 					<? else: //AQUÍ iría el banner de agosto ?>
 
 					<? endif; ?>
