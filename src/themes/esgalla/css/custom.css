@@ -13327,6 +13327,12 @@ footer .row {
   font-weight: 300 !important;
 }
 
+.single-product .product-details li,
+.single-product .long-contenido-producto li {
+  font-size: 1.188rem;
+  color: #6C6C6C;
+}
+
 /***************************************************** Ficha producto **/
 .products button {
   color: #fff !important;
