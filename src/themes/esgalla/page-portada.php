@@ -187,7 +187,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 				<? if(get_site_url( ) == 'https://tiendahusqvarna.com'): ?>
 					<? date_default_timezone_set('Europe/Madrid'); //Nos aseguramos de que pillamos la hora Española ?>
 					<? if( (date("Ymd") > 20220930) ): //Antes de esta fecha pasa X, después Y  ?>
-						<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarna&utm_medium=BannerHome&utm_campaign=otono22" target="_blank"><img src="https://tiendahusqvarna.com/files/2022/09/banner_octubre_es.jpg" class="img-fluid"/></a>
+						<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarna&utm_medium=BannerHome&utm_campaign=otono22" target="_blank"><img src="https://tiendahusqvarna.com/files/2022/10/ES_22.jpg" class="img-fluid"/></a>
 					<? else: //FIN de octubre -> noviembre ?>
 
 					<? endif; ?>
@@ -195,7 +195,7 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 				<? if(get_site_url( ) == 'https://lojahusqvarna.com'): ?>
 					<? date_default_timezone_set('Europe/Lisbon'); //Nos aseguramos de que pillamos la hora Portuguesa ?>
 					<? if( (date("Ymd") > 20220930) ): //Antes de esta fecha pasa X, después Y ?>
-						<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=BannerHome&utm_campaign=otono22" target="_blank"><img src="https://tiendahusqvarna.com/files/2022/09/banner_octubre_pt.jpg" class="img-fluid"/></div>
+						<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=BannerHome&utm_campaign=otono22" target="_blank"><img src="https://lojahusqvarna.com/files/sites/2/2022/10/PT_22.jpg" class="img-fluid"/></div>
 					<? else: //FIN de octubre -> noviembre ?>
 
 					<? endif; ?>
