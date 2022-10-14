@@ -157,7 +157,7 @@ return $wpdb->get_col("
 					<?php endif; ?>
 
 					<?php if(get_field('eco_tasa')): ?>
-						<p class="text-dark" style="font-size:12px;">Eco Tasa <?php echo get_field('eco_tasa'); ?>€ incluida.</p>
+						<p class="text-dark" style="font-size:12px;"><?php _e( 'Ecotasa', 'esgalla' ); ?> <?php echo get_field('eco_tasa'); ?>€ <?php _e( 'incluida', 'esgalla' ); ?>.</p>
 					<?php endif; ?>
 
 				<?php endif; ?>

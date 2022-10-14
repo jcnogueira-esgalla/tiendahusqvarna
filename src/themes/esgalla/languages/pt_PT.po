@@ -467,3 +467,9 @@ msgstr "<< Anterior"
 
 msgid "Siguiente >>"
 msgstr "Seguinte >>"
+
+msgid "Ecotasa"
+msgstr "Ecovalor"
+
+msgid "incluida"
+msgstr "incluido"
