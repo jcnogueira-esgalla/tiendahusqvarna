@@ -23,7 +23,7 @@ defined( 'ABSPATH' ) || exit;
 	<div class="row pb-3 pb-lg-4 mt-4 mt-lg-6 justify-content-center">
 		<div class="col-12 col-md-9 col-md-offset-3">
 			<div class="text-center py-lg-4">
-				<a href="<?php echo get_home_url(); ?>"><img class="logo-azul" src="https://www.esgalladev.com/husqvarna/wp-content/themes/esgalla/img/logo-azul.png" class="img-fluid logo-principal" alt="logo"></a>
+				<a href="<?php echo get_home_url(); ?>"><img class="logo-azul" src="/src/themes/esgalla/img/logo-azul.png" class="img-fluid logo-principal" alt="logo"></a>
 			</div>
 		</div>
 	</div>

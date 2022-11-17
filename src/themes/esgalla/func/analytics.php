@@ -514,4 +514,41 @@ function action_thankyou_send_event($order_id)
     <?php
     endif;
 
+    if (get_current_blog_id() == 2):
+        ?>
+        <!-- facebook Tracking Code BEGIN -->
+        <script>
+            !function (f, b, e, v, n, t, s) {
+                if (f.fbq) return;
+                n = f.fbq = function () {
+                    n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window, document, 'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '157175479846755');
+
+            fbq('track', 'Purchase', {
+                value: <?php echo $order->get_total();?>,
+                currency: 'EUR',
+                contents: <?php echo json_encode($products_facebook);?>,
+                content_ids: '<?php echo $order_id;?>',
+                content_category:'<?php echo implode(',',get_breadcrums());?>'
+            });
+        </script>
+        <!-- facebook Tracking Code END -->
+
+    <?php
+    endif;
+
 }
