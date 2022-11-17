@@ -186,18 +186,18 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 			<div class="col-12">
 				<? if(get_site_url( ) == 'https://tiendahusqvarna.com'): ?>
 					<? date_default_timezone_set('Europe/Madrid'); //Nos aseguramos de que pillamos la hora Española ?>
-					<? if( (date("Ymd") > 20220930) ): //Antes de esta fecha pasa X, después Y  ?>
-						<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarna&utm_medium=BannerHome&utm_campaign=otono22" target="_blank"><img src="https://tiendahusqvarna.com/files/2022/10/ES_22.jpg" class="img-fluid"/></a>
+					<? if( (date("Ymd") > 20221117 && date("Ymd") < 20221128) ): //Antes de esta fecha pasa X, después Y  ?>
+						<div><img src="https://tiendahusqvarna.com/files/2022/11/bf_hva_2022_es-scaled.jpg" class="img-fluid"/></div>
 					<? else: //FIN de octubre -> noviembre ?>
-
+						<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarna&utm_medium=BannerHome&utm_campaign=otono22" target="_blank"><img src="https://tiendahusqvarna.com/files/2022/10/ES_22.jpg" class="img-fluid"/></a>
 					<? endif; ?>
 				<? endif; ?>
 				<? if(get_site_url( ) == 'https://lojahusqvarna.com'): ?>
 					<? date_default_timezone_set('Europe/Lisbon'); //Nos aseguramos de que pillamos la hora Portuguesa ?>
-					<? if( (date("Ymd") > 20220930) ): //Antes de esta fecha pasa X, después Y ?>
-						<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=BannerHome&utm_campaign=otono22" target="_blank"><img src="https://lojahusqvarna.com/files/sites/2/2022/10/PT_22.jpg" class="img-fluid"/></div>
+					<? if( (date("Ymd") > 20221117 && date("Ymd") < 20221128) ): //Antes de esta fecha pasa X, después Y ?>
+						<div><img src="https://lojahusqvarna.com/files/sites/2/2022/11/bf_hva_2022_pt-scaled.jpg" class="img-fluid"/></div>
 					<? else: //FIN de octubre -> noviembre ?>
-
+						<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=BannerHome&utm_campaign=otono22" target="_blank"><img src="https://lojahusqvarna.com/files/sites/2/2022/10/PT_22.jpg" class="img-fluid"/></a>
 					<? endif; ?>
 				<? endif; ?>
 			</div>
