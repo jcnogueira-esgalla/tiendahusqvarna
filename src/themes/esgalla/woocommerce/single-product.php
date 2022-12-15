@@ -399,96 +399,99 @@ return $wpdb->get_col("
 
 				</div>
 
-				<a href="#collapseFichaTecnica" data-toggle="collapse"  class="mt-4 font-weight-bold text-dark d-flex justify-content-between text-decoration-none" aria-expanded="false" aria-controls="collapseFichaTecnica">
+				<?php if($product->get_attributes() && count($product->get_attributes()) > 0): ?>
+					<a href="#collapseFichaTecnica" data-toggle="collapse"  class="mt-4 font-weight-bold text-dark d-flex justify-content-between text-decoration-none" aria-expanded="false" aria-controls="collapseFichaTecnica">
 
-					<h3 class="fs-26"><?php _e("Ficha técnica","esgalla"); ?></h3>
+						<h3 class="fs-26"><?php _e("Ficha técnica","esgalla"); ?></h3>
 
-					<i class="fas fa-angle-down fs-fa pt-2"></i>
+						<i class="fas fa-angle-down fs-fa pt-2"></i>
 
-				</a>
+					</a>
 
-				<div class="collapse" id="collapseFichaTecnica">
+					<div class="collapse" id="collapseFichaTecnica">
 
-					<?php
+						<?php
 
-					foreach ($product->get_attributes() as $atributo_id => $atributo_objeto ) {
+						foreach ($product->get_attributes() as $atributo_id => $atributo_objeto ) {
 
-						if($atributo_id!='pa_precioespecial'){
+							if($atributo_id!='pa_precioespecial'){
 
-							$atributo_etiqueta = wc_attribute_label($atributo_id);
+								$atributo_etiqueta = wc_attribute_label($atributo_id);
 
-							$atributo_valor = $product->get_attribute( $atributo_objeto['data']['name'] );
+								$atributo_valor = $product->get_attribute( $atributo_objeto['data']['name'] );
 
 
 
-							echo '<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray">'.$atributo_etiqueta.'</span><span class="fs-18 font-weight-normal text-dark text-right">'.$atributo_valor.'</span></div>';
+								echo '<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray">'.$atributo_etiqueta.'</span><span class="fs-18 font-weight-normal text-dark text-right">'.$atributo_valor.'</span></div>';
+
+							}
 
 						}
 
-					}
+						?>
 
-					?>
+						<?php /*
 
-					<?php /*
+						<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray"><?php _e("Combustible","esgalla"); ?></span><span class="fs-18 font-weight-normal text-dark text-right">Gasolina</span>
 
-					<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray"><?php _e("Combustible","esgalla"); ?></span><span class="fs-18 font-weight-normal text-dark text-right">Gasolina</span>
+						</div>
 
-					</div>
+						<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray"><?php _e("Paso de cadena","esgalla"); ?></span><span class="fs-18 font-weight-normal text-dark text-right">3/8</span>
 
-					<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray"><?php _e("Paso de cadena","esgalla"); ?></span><span class="fs-18 font-weight-normal text-dark text-right">3/8</span>
+						</div>
 
-					</div>
+						<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray"><?php _e("Longitud Barra (pulgadas/cm)","esgalla"); ?></span><span class="fs-18 font-weight-normal text-dark text-right">12"/30cm</span>
 
-					<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray"><?php _e("Longitud Barra (pulgadas/cm)","esgalla"); ?></span><span class="fs-18 font-weight-normal text-dark text-right">12"/30cm</span>
+						</div>
 
-					</div>
+						<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray"><?php _e("Motosierra profesional","esgalla"); ?></span><span class="fs-18 font-weight-normal text-dark text-right">De poda</span>
 
-					<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray"><?php _e("Motosierra profesional","esgalla"); ?></span><span class="fs-18 font-weight-normal text-dark text-right">De poda</span>
+						</div>
 
-					</div>
+						<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray"><?php _e("Autotune","esgalla"); ?></span><span class="fs-18 font-weight-normal text-dark text-right">Sí</span>
 
-					<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray"><?php _e("Autotune","esgalla"); ?></span><span class="fs-18 font-weight-normal text-dark text-right">Sí</span>
+						</div>
 
-					</div>
+						<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray"><?php _e("Uso","esgalla"); ?></span><span class="fs-18 font-weight-normal text-dark text-right">Profesional</span>
 
-					<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray"><?php _e("Uso","esgalla"); ?></span><span class="fs-18 font-weight-normal text-dark text-right">Profesional</span>
+						</div>
 
-					</div>
+						<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray"><?php _e("Tipo","esgalla"); ?></span><span class="fs-18 font-weight-normal text-dark text-right">De poda</span>
 
-					<div class="d-flex justify-content-between border-bottom px-1 py-2"><span class="fs-18 font-weight-light text-gray"><?php _e("Tipo","esgalla"); ?></span><span class="fs-18 font-weight-normal text-dark text-right">De poda</span>
+						</div>
 
-					</div>
+						<button href="#" class="btn-primary btn-cart text-white spacing font-weight-regular border-0 fs-125  w-100 p-2 text-center text-uppercase mt-3"><?php _e("Descargar manual de instrucciones","esgalla"); ?></button>
 
-					<button href="#" class="btn-primary btn-cart text-white spacing font-weight-regular border-0 fs-125  w-100 p-2 text-center text-uppercase mt-3"><?php _e("Descargar manual de instrucciones","esgalla"); ?></button>
+						<button href="#" class="btn-primary btn-cart text-white spacing font-weight-regular border-0 fs-125  w-100 p-2 text-center text-uppercase mt-3 mb-2"><?php _e("Descargar guía autonomía baterías","esgalla"); ?></button>
 
-					<button href="#" class="btn-primary btn-cart text-white spacing font-weight-regular border-0 fs-125  w-100 p-2 text-center text-uppercase mt-3 mb-2"><?php _e("Descargar guía autonomía baterías","esgalla"); ?></button>
-
-					*/ ?>
-
-				</div>
-
-				<a href="#collapseAccesorios" data-toggle="collapse"  class="mt-4 font-weight-bold text-dark d-flex justify-content-between text-decoration-none" aria-expanded="false" aria-controls="collapseAccesorios">
-
-					<h3 class="fs-26"><?php _e("Accesorios","esgalla"); ?></h3>
-
-					<i class="fas fa-angle-down fs-fa pt-2"></i>
-
-				</a>
-
-				<div class="collapse" id="collapseAccesorios">
-
-					<div class="slick-accesorios-mov">
-
-						<?php foreach($relacionados as $relacionado){
-
-							//get_template_part('template-parts/ficha', 'accesorio', array('id_producto' => $relacionados[$rel_i]));
-							get_template_part('template-parts/ficha', 'accesorio', array('id_producto' => $relacionado));
-
-						} ?>
+						*/ ?>
 
 					</div>
+				<? endif; ?>
+				<?php if($relacionados && count($relacionados) > 0): ?>
+					<a href="#collapseAccesorios" data-toggle="collapse"  class="mt-4 font-weight-bold text-dark d-flex justify-content-between text-decoration-none" aria-expanded="false" aria-controls="collapseAccesorios">
 
-				</div>
+						<h3 class="fs-26"><?php _e("Accesorios","esgalla"); ?></h3>
+
+						<i class="fas fa-angle-down fs-fa pt-2"></i>
+
+					</a>
+
+					<div class="collapse" id="collapseAccesorios">
+
+						<div class="slick-accesorios-mov">
+
+							<?php foreach($relacionados as $relacionado){
+
+								//get_template_part('template-parts/ficha', 'accesorio', array('id_producto' => $relacionados[$rel_i]));
+								get_template_part('template-parts/ficha', 'accesorio', array('id_producto' => $relacionado));
+
+							} ?>
+
+						</div>
+
+					</div>
+				<? endif; ?>
 
 			</div>
 
