@@ -1135,3 +1135,14 @@ function change_cart_shipping_method_full_label( $label, $method ) {
 	}
 	return $label;
 }
+
+function pine_remove_yoast_breadcrumb_link($link_output , $link) {
+	$text_to_remove = 'Landings';
+
+	if($link['text'] == $text_to_remove) {
+		$link_output = '';
+	}
+
+	return $link_output;
+}
+add_filter('wpseo_breadcrumb_single_link' ,'pine_remove_yoast_breadcrumb_link', 10 ,2);
