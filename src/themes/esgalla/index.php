@@ -45,7 +45,7 @@ get_header();
 					<div class="row">
 						<div class="col-12 col-lg-6">
 							<p class="mt-4 mb-2"><? _e("Encuentra un artículo","esgalla") ?></p>
-							<form role="search" method="get" class="search-form input-group border" action="<?php echo get_home_url( '/blog/' ) ?>">
+							<form role="search" method="get" class="search-form input-group border" action="<?php echo get_permalink( get_option( 'page_for_posts' ) ) ?>">
 								<input type="search" data-swpengine="buscador_blog" id="searchNoticia" class="form-control" placeholder="<?php _e("Buscar...","esgalla"); ?>" value="" name="search">
 								<button class="btn btn-secondary rounded font-weight-bold text-uppercase" type="submit"><i class="fas fa-search"></i></button>
 							</form>
