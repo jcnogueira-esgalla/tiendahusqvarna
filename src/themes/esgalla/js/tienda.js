@@ -569,9 +569,11 @@ jQuery(document).ready(function(){
     let valorSelect = jQuery(this).attr('selected','selected').val();
     if( valorSelect == ''){
       jQuery(".sku-parent").show();
+      document.querySelector('.mensaje-variacion-agotada').style = 'display:none!important;';
     }
     else{
       jQuery(".sku-product#" + valorSelect).show();
+      document.querySelector('.mensaje-variacion-agotada').style = 'display:none;';
     }
 
   });
