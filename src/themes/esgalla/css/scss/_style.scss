@@ -904,6 +904,12 @@ html {
 		.btn, button {
 			border-radius: 5px;
 		}
+
+		@include media-breakpoint-down(lg){
+			.img-accesorio {
+				display:none;
+			}
+		}
 	}
 }
 .ficha-accesorio {

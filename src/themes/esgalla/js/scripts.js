@@ -210,7 +210,7 @@ jQuery(document).ready(function() {
 
 		    slidesToShow: 3,
 
-		    slidesToScroll: 2,
+		    slidesToScroll: 1,
 
 		    vertical: true,
 
@@ -225,6 +225,8 @@ jQuery(document).ready(function() {
 		    nextArrow: "<i class=\"fas fa-angle-down next\"></i>",
 
 		    verticalSwiping: true,
+				autoplay: true,
+  			autoplaySpeed: 2500,
 
 		    responsive: [
 

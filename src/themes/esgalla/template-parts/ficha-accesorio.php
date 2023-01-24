@@ -5,13 +5,13 @@ $producto = wc_get_product( $id_producto );
 
 ?>
 
-<div class="w-100 mt-4">
+<div class="w-100 mb-lg-3 mb-xl-4" style="height:33%;">
 
 	<a href="<?php echo get_permalink( $producto->get_id() ) ?>" class="ficha-accesorio d-flex flex-column justify-content-between shadow">
 
-		<div class="body-accesorio d-flex justify-content-between w-100">
+		<div class="body-accesorio d-flex justify-content-start w-100">
 
-			<?php echo $producto->get_image(array(100,100)); ?>
+			<div class="img-accesorio"><?php echo $producto->get_image(array(60,60)); ?></div>
 
 			<div class="desc-accesorio">
 

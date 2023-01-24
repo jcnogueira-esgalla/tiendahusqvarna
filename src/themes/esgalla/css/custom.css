@@ -13251,6 +13251,12 @@ html.overlayed body .menu-overlay {
   border-radius: 5px;
 }
 
+@media (max-width: 1199.98px) {
+  .slick-accesorios .ficha-accesorio .img-accesorio {
+    display: none;
+  }
+}
+
 .ficha-accesorio .btn, .ficha-accesorio button {
   border-radius: 5px;
 }
