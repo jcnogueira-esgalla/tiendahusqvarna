@@ -1146,3 +1146,11 @@ function pine_remove_yoast_breadcrumb_link($link_output , $link) {
 	return $link_output;
 }
 add_filter('wpseo_breadcrumb_single_link' ,'pine_remove_yoast_breadcrumb_link', 10 ,2);
+
+
+add_action('wp_head', 'responsive_iframe_meta');
+function responsive_iframe_meta() {	//Meta necesaria para que la versión responsive del iframe se vea bien en móviles
+	if( get_page_template_slug($_SESSION['page_id']) == "template-full-width-iframe.php" ) {
+		echo '<meta name="viewport" content="minimum-scale=1.0, initial-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">';
+	}
+}
