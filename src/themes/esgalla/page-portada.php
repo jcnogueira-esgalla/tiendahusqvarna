@@ -186,17 +186,17 @@ if(get_site_url( ) == 'https://lojahusqvarna.com'){
 			<div class="col-12">
 				<? if(get_site_url( ) == 'https://tiendahusqvarna.com'): ?>
 					<? date_default_timezone_set('Europe/Madrid'); //Nos aseguramos de que pillamos la hora Española ?>
-					<? if( (date("Ymd") < 20230201) ): //Antes de esta fecha mostramos folleto otoño  ?>
-						<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarna&utm_medium=BannerHome&utm_campaign=otono22" target="_blank"><img src="https://tiendahusqvarna.com/files/2022/10/ES_22.jpg" class="img-fluid"/></a>
-					<? else: //FIN de enero 2023. No pintamos nada por ahora. ?>
+					<? if( (date("Ymd") < 20230701) ): //Antes de esta fecha mostramos folleto otoño  ?>
+						<a href="https://folleto.tiendahusqvarna.com/?utm_source=TiendaHusqvarna&utm_medium=BannerHome&utm_campaign=primavera23" target="_blank"><img src="https://tiendahusqvarna.com/files/2023/03/ES_23.jpg" class="img-fluid"/></a>
+					<? else: //FIN de Julio 2023. No pintamos nada por ahora. ?>
 
 					<? endif; ?>
 				<? endif; ?>
 				<? if(get_site_url( ) == 'https://lojahusqvarna.com'): ?>
 					<? date_default_timezone_set('Europe/Lisbon'); //Nos aseguramos de que pillamos la hora Portuguesa ?>
-					<? if( (date("Ymd") < 20230201) ): //Antes de esta fecha mostramos folleto otoño ?>
-						<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=BannerHome&utm_campaign=otono22" target="_blank"><img src="https://lojahusqvarna.com/files/sites/2/2022/10/PT_22.jpg" class="img-fluid"/></a>
-					<? else: //FIN de enero 2023. No pintamos nada por ahora. ?>
+					<? if( (date("Ymd") < 20230701) ): //Antes de esta fecha mostramos folleto otoño ?>
+						<a href="https://folheto.lojahusqvarna.com/?utm_source=LojaHusqvarna&utm_medium=BannerHome&utm_campaign=primavera23" target="_blank"><img src="https://lojahusqvarna.com/files/sites/2/2023/03/PT_23.jpg" class="img-fluid"/></a>
+					<? else: //FIN de Julio 2023. No pintamos nada por ahora. ?>
 
 					<? endif; ?>
 				<? endif; ?>
